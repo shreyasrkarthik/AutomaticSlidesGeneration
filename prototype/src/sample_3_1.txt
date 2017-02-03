@@ -1,0 +1,81 @@
+3.1 WHAT IS A PROCESS?
+
+The design of an operating system (OS) reflects certain general requirements.All multiprogramming  operating  systems, from  single-user  systems  such  as Windows  98  to
+mainframe systems such as IBM’s mainframe operating system, z/OS, which can support thousands of users, are built around the concept of the process. Most requirements
+that the OS must meet can be expressed with reference to processes:
+• The  OS  must  interleave  the  execution  of  multiple  processes, to  maximize
+processor utilization while providing reasonable response time.
+• The OS must allocate resources to processes in conformance with a specific
+policy (e.g., certain functions or applications are of higher priority) while at
+the same time avoiding deadlock.1
+• The OS may be required to support interprocess communication and user creation of processes, both of which may aid in the structuring of applications.
+We begin our detailed study of operating systems with an examination of the
+way in which they represent and control processes. After an introduction to the concept of a process, the chapter discusses process states, which characterize the behavior
+of  processes. Then  we  look  at  the  data  structures  that  the  OS  uses  to  manage
+processes. These include data structures to represent the state of each process and
+data structures that record other characteristics of processes that the OS needs to
+achieve its objectives. Next, we look at the ways in which the OS uses these data
+structures to control process execution. Finally, we discuss process management in
+UNIX SVR4. Chapter 4 provides more modern examples of process management,
+namely Solaris, Windows, and Linux.
+Note: In  this  chapter, reference  is  occasionally  made  to  virtual  memory.
+Much of the time, we can ignore this concept in dealing with processes, but at certain points in the discussion, virtual memory considerations are pertinent. Virtual
+memory is not discussed in detail until Chapter 8; a brief overview is provided in
+Chapter 2.
+Background
+Before defining the term process, it is useful to summarize some of the concepts introduced in Chapters 1 and 2:
+1. A computer platform consists of a collection of hardware resources, such as
+the processor, main memory, I/O modules, timers, disk drives, and so on.
+2. Computer applications are developed to perform some task.Typically, they accept
+input from the outside world, perform some processing, and generate output.
+3. It is inefficient for applications to be written directly for a given hardware platform.The principal reasons for this are as follows:
+    a. Numerous applications can be developed for the same platform.Thus,it makes
+    sense to develop common routines for accessing the computer’s resources.
+    b. The  processor  itself  provides  only  limited  support  for  multiprogramming.
+    Software  is  needed  to  manage  the  sharing  of  the  processor  and  other
+    resources by multiple applications at the same time.
+    c. When multiple applications are active at the same time, it is necessary to
+    protect the data, I/O use, and other resource use of each application from
+    the others.
+4. The OS was developed to provide a convenient, feature-rich, secure, and consistent interface for applications to use. The OS is a layer of software between
+the applications and the computer hardware (Figure 2.1) that supports applications and utilities.
+5. We  can  think  of  the  OS  as  providing  a  uniform, abstract  representation  of
+resources that can be requested and accessed by applications. Resources include main memory, network interfaces, file systems, and so on. Once the OS
+has  created  these  resource  abstractions  for  applications  to  use, it  must  also
+manage  their  use. For  example, an  OS  may  permit  resource  sharing  and
+resource protection.
+
+Now that we have the concepts of applications, system software, and resources,
+we are in a position to discuss how the OS can, in an orderly fashion, manage the execution of applications so that
+• Resources are made available to multiple applications.
+• The  physical  processor  is  switched  among  multiple  applications  so all will
+appear to be progressing.
+• The processor and I/O devices can be used efficiently.
+
+PROCESSES AND PROCESS CONTROL BLOCKS
+
+Recall  from  Chapter  2  that  we  suggested  several  definitions  of  the  term  process,
+including
+• A program in execution
+• An instance of a program running on a computer
+• The entity that can be assigned to and executed on a processor
+• A unit of activity characterized by the execution of a sequence of instructions,
+a current state, and an associated set of system resources
+We can also think of a process as an entity that consists of a number of elements.
+Two essential elements of a process are program code (which may be shared with
+other processes that are executing the same program) and a set of data associated
+with that code. Let us suppose that the processor begins to execute this program
+code, and we refer to this executing entity as a process. At any given point in time,
+while  the  program  is  executing, this  process  can  be  uniquely  characterized  by  a
+number of elements, including the following:
+• Identifier: A  unique  identifier  associated  with  this  process, to  distinguish  it
+• State: If the process is currently executing, it is in the running state.
+• Priority: Priority level relative to other processes.
+• Program  counter: The  address  of  the  next  instruction  in  the  program  to  be
+• Memory pointers: Includes pointers to the program code and data associated
+with this process, plus any memory blocks shared with other processes.
+• Context  data: These  are  data  that  are  present  in  registers  in  the  processor
+• I/O status information: Includes outstanding I/O requests, I/O devices (e.g., tape
+drives) assigned to this process, a list of files in use by the process, and so on.
+• Accounting information: May include the amount of processor time and clock time used,
+time limits, account numbers, and so on.

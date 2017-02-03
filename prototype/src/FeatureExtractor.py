@@ -45,7 +45,7 @@ class FeatureExtractor:
             sum_len += len(sentence)
         return (sum_len)/len(sentences)
 
-
+#unit testing
 if __name__ == '__main__':
     sentence = "A computer platform consists of a collection of hardware resources, such as the processor,\
      main memory, I/O modules, timers, disk drives, and so on. This is a sub sentence." #dummy sentence
