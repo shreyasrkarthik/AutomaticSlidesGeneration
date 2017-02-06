@@ -1,4 +1,5 @@
-3.1 WHAT IS A PROCESS?
+3.1 WHAT IS
+ A PROCESS?
 
 The design of an operating system (OS) reflects certain general requirements.All multiprogramming  operating  systems, from  single-user  systems  such  as Windows  98  to
 mainframe systems such as IBM’s mainframe operating system, z/OS, which can support thousands of users, are built around the concept of the process. Most requirements

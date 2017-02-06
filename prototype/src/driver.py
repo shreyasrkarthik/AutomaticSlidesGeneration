@@ -1,4 +1,4 @@
-from FeatureExtractor import *
+import FeatureExtractor as fe
 import operator
 
 class Driver:
@@ -12,29 +12,31 @@ class Driver:
     def driver(self, filePath):
         weights = {'SWP': 0.2, 'NOWT': 0.4, 'NNP': 0.3, 'NVP': 0.1}
 
-        SWPValues = dict()
-        NOWTValues = dict()
-        NNPValues = dict()
-        NVPValues = dict()
+        SWPValues = {}
+        NOWTValues = {}
+        NNPValues = {}
+        NVPValues = {}
 
         currentLine = 1
-        title = "What is a Process"
+        title = "Process"
         finalTextLines = []
+
         with open(filePath, 'r') as fp:
             for line in fp:
-                tokenArray = Driver.getTokens(line)
-                SWPValues[currentLine] = FeatureExtractor.getStopWordsPerc(tokenArray)
-                NOWTValues[currentLine] = FeatureExtractor.getNumOverlappingWords(title, line)
-                NNPValues[currentLine] = FeatureExtractor.getNumNounPhrases(tokenArray)
-                NVPValues[currentLine] = FeatureExtractor.getNumVerbPhrases(tokenArray)
-                currentLine+=1
+                print line
+                tokenArray = self.getTokens(line)
+                SWPValues[currentLine] = fe.getStopWordsPerc(tokenArray)
+                NOWTValues[currentLine] = fe.getNumOverlappingWords(title, line)
+                NNPValues[currentLine] = fe.getNumNounPhrases(tokenArray)
+                NVPValues[currentLine] = fe.getNumVerbPhrases(tokenArray)
+                currentLine += 1
 
         totalLines = currentLine
 
-        SWPThreshold = Driver.getThreshold(SWPValues)
-        NOWTThreshold = Driver.getThreshold(NOWTValues)
-        NNPThreshold = Driver.getThreshold(NNPValues)
-        NVPThreshold = Driver.getThreshold(NVPValues)
+        SWPThreshold = self.getThreshold(SWPValues)
+        NOWTThreshold = self.getThreshold(NOWTValues)
+        NNPThreshold = self.getThreshold(NNPValues)
+        NVPThreshold = self.getThreshold(NVPValues)
 
 
         for i in range(1,totalLines):
@@ -42,12 +44,16 @@ class Driver:
                     finalTextLines.append(i)
 
         # scoreThreshold = 50
-        LinesScore = dict()
+        LinesScore = {}
         for lineNo in finalTextLines:
             score = ((SWPValues[lineNo] * weights['SWP']) + (NOWTValues[lineNo] * weights['NOWT']) + (NNPValues[lineNo] * weights['NNP']) + (NVPValues[lineNo] * weights['NNP']))
             LinesScore[lineNo] = score
 
-        SortedDict = sorted( LinesScore.items(), key=operator.itemgetter(1))
+        SortedDict = sorted(LinesScore.items(), key=operator.itemgetter(1))
+        return SortedDict
 
+if __name__ == '__main__':
+    d = Driver()
+    print d.driver("sample_3_1.txt")
 
 

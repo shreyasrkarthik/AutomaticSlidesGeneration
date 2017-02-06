@@ -15,15 +15,15 @@ class FeatureExtractor:
 
     def getNumNounPhrases(self, token_list):
         tagged_sent = pos_tag(token_list)
-        noun_count=0
+        noun_count = 0
         for word, tag in tagged_sent:
             if 'NN' in tag or 'nn' in tag:
                 noun_count += 1
         return noun_count
 
     def getNumVerbPhrases(self, token_list):
-        tagged_sent = pos_tag(token_list)
         verb_count = 0
+        tagged_sent = pos_tag(token_list)
         for word, tag in tagged_sent:
             if 'VB' in tag or 'vb' in tag:
                 verb_count += 1
