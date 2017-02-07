@@ -75,7 +75,6 @@ class Driver:
     def extractSentFromDict(self, sortedSentDict):
         num_sent = len(sortedSentDict)
         num_extract = int(num_sent * 0.3)
-        print num_extract, num_sent
         output = []
         count=1
         for k,v in sortedSentDict:
