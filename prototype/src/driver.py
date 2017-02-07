@@ -21,11 +21,11 @@ class Driver:
                 sentences = sent_tokenize(last + buf)
                 last = sentences.pop()
                 for sentence in sentences:
-                    yield sentence
-            yield last
+                    yield sentence.replace('\n', ' ')
+            yield last.replace('\n', ' ')
 
     def driver(self, filepath):
-        weights = {'SWP': 0.2, 'NOWT': 0.4, 'NNP': 0.3, 'NVP': 0.1}
+        weights = {'SWP': 0.1, 'NOWT': 0.5, 'NNP': 0.3, 'NVP': 0.1}
 
         SWPValues = {}
         NOWTValues = {}
@@ -33,18 +33,19 @@ class Driver:
         NVPValues = {}
 
         currentSent = 1
-        title = "Process"
+        title = "Process control blocks"
         sentences = []
         filteredSentences = []
 
         for sentence in self.read_sentences(filepath):
             sentences.append(sentence)
             tokenArray = word_tokenize(sentence)
-            SWPValues[currentSent] = fe().getStopWordsPerc(tokenArray)
-            NOWTValues[currentSent] = fe().getNumOverlappingWords(title, sentence)
-            NNPValues[currentSent] = fe().getNumNounPhrases(tokenArray)
-            NVPValues[currentSent] = fe().getNumVerbPhrases(tokenArray)
-            currentSent += 1
+            if len(tokenArray) > 2:
+                SWPValues[currentSent] = fe().getStopWordsPerc(tokenArray)
+                NOWTValues[currentSent] = fe().getNumOverlappingWords(title, sentence)
+                NNPValues[currentSent] = fe().getNumNounPhrases(tokenArray)
+                NVPValues[currentSent] = fe().getNumVerbPhrases(tokenArray)
+                currentSent += 1
 
         totalSent = currentSent
 
@@ -52,23 +53,40 @@ class Driver:
         NOWTThreshold = self.getThreshold(NOWTValues)
         NNPThreshold = self.getThreshold(NNPValues)
         NVPThreshold = self.getThreshold(NVPValues)
+        count = 0
 
-
-        for i in range(1, totalSent):
-            if((SWPValues[i] <= SWPThreshold) and (NOWTValues[i] >= NOWTThreshold) and (NNPValues[i] >= NNPThreshold) and (NVPValues[i]) >= NVPThreshold):
-                    filteredSentences.append(sentences[i])
-        print filteredSentences
+        # for i in range(1, totalSent-1):
+        #     if((SWPValues[i] <= SWPThreshold) or (NOWTValues[i] >= NOWTThreshold) or (NNPValues[i] >= NNPThreshold) or (NVPValues[i]) >= NVPThreshold):
+        #             print "----", sentences[i]
+        #             filteredSentences.append(sentences[i])
+        #     else: count += 1
+        # print filteredSentences, len(filteredSentences), count
 
         LinesScore = {}
-        # for sentNum in filteredSentences:
-        #     score = ((SWPValues[sentNum] * weights['SWP']) + (NOWTValues[sentNum] * weights['NOWT']) + (NNPValues[sentNum] * weights['NNP']) + (NVPValues[sentNum] * weights['NNP']))
-        #     LinesScore[sentNum] = score
-        #
-        # SortedDict = sorted(LinesScore.items(), key=operator.itemgetter(0))
-        # return SortedDict
+        for sent_num in range(1, totalSent-1):
+            score = ((SWPValues[sent_num] * weights['SWP']) + (NOWTValues[sent_num] * weights['NOWT']) + (NNPValues[sent_num] * weights['NNP']) + (NVPValues[sent_num] * weights['NNP']))
+            if score > 10.0:
+                filteredSentences.append(sentences[sent_num])
+            LinesScore[sent_num] = (score, sentences[sent_num])
 
+        SortedDict = sorted(LinesScore.items(), key=operator.itemgetter(1), reverse=True)
+        return SortedDict
+
+    def extractSentFromDict(self, sortedSentDict):
+        num_sent = len(sortedSentDict)
+        num_extract = int(num_sent * 0.3)
+        print num_extract, num_sent
+        output = []
+        count=1
+        for k,v in sortedSentDict:
+            sent = v[1]
+            output.append(sent)
+            if(count > num_extract):
+                return output
+            count += 1
+        return output
 
 if __name__ == '__main__':
     d = Driver()
-    print(d.driver("sample_3_1.txt"))
-
+    sortedSentDict = d.driver("sample_3_1.txt")
+    print(d.extractSentFromDict(sortedSentDict))
