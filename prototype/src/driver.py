@@ -35,8 +35,6 @@ class Driver:
         currentSent = 1
         title = "Process control blocks"
         sentences = []
-        filteredSentences = []
-
         for sentence in self.read_sentences(filepath):
             sentences.append(sentence)
             tokenArray = word_tokenize(sentence)
@@ -53,20 +51,16 @@ class Driver:
             score = ((SWPValues[sent_num] * weights['SWP']) + (NOWTValues[sent_num] * weights['NOWT']) + (NNPValues[sent_num] * weights['NNP']) + (NVPValues[sent_num] * weights['NNP']))
             LinesScore[sent_num] = (score, sentences[sent_num])
 
-        SortedDict = sorted(LinesScore.items(), key=operator.itemgetter(1), reverse=True)
-        return SortedDict
+        sortedSentDict = sorted(LinesScore.items(), key=operator.itemgetter(1), reverse=True)
+        return sortedSentDict
 
-    def extractSentFromDict(self, sortedSentDict):
-        num_sent = len(sortedSentDict)
-        num_extract = int(num_sent * 0.3)
+    def extractSentFromDict(self, sortedSentDict, topSentRatio = 0.3):
+        filteredSentDict = dict(sortedSentDict[:int(len(sortedSentDict)*topSentRatio)])
+        sortedSentDict = sorted(filteredSentDict.items())#sorted by occurance
         output = []
-        count=1
-        for k,v in sortedSentDict:
+        for k, v in sortedSentDict:
             sent = v[1]
             output.append(sent)
-            if(count > num_extract):
-                return output
-            count += 1
         return output
 
 if __name__ == '__main__':
