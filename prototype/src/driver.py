@@ -48,25 +48,9 @@ class Driver:
                 currentSent += 1
 
         totalSent = currentSent
-
-        SWPThreshold = self.getThreshold(SWPValues)
-        NOWTThreshold = self.getThreshold(NOWTValues)
-        NNPThreshold = self.getThreshold(NNPValues)
-        NVPThreshold = self.getThreshold(NVPValues)
-        count = 0
-
-        # for i in range(1, totalSent-1):
-        #     if((SWPValues[i] <= SWPThreshold) or (NOWTValues[i] >= NOWTThreshold) or (NNPValues[i] >= NNPThreshold) or (NVPValues[i]) >= NVPThreshold):
-        #             print "----", sentences[i]
-        #             filteredSentences.append(sentences[i])
-        #     else: count += 1
-        # print filteredSentences, len(filteredSentences), count
-
         LinesScore = {}
         for sent_num in range(1, totalSent-1):
             score = ((SWPValues[sent_num] * weights['SWP']) + (NOWTValues[sent_num] * weights['NOWT']) + (NNPValues[sent_num] * weights['NNP']) + (NVPValues[sent_num] * weights['NNP']))
-            if score > 10.0:
-                filteredSentences.append(sentences[sent_num])
             LinesScore[sent_num] = (score, sentences[sent_num])
 
         SortedDict = sorted(LinesScore.items(), key=operator.itemgetter(1), reverse=True)
