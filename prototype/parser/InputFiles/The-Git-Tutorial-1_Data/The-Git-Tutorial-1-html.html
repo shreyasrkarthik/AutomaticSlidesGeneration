@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft10{font-size:64px;font-family:Times;color:#000000;}
+	.ft11{font-size:34px;font-family:Times;color:#1155cc;}
+	.ft12{font-size:25px;font-family:Times;color:#000000;}
+	.ft13{font-size:29px;font-family:Times;color:#1155cc;}
+	.ft14{font-size:16px;font-family:Times;color:#000000;}
+	.ft15{font-size:25px;line-height:31px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page1-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1001.png" alt="background image"/>
+<p style="position:absolute;top:177px;left:679px;white-space:nowrap" class="ft10"><b>The Git Tutorial</b></p>
+<p style="position:absolute;top:244px;left:880px;white-space:nowrap" class="ft11"><b>EclipseCon 2012</b></p>
+<p style="position:absolute;top:282px;left:612px;white-space:nowrap" class="ft15">&#160;<br/>&#160;<br/>&#160;<br/>&#160;</p>
+<p style="position:absolute;top:407px;left:886px;white-space:nowrap" class="ft13">http://eclipse.org/jgit</p>
+<p style="position:absolute;top:441px;left:876px;white-space:nowrap" class="ft13">http://eclipse.org/egit</p>
+<p style="position:absolute;top:475px;left:741px;white-space:nowrap" class="ft13">http://code.google.com/p/gerrit</p>
+<p style="position:absolute;top:510px;left:612px;white-space:nowrap" class="ft12">&#160;</p>
+<p style="position:absolute;top:347px;left:20px;white-space:nowrap" class="ft14">Matthias Sohn</p>
+<p style="position:absolute;top:367px;left:53px;white-space:nowrap" class="ft14">(SAP)</p>
+<p style="position:absolute;top:160px;left:200px;white-space:nowrap" class="ft14">Stefan Lay</p>
+<p style="position:absolute;top:180px;left:219px;white-space:nowrap" class="ft14">(SAP)</p>
+<p style="position:absolute;top:160px;left:14px;white-space:nowrap" class="ft14">Chris Aniszczyk</p>
+<p style="position:absolute;top:180px;left:44px;white-space:nowrap" class="ft14">(Twitter)</p>
+<p style="position:absolute;top:160px;left:357px;white-space:nowrap" class="ft14">Kevin Sawicki</p>
+<p style="position:absolute;top:180px;left:379px;white-space:nowrap" class="ft14">(GitHub)</p>
+<p style="position:absolute;top:347px;left:176px;white-space:nowrap" class="ft14">Benjamin Muskalla&#160;</p>
+<p style="position:absolute;top:367px;left:214px;white-space:nowrap" class="ft14">(Tasktop)</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft20{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft21{font-size:46px;font-family:Times;color:#1155cc;}
+	.ft22{font-size:46px;font-family:Times;color:#000000;}
+	.ft23{font-size:46px;font-family:Times;color:#000000;}
+	.ft24{font-size:46px;font-family:Times;color:#000000;}
+	.ft25{font-size:14px;font-family:Times;color:#000000;}
+	.ft26{font-size:46px;line-height:53px;font-family:Times;color:#1155cc;}
+	.ft27{font-size:46px;line-height:54px;font-family:Times;color:#000000;}
+	.ft28{font-size:46px;line-height:55px;font-family:Times;color:#1155cc;}
+	.ft29{font-size:46px;line-height:52px;font-family:Times;color:#000000;}
+	.ft210{font-size:46px;line-height:53px;font-family:Times;color:#000000;}
+	.ft211{font-size:46px;line-height:54px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page2-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1002.png" alt="background image"/>
+<p style="position:absolute;top:54px;left:62px;white-space:nowrap" class="ft20"><b>Agenda</b></p>
+<p style="position:absolute;top:205px;left:87px;white-space:nowrap" class="ft211"><i><b>Introduction<br/></b>&#160;<br/><b>Exercises<br/></b></i><b>Setup &amp; Cloning the Sample Repository<br/>Local Development with EGit<br/>Gerrit Code Review<br/>Mylyn Integration<br/>GitHub Eclipse Support<br/></b>&#160;<br/><i><b>Q &amp; A</b></i></p>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft25">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft30{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft31{font-size:38px;font-family:Times;color:#0070c0;}
+	.ft32{font-size:25px;font-family:Times;color:#000000;}
+	.ft33{font-size:38px;font-family:Times;color:#000000;}
+	.ft34{font-size:16px;font-family:Times;color:#000000;}
+	.ft35{font-size:28px;font-family:Times;color:#000000;}
+	.ft36{font-size:14px;font-family:Times;color:#000000;}
+	.ft37{font-size:38px;line-height:44px;font-family:Times;color:#0070c0;}
+	.ft38{font-size:38px;line-height:42px;font-family:Times;color:#0070c0;}
+	.ft39{font-size:25px;line-height:32px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page3-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1003.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:43px;white-space:nowrap" class="ft30"><b>Git</b></p>
+<p style="position:absolute;top:138px;left:69px;white-space:nowrap" class="ft39"><b>… a distributed revision control system built by the&#160;<br/>Linux project to facilitate code review<br/></b>&#160;<br/>Distributed means no central repository</p>
+<p style="position:absolute;top:309px;left:68px;white-space:nowrap" class="ft34">●</p>
+<p style="position:absolute;top:300px;left:83px;white-space:nowrap" class="ft35">No central authority!</p>
+<p style="position:absolute;top:342px;left:68px;white-space:nowrap" class="ft34">●</p>
+<p style="position:absolute;top:333px;left:83px;white-space:nowrap" class="ft35">Easy offline usage</p>
+<p style="position:absolute;top:375px;left:68px;white-space:nowrap" class="ft34">●</p>
+<p style="position:absolute;top:366px;left:83px;white-space:nowrap" class="ft35">Easy to branch a project</p>
+<p style="position:absolute;top:407px;left:68px;white-space:nowrap" class="ft34">●</p>
+<p style="position:absolute;top:399px;left:83px;white-space:nowrap" class="ft35">Protected against manipulation by cryptographic hashes&#160;</p>
+<p style="position:absolute;top:431px;left:69px;white-space:nowrap" class="ft39">&#160;<br/>Really good at merging</p>
+<p style="position:absolute;top:515px;left:68px;white-space:nowrap" class="ft34">●</p>
+<p style="position:absolute;top:507px;left:83px;white-space:nowrap" class="ft35">Coordination only needed &#34;after the fact”</p>
+<p style="position:absolute;top:548px;left:68px;white-space:nowrap" class="ft34">●</p>
+<p style="position:absolute;top:539px;left:83px;white-space:nowrap" class="ft35">Easier to rejoin (or refresh) branches</p>
+<p style="position:absolute;top:572px;left:69px;white-space:nowrap" class="ft39">&#160;<br/>Structured around commits (i.e. patches)</p>
+<p style="position:absolute;top:656px;left:68px;white-space:nowrap" class="ft34">●</p>
+<p style="position:absolute;top:647px;left:83px;white-space:nowrap" class="ft35">Tools for identifying problem commits (git bisect)</p>
+<p style="position:absolute;top:689px;left:68px;white-space:nowrap" class="ft34">●</p>
+<p style="position:absolute;top:680px;left:83px;white-space:nowrap" class="ft35">Tools for restructuring branches w/ specific commits</p>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft36">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft40{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft41{font-size:38px;font-family:Times;color:#0070c0;}
+	.ft42{font-size:38px;font-family:Times;color:#000000;}
+	.ft43{font-size:35px;font-family:Times;color:#1155cc;}
+	.ft44{font-size:25px;font-family:Times;color:#000000;}
+	.ft45{font-size:14px;font-family:Times;color:#000000;}
+	.ft46{font-size:25px;line-height:32px;font-family:Times;color:#000000;}
+	.ft47{font-size:38px;line-height:44px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page4-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1004.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:43px;white-space:nowrap" class="ft40"><b>Git at Eclipse</b></p>
+<p style="position:absolute;top:175px;left:70px;white-space:nowrap" class="ft41"><b>JGit</b>&#160;is a lightweight Java library implementing Git&#160;</p>
+<p style="position:absolute;top:219px;left:124px;white-space:nowrap" class="ft43"><a href="http://eclipse.org/projects/scmcountdown.php">http://www.eclipse.org/jgit/</a></p>
+<p style="position:absolute;top:258px;left:70px;white-space:nowrap" class="ft46">&#160;<br/><b>EGit</b>&#160;is an Eclipse Team provider for Git based on JGit</p>
+<p style="position:absolute;top:335px;left:124px;white-space:nowrap" class="ft43"><a href="http://code.google.com/p/rietveld/downloads/detail?name=Mondrian2006.pdf">http://www.eclipse.org/egit/</a></p>
+<p style="position:absolute;top:374px;left:70px;white-space:nowrap" class="ft47">&#160;<br/><b>Gerrit Code Review</b>&#160;is a Git server based on JGit&#160;<br/>adding permission control and review workflow</p>
+<p style="position:absolute;top:495px;left:124px;white-space:nowrap" class="ft43">http://code.google.com/p/gerrit</p>
+<p style="position:absolute;top:537px;left:70px;white-space:nowrap" class="ft47">&#160;<br/><b>Gerrit @ Eclipse</b>&#160;went live&#160;</p>
+<p style="position:absolute;top:627px;left:124px;white-space:nowrap" class="ft43">https://git.eclipse.org/r/</p>
+<p style="position:absolute;top:697px;left:70px;white-space:nowrap" class="ft44">&#160;</p>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft45">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft50{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft51{font-size:25px;font-family:Times;color:#000000;}
+	.ft52{font-size:25px;font-family:Times;color:#1155cc;}
+	.ft53{font-size:14px;font-family:Times;color:#000000;}
+	.ft54{font-size:25px;line-height:30px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page5-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1005.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:43px;white-space:nowrap" class="ft50"><b>Eclipse is Moving to Git</b></p>
+<p style="position:absolute;top:149px;left:43px;white-space:nowrap" class="ft54">CVS has been deprecated and will be retired end of 2012<br/>&#160;</p>
+<p style="position:absolute;top:786px;left:43px;white-space:nowrap" class="ft52"><a href="http://eclipse.org/projects/scmcountdown.php">http://eclipse.org/projects/scmcountdown.php</a></p>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft53">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn, S. Zivkov</p>
+<p style="position:absolute;top:733px;left:43px;white-space:nowrap" class="ft51">Project &amp; code repository breakdown as of 2012-03-25</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft60{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft61{font-size:25px;font-family:Times;color:#1155cc;}
+	.ft62{font-size:34px;font-family:Times;color:#000000;}
+	.ft63{font-size:28px;font-family:Times;color:#000000;}
+	.ft64{font-size:14px;font-family:Times;color:#000000;}
+	.ft65{font-size:28px;line-height:34px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page6-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1006.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:43px;white-space:nowrap" class="ft60"><b>Gerrit Code Review @ Eclipse</b></p>
+<p style="position:absolute;top:157px;left:43px;white-space:nowrap" class="ft61"><a href="https://git.eclipse.org/r/">https://git.eclipse.org/r/</a></p>
+<p style="position:absolute;top:150px;left:315px;white-space:nowrap" class="ft62"><a href="https://git.eclipse.org/r/">&#160;</a>is now available for all projects</p>
+<p style="position:absolute;top:190px;left:43px;white-space:nowrap" class="ft62">&#160;</p>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft64">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn, S. Zivkov</p>
+<p style="position:absolute;top:155px;left:852px;white-space:nowrap" class="ft65">now used by:<br/>&#160;<br/>EGit, Jetty, JGit,<br/>Jubula, Libra, Lyo,<br/>Mylyn, Platform, R4E,<br/>Recommenders,<br/>Skalli, Tycho</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft70{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft71{font-size:39px;font-family:Times;color:#000000;}
+	.ft72{font-size:25px;font-family:Times;color:#000000;}
+	.ft73{font-size:39px;font-family:Times;color:#7f7f7f;}
+	.ft74{font-size:29px;font-family:Times;color:#7f7f7f;}
+	.ft75{font-size:29px;font-family:Times;color:#7f7f7f;}
+	.ft76{font-size:14px;font-family:Times;color:#000000;}
+	.ft77{font-size:14px;font-family:Times;color:#ccccff;}
+	.ft78{font-size:39px;line-height:45px;font-family:Times;color:#000000;}
+	.ft79{font-size:39px;line-height:45px;font-family:Times;color:#7f7f7f;}
+	.ft710{font-size:39px;line-height:44px;font-family:Times;color:#7f7f7f;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page7-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1007.png" alt="background image"/>
+<p style="position:absolute;top:54px;left:62px;white-space:nowrap" class="ft70"><b>Modern Code Review – What is it ?</b></p>
+<p style="position:absolute;top:173px;left:105px;white-space:nowrap" class="ft78"><b>When one developer writes code, another&#160;<br/>developer is asked to review that code</b></p>
+<p style="position:absolute;top:263px;left:51px;white-space:nowrap" class="ft72">&#160;</p>
+<p style="position:absolute;top:296px;left:105px;white-space:nowrap" class="ft71"><b>A careful line-by-line critique&#160;</b></p>
+<p style="position:absolute;top:340px;left:51px;white-space:nowrap" class="ft72">&#160;</p>
+<p style="position:absolute;top:373px;left:105px;white-space:nowrap" class="ft71"><b>Happens in a non-threatening context&#160;</b></p>
+<p style="position:absolute;top:417px;left:51px;white-space:nowrap" class="ft72">&#160;</p>
+<p style="position:absolute;top:450px;left:105px;white-space:nowrap" class="ft71"><b>Goal is cooperation, not fault-finding&#160;</b></p>
+<p style="position:absolute;top:494px;left:51px;white-space:nowrap" class="ft72">&#160;</p>
+<p style="position:absolute;top:527px;left:105px;white-space:nowrap" class="ft71"><b>Integral part of coding process</b></p>
+<p style="position:absolute;top:571px;left:51px;white-space:nowrap" class="ft72">&#160;</p>
+<p style="position:absolute;top:604px;left:105px;white-space:nowrap" class="ft710"><b>Otherwise this will happen:<br/>Debugging someone else's broken code<br/></b>–&#160;<b>Involuntary code review:&#160;</b>Not so good; emotions may flare</p>
+<p style="position:absolute;top:83px;left:965px;white-space:nowrap" class="ft76">Guido van Rossum [1]</p>
+<p style="position:absolute;top:815px;left:578px;white-space:nowrap" class="ft76">[1]&#160;<a href="http://www.linuxfoundation.org/publications/linuxkerneldevelopment.php">http://code.google.com/p/rietveld/downloads/detail?name=Mondrian2006.pdf</a></p>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft76">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft80{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft81{font-size:39px;font-family:Times;color:#000000;}
+	.ft82{font-size:29px;font-family:Times;color:#000000;}
+	.ft83{font-size:25px;font-family:Times;color:#000000;}
+	.ft84{font-size:14px;font-family:Times;color:#000000;}
+	.ft85{font-size:14px;font-family:Times;color:#ccccff;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page8-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1008.png" alt="background image"/>
+<p style="position:absolute;top:54px;left:62px;white-space:nowrap" class="ft80"><b>Code Review – Benefits</b></p>
+<p style="position:absolute;top:156px;left:104px;white-space:nowrap" class="ft81"><b>Four eyes catch more bugs</b></p>
+<p style="position:absolute;top:200px;left:158px;white-space:nowrap" class="ft82">Catch bugs early to save hours of debugging</p>
+<p style="position:absolute;top:235px;left:50px;white-space:nowrap" class="ft82">&#160;</p>
+<p style="position:absolute;top:272px;left:104px;white-space:nowrap" class="ft81"><b>Mentoring of new developers / contributors</b></p>
+<p style="position:absolute;top:316px;left:158px;white-space:nowrap" class="ft82">Learn from mistakes without breaking stuff</p>
+<p style="position:absolute;top:352px;left:50px;white-space:nowrap" class="ft82">&#160;</p>
+<p style="position:absolute;top:389px;left:104px;white-space:nowrap" class="ft81"><b>Establish trust relationships&#160;</b></p>
+<p style="position:absolute;top:433px;left:158px;white-space:nowrap" class="ft82">Prepare for more delegation</p>
+<p style="position:absolute;top:467px;left:50px;white-space:nowrap" class="ft83">&#160;</p>
+<p style="position:absolute;top:500px;left:104px;white-space:nowrap" class="ft81"><b>Good alternative to pair programming</b></p>
+<p style="position:absolute;top:544px;left:158px;white-space:nowrap" class="ft82">asynchronous and across locations</p>
+<p style="position:absolute;top:579px;left:50px;white-space:nowrap" class="ft83">&#160;</p>
+<p style="position:absolute;top:612px;left:104px;white-space:nowrap" class="ft81"><b>Coding standards</b></p>
+<p style="position:absolute;top:656px;left:158px;white-space:nowrap" class="ft82">Keep overall readability &amp; code quality high</p>
+<p style="position:absolute;top:83px;left:673px;white-space:nowrap" class="ft84">Guido van Rossum [1]</p>
+<p style="position:absolute;top:806px;left:552px;white-space:nowrap" class="ft84"><a href="http://eclipse.org/egit">[1]&#160;http://code.google.com/p/rietveld/downloads/detail?name=Mondrian2006.pdf</a></p>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft84">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft90{font-size:25px;font-family:Times;color:#ffffff;}
+	.ft91{font-size:29px;font-family:Times;color:#000000;}
+	.ft92{font-size:14px;font-family:Times;color:#000000;}
+	.ft93{font-size:29px;line-height:34px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page9-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1009.png" alt="background image"/>
+<p style="position:absolute;top:482px;left:329px;white-space:nowrap" class="ft90">Developer PC</p>
+<p style="position:absolute;top:100px;left:511px;white-space:nowrap" class="ft90">Gerrit</p>
+<p style="position:absolute;top:218px;left:450px;white-space:nowrap" class="ft90">git</p>
+<p style="position:absolute;top:218px;left:543px;white-space:nowrap" class="ft90">git</p>
+<p style="position:absolute;top:243px;left:603px;white-space:nowrap" class="ft90">git</p>
+<p style="position:absolute;top:243px;left:484px;white-space:nowrap" class="ft90">git</p>
+<p style="position:absolute;top:499px;left:278px;white-space:nowrap" class="ft90">Developer PC</p>
+<p style="position:absolute;top:651px;left:220px;white-space:nowrap" class="ft90">git</p>
+<p style="position:absolute;top:694px;left:263px;white-space:nowrap" class="ft90">git</p>
+<p style="position:absolute;top:542px;left:940px;white-space:nowrap" class="ft90">Hudson</p>
+<p style="position:absolute;top:375px;left:46px;white-space:nowrap" class="ft93"><b>- clone repository&#160;<br/>- fetch / push changes</b></p>
+<p style="position:absolute;top:300px;left:849px;white-space:nowrap" class="ft93"><b>- verify proposed&#160;<br/>changes<br/>- continuous&#160;<br/>integration builds</b></p>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft92">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft100{font-size:25px;font-family:Times;color:#ffffff;}
+	.ft101{font-size:29px;font-family:Times;color:#000000;}
+	.ft102{font-size:25px;font-family:Times;color:#000000;}
+	.ft103{font-size:16px;font-family:Times;color:#000000;}
+	.ft104{font-size:14px;font-family:Times;color:#000000;}
+	.ft105{font-size:29px;line-height:34px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page10-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1010.png" alt="background image"/>
+<p style="position:absolute;top:601px;left:278px;white-space:nowrap" class="ft100">Developer PC</p>
+<p style="position:absolute;top:754px;left:220px;white-space:nowrap" class="ft100">git</p>
+<p style="position:absolute;top:796px;left:262px;white-space:nowrap" class="ft100">git</p>
+<p style="position:absolute;top:40px;left:826px;white-space:nowrap" class="ft100">Gerrit</p>
+<p style="position:absolute;top:158px;left:798px;white-space:nowrap" class="ft100">git</p>
+<p style="position:absolute;top:158px;left:892px;white-space:nowrap" class="ft100">git</p>
+<p style="position:absolute;top:184px;left:951px;white-space:nowrap" class="ft100">git</p>
+<p style="position:absolute;top:184px;left:832px;white-space:nowrap" class="ft100">git</p>
+<p style="position:absolute;top:508px;left:349px;white-space:nowrap" class="ft105"><b>push improved&#160;<br/>change 10</b></p>
+<p style="position:absolute;top:601px;left:797px;white-space:nowrap" class="ft100">Developer PC</p>
+<p style="position:absolute;top:754px;left:739px;white-space:nowrap" class="ft100">git</p>
+<p style="position:absolute;top:796px;left:781px;white-space:nowrap" class="ft100">git</p>
+<p style="position:absolute;top:503px;left:710px;white-space:nowrap" class="ft105"><b>fetch change 23&#160;<br/>to try it</b></p>
+<p style="position:absolute;top:210px;left:410px;white-space:nowrap" class="ft102"><b>master</b></p>
+<p style="position:absolute;top:268px;left:465px;white-space:nowrap" class="ft103">change 12</p>
+<p style="position:absolute;top:310px;left:332px;white-space:nowrap" class="ft103">change 10</p>
+<p style="position:absolute;top:344px;left:548px;white-space:nowrap" class="ft103">change 23</p>
+<p style="position:absolute;top:276px;left:604px;white-space:nowrap" class="ft105"><b>submit accepted&#160;<br/>change 12</b></p>
+<p style="position:absolute;top:488px;left:16px;white-space:nowrap" class="ft105"><b>fetch master&#160;<br/>to get&#160;<br/>updates</b></p>
+<p style="position:absolute;top:871px;left:243px;white-space:nowrap" class="ft104">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft110{font-size:88px;font-family:Times;color:#000000;}
+	.ft111{font-size:14px;font-family:Times;color:#000000;}
+	.ft112{font-size:88px;line-height:98px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page11-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1011.png" alt="background image"/>
+<p style="position:absolute;top:306px;left:99px;white-space:nowrap" class="ft112"><b>Local Development&#160;<br/>with EGit</b></p>
+<p style="position:absolute;top:859px;left:243px;white-space:nowrap" class="ft111">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft120{font-size:25px;font-family:Times;color:#ffffff;}
+	.ft121{font-size:29px;font-family:Times;color:#000000;}
+	.ft122{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page12-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1012.png" alt="background image"/>
+<p style="position:absolute;top:482px;left:329px;white-space:nowrap" class="ft120">Developer PC</p>
+<p style="position:absolute;top:100px;left:511px;white-space:nowrap" class="ft120">Gerrit</p>
+<p style="position:absolute;top:218px;left:450px;white-space:nowrap" class="ft120">git</p>
+<p style="position:absolute;top:218px;left:543px;white-space:nowrap" class="ft120">git</p>
+<p style="position:absolute;top:243px;left:603px;white-space:nowrap" class="ft120">git</p>
+<p style="position:absolute;top:243px;left:484px;white-space:nowrap" class="ft120">git</p>
+<p style="position:absolute;top:499px;left:278px;white-space:nowrap" class="ft120">Developer PC</p>
+<p style="position:absolute;top:651px;left:220px;white-space:nowrap" class="ft120">git</p>
+<p style="position:absolute;top:694px;left:263px;white-space:nowrap" class="ft120">git</p>
+<p style="position:absolute;top:379px;left:183px;white-space:nowrap" class="ft121"><b>clone repository&#160;</b></p>
+<p style="position:absolute;top:864px;left:406px;white-space:nowrap" class="ft122">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft130{font-size:58px;font-family:Times;color:#2f2672;}
+	.ft131{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page13-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1013.png" alt="background image"/>
+<p style="position:absolute;top:131px;left:100px;white-space:nowrap" class="ft130"><b>Sample Application</b></p>
+<p style="position:absolute;top:864px;left:406px;white-space:nowrap" class="ft131">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft140{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft141{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft142{font-size:46px;font-family:Times;color:#1155cc;}
+	.ft143{font-size:46px;font-family:Times;color:#000000;}
+	.ft144{font-size:25px;font-family:Times;color:#000000;}
+	.ft145{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page14-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1014.png" alt="background image"/>
+<p style="position:absolute;top:91px;left:75px;white-space:nowrap" class="ft140"><b>Git Exercises</b>&#160;</p>
+<p style="position:absolute;top:233px;left:79px;white-space:nowrap" class="ft142"><b>1&#160; Setup &amp; Clone the example repository</b></p>
+<p style="position:absolute;top:283px;left:66px;white-space:nowrap" class="ft144">&#160;</p>
+<p style="position:absolute;top:317px;left:79px;white-space:nowrap" class="ft142"><b>2&#160; Develop a feature</b></p>
+<p style="position:absolute;top:366px;left:66px;white-space:nowrap" class="ft144">&#160;</p>
+<p style="position:absolute;top:400px;left:79px;white-space:nowrap" class="ft142"><b>3&#160; Develop 2nd feature and use staging view</b></p>
+<p style="position:absolute;top:450px;left:66px;white-space:nowrap" class="ft144">&#160;</p>
+<p style="position:absolute;top:484px;left:79px;white-space:nowrap" class="ft142"><b>4&#160; Work on branches in parallel</b></p>
+<p style="position:absolute;top:533px;left:66px;white-space:nowrap" class="ft144">&#160;</p>
+<p style="position:absolute;top:567px;left:79px;white-space:nowrap" class="ft142"><b>5&#160; Fetch the latest state</b></p>
+<p style="position:absolute;top:616px;left:66px;white-space:nowrap" class="ft144">&#160;</p>
+<p style="position:absolute;top:651px;left:79px;white-space:nowrap" class="ft142"><b>6&#160; Merging, Rebasing, Resolving Conflicts</b></p>
+<p style="position:absolute;top:864px;left:406px;white-space:nowrap" class="ft145">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft150{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft151{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft152{font-size:25px;font-family:Times;color:#000000;}
+	.ft153{font-size:46px;font-family:Times;color:#1155cc;}
+	.ft154{font-size:46px;font-family:Times;color:#000000;}
+	.ft155{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page15-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1015.png" alt="background image"/>
+<p style="position:absolute;top:91px;left:75px;white-space:nowrap" class="ft150"><b>Git Exercises</b>&#160;</p>
+<p style="position:absolute;top:196px;left:72px;white-space:nowrap" class="ft152">&#160;</p>
+<p style="position:absolute;top:230px;left:86px;white-space:nowrap" class="ft153"><b>7&#160; History view</b></p>
+<p style="position:absolute;top:280px;left:72px;white-space:nowrap" class="ft152">&#160;</p>
+<p style="position:absolute;top:314px;left:86px;white-space:nowrap" class="ft153"><b>8&#160; Reset branch to previous state</b></p>
+<p style="position:absolute;top:363px;left:72px;white-space:nowrap" class="ft152">&#160;</p>
+<p style="position:absolute;top:397px;left:86px;white-space:nowrap" class="ft153"><b>9&#160; Change a series of commits</b></p>
+<p style="position:absolute;top:447px;left:72px;white-space:nowrap" class="ft152">&#160;</p>
+<p style="position:absolute;top:481px;left:86px;white-space:nowrap" class="ft153"><b>10&#160; Git blame</b></p>
+<p style="position:absolute;top:530px;left:72px;white-space:nowrap" class="ft152">&#160;</p>
+<p style="position:absolute;top:564px;left:86px;white-space:nowrap" class="ft153"><b>11&#160; Stash</b></p>
+<p style="position:absolute;top:614px;left:72px;white-space:nowrap" class="ft152">&#160;</p>
+<p style="position:absolute;top:648px;left:86px;white-space:nowrap" class="ft153"><b>12&#160; Submodules</b></p>
+<p style="position:absolute;top:864px;left:406px;white-space:nowrap" class="ft155">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft160{font-size:88px;font-family:Times;color:#000000;}
+	.ft161{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page16-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1016.png" alt="background image"/>
+<p style="position:absolute;top:350px;left:185px;white-space:nowrap" class="ft160"><b>Gerrit Code Review</b></p>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft161">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft170{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft171{font-size:52px;font-family:Times;color:#000000;}
+	.ft172{font-size:25px;font-family:Times;color:#000000;}
+	.ft173{font-size:64px;font-family:Times;color:#0070c0;}
+	.ft174{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page17-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1017.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:57px;white-space:nowrap" class="ft170"><b>Gerrit</b></p>
+<p style="position:absolute;top:141px;left:71px;white-space:nowrap" class="ft171"><b>Server managing central Git repositories</b></p>
+<p style="position:absolute;top:205px;left:593px;white-space:nowrap" class="ft172">&#160;</p>
+<p style="position:absolute;top:244px;left:593px;white-space:nowrap" class="ft173"><b>Gerrit</b></p>
+<p style="position:absolute;top:864px;left:406px;white-space:nowrap" class="ft174">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft180{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft181{font-size:52px;font-family:Times;color:#000000;}
+	.ft182{font-size:25px;font-family:Times;color:#000000;}
+	.ft183{font-size:64px;font-family:Times;color:#0070c0;}
+	.ft184{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page18-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1018.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:57px;white-space:nowrap" class="ft180"><b>Gerrit</b></p>
+<p style="position:absolute;top:141px;left:388px;white-space:nowrap" class="ft181"><b>Access Control</b></p>
+<p style="position:absolute;top:239px;left:593px;white-space:nowrap" class="ft182">&#160;</p>
+<p style="position:absolute;top:278px;left:593px;white-space:nowrap" class="ft183"><b>Gerrit</b></p>
+<p style="position:absolute;top:864px;left:406px;white-space:nowrap" class="ft184">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft190{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft191{font-size:52px;font-family:Times;color:#000000;}
+	.ft192{font-size:25px;font-family:Times;color:#000000;}
+	.ft193{font-size:64px;font-family:Times;color:#0070c0;}
+	.ft194{font-size:14px;font-family:Times;color:#000000;}
+	.ft195{font-size:34px;font-family:Times;color:#00cc99;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page19-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1019.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:57px;white-space:nowrap" class="ft190"><b>Gerrit</b></p>
+<p style="position:absolute;top:141px;left:388px;white-space:nowrap" class="ft191"><b>Access Control</b></p>
+<p style="position:absolute;top:239px;left:593px;white-space:nowrap" class="ft192">&#160;</p>
+<p style="position:absolute;top:278px;left:593px;white-space:nowrap" class="ft193"><b>Gerrit</b></p>
+<p style="position:absolute;top:864px;left:406px;white-space:nowrap" class="ft194">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+<p style="position:absolute;top:525px;left:185px;white-space:nowrap" class="ft195"><b>git push</b></p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft200{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft201{font-size:52px;font-family:Times;color:#000000;}
+	.ft202{font-size:25px;font-family:Times;color:#000000;}
+	.ft203{font-size:64px;font-family:Times;color:#0070c0;}
+	.ft204{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page20-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1020.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:57px;white-space:nowrap" class="ft200"><b>Gerrit</b></p>
+<p style="position:absolute;top:141px;left:388px;white-space:nowrap" class="ft201"><b>Access Control</b></p>
+<p style="position:absolute;top:239px;left:593px;white-space:nowrap" class="ft202">&#160;</p>
+<p style="position:absolute;top:278px;left:593px;white-space:nowrap" class="ft203"><b>Gerrit</b></p>
+<p style="position:absolute;top:864px;left:406px;white-space:nowrap" class="ft204">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft210{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft211{font-size:52px;font-family:Times;color:#000000;}
+	.ft212{font-size:25px;font-family:Times;color:#000000;}
+	.ft213{font-size:64px;font-family:Times;color:#0070c0;}
+	.ft214{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page21-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1021.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:57px;white-space:nowrap" class="ft210"><b>Gerrit</b></p>
+<p style="position:absolute;top:141px;left:388px;white-space:nowrap" class="ft211"><b>Access Control</b></p>
+<p style="position:absolute;top:239px;left:593px;white-space:nowrap" class="ft212">&#160;</p>
+<p style="position:absolute;top:278px;left:593px;white-space:nowrap" class="ft213"><b>Gerrit</b></p>
+<p style="position:absolute;top:864px;left:406px;white-space:nowrap" class="ft214">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft220{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft221{font-size:52px;font-family:Times;color:#000000;}
+	.ft222{font-size:25px;font-family:Times;color:#000000;}
+	.ft223{font-size:64px;font-family:Times;color:#0070c0;}
+	.ft224{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page22-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1022.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:57px;white-space:nowrap" class="ft220"><b>Gerrit</b></p>
+<p style="position:absolute;top:141px;left:418px;white-space:nowrap" class="ft221"><b>Code Review</b></p>
+<p style="position:absolute;top:239px;left:593px;white-space:nowrap" class="ft222">&#160;</p>
+<p style="position:absolute;top:278px;left:593px;white-space:nowrap" class="ft223"><b>Gerrit</b></p>
+<p style="position:absolute;top:864px;left:406px;white-space:nowrap" class="ft224">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft230{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft231{font-size:52px;font-family:Times;color:#000000;}
+	.ft232{font-size:25px;font-family:Times;color:#000000;}
+	.ft233{font-size:64px;font-family:Times;color:#0070c0;}
+	.ft234{font-size:14px;font-family:Times;color:#000000;}
+	.ft235{font-size:34px;font-family:Times;color:#00cc99;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page23-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1023.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:57px;white-space:nowrap" class="ft230"><b>Gerrit</b></p>
+<p style="position:absolute;top:141px;left:418px;white-space:nowrap" class="ft231"><b>Code Review</b></p>
+<p style="position:absolute;top:239px;left:593px;white-space:nowrap" class="ft232">&#160;</p>
+<p style="position:absolute;top:278px;left:593px;white-space:nowrap" class="ft233"><b>Gerrit</b></p>
+<p style="position:absolute;top:864px;left:406px;white-space:nowrap" class="ft234">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+<p style="position:absolute;top:407px;left:270px;white-space:nowrap" class="ft235"><b>git push</b></p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft240{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft241{font-size:52px;font-family:Times;color:#000000;}
+	.ft242{font-size:25px;font-family:Times;color:#000000;}
+	.ft243{font-size:64px;font-family:Times;color:#0070c0;}
+	.ft244{font-size:14px;font-family:Times;color:#000000;}
+	.ft245{font-size:34px;font-family:Times;color:#00cc99;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page24-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1024.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:57px;white-space:nowrap" class="ft240"><b>Gerrit</b></p>
+<p style="position:absolute;top:141px;left:418px;white-space:nowrap" class="ft241"><b>Code Review</b></p>
+<p style="position:absolute;top:239px;left:593px;white-space:nowrap" class="ft242">&#160;</p>
+<p style="position:absolute;top:278px;left:593px;white-space:nowrap" class="ft243"><b>Gerrit</b></p>
+<p style="position:absolute;top:864px;left:406px;white-space:nowrap" class="ft244">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+<p style="position:absolute;top:411px;left:266px;white-space:nowrap" class="ft245"><b>git push</b></p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft250{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft251{font-size:52px;font-family:Times;color:#000000;}
+	.ft252{font-size:25px;font-family:Times;color:#000000;}
+	.ft253{font-size:64px;font-family:Times;color:#0070c0;}
+	.ft254{font-size:14px;font-family:Times;color:#000000;}
+	.ft255{font-size:34px;font-family:Times;color:#00cc99;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page25-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1025.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:57px;white-space:nowrap" class="ft250"><b>Gerrit</b></p>
+<p style="position:absolute;top:141px;left:418px;white-space:nowrap" class="ft251"><b>Code Review</b></p>
+<p style="position:absolute;top:239px;left:593px;white-space:nowrap" class="ft252">&#160;</p>
+<p style="position:absolute;top:278px;left:593px;white-space:nowrap" class="ft253"><b>Gerrit</b></p>
+<p style="position:absolute;top:864px;left:406px;white-space:nowrap" class="ft254">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+<p style="position:absolute;top:416px;left:208px;white-space:nowrap" class="ft255"><b>git push &lt;for_review&gt;</b></p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft260{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft261{font-size:52px;font-family:Times;color:#000000;}
+	.ft262{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page26-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1026.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:57px;white-space:nowrap" class="ft260"><b>Gerrit</b></p>
+<p style="position:absolute;top:141px;left:421px;white-space:nowrap" class="ft261"><b>Commenting</b></p>
+<p style="position:absolute;top:864px;left:406px;white-space:nowrap" class="ft262">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft270{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft271{font-size:52px;font-family:Times;color:#000000;}
+	.ft272{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page27-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1027.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:57px;white-space:nowrap" class="ft270"><b>Gerrit</b></p>
+<p style="position:absolute;top:141px;left:277px;white-space:nowrap" class="ft271"><b>Discussing &amp; Improving</b></p>
+<p style="position:absolute;top:864px;left:406px;white-space:nowrap" class="ft272">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft280{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft281{font-size:52px;font-family:Times;color:#000000;}
+	.ft282{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page28-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1028.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:57px;white-space:nowrap" class="ft280"><b>Gerrit</b></p>
+<p style="position:absolute;top:141px;left:502px;white-space:nowrap" class="ft281"><b>Voting</b></p>
+<p style="position:absolute;top:864px;left:406px;white-space:nowrap" class="ft282">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft290{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft291{font-size:34px;font-family:Times;color:#000000;}
+	.ft292{font-size:25px;font-family:Times;color:#000000;}
+	.ft293{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page29-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1029.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:57px;white-space:nowrap" class="ft290"><b>Gerrit</b></p>
+<p style="position:absolute;top:165px;left:74px;white-space:nowrap" class="ft291"><b>Do not miss:</b></p>
+<p style="position:absolute;top:246px;left:74px;white-space:nowrap" class="ft291"><b>Talk by Shawn Pearce (Gerrit founder and Project Lead)</b></p>
+<p style="position:absolute;top:327px;left:128px;white-space:nowrap" class="ft291"><b>&#160;</b></p>
+<p style="position:absolute;top:409px;left:128px;white-space:nowrap" class="ft291"><b>Harnessing Peer Code Reviews</b></p>
+<p style="position:absolute;top:490px;left:128px;white-space:nowrap" class="ft291"><b>Wednesday, 14:15, Ballroom A</b></p>
+<p style="position:absolute;top:543px;left:74px;white-space:nowrap" class="ft292">&#160;</p>
+<p style="position:absolute;top:864px;left:406px;white-space:nowrap" class="ft293">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft300{font-size:25px;font-family:Times;color:#ffffff;}
+	.ft301{font-size:29px;font-family:Times;color:#000000;}
+	.ft302{font-size:14px;font-family:Times;color:#000000;}
+	.ft303{font-size:29px;font-family:Times;color:#1155cc;}
+	.ft304{font-size:29px;line-height:34px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page30-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1030.png" alt="background image"/>
+<p style="position:absolute;top:482px;left:329px;white-space:nowrap" class="ft300">Developer PC</p>
+<p style="position:absolute;top:123px;left:511px;white-space:nowrap" class="ft300">Gerrit</p>
+<p style="position:absolute;top:241px;left:449px;white-space:nowrap" class="ft300">git</p>
+<p style="position:absolute;top:241px;left:543px;white-space:nowrap" class="ft300">git</p>
+<p style="position:absolute;top:267px;left:602px;white-space:nowrap" class="ft300">git</p>
+<p style="position:absolute;top:267px;left:483px;white-space:nowrap" class="ft300">git</p>
+<p style="position:absolute;top:499px;left:278px;white-space:nowrap" class="ft300">Developer PC</p>
+<p style="position:absolute;top:651px;left:220px;white-space:nowrap" class="ft300">git</p>
+<p style="position:absolute;top:694px;left:263px;white-space:nowrap" class="ft300">git</p>
+<p style="position:absolute;top:556px;left:943px;white-space:nowrap" class="ft300">Hudson</p>
+<p style="position:absolute;top:386px;left:46px;white-space:nowrap" class="ft304"><b>- clone repository&#160;<br/>- fetch / push changes</b></p>
+<p style="position:absolute;top:291px;left:837px;white-space:nowrap" class="ft304"><b>- verify proposed&#160;<br/>changes<br/>- continuous&#160;<br/>integration builds</b></p>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft302">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+<p style="position:absolute;top:53px;left:387px;white-space:nowrap" class="ft303"><a href="http://git.eclipse.org/r/">http://git.eclipse.org/r/</a></p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft310{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft311{font-size:46px;font-family:Times;color:#1155cc;}
+	.ft312{font-size:46px;font-family:Times;color:#000000;}
+	.ft313{font-size:25px;font-family:Times;color:#000000;}
+	.ft314{font-size:25px;font-family:Times;color:#808080;}
+	.ft315{font-size:46px;font-family:Times;color:#999999;}
+	.ft316{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page31-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1031.png" alt="background image"/>
+<p style="position:absolute;top:91px;left:75px;white-space:nowrap" class="ft310"><b>Gerrit Exercises&#160;</b></p>
+<p style="position:absolute;top:229px;left:89px;white-space:nowrap" class="ft311"><b>1&#160; Configure push to Gerrit</b></p>
+<p style="position:absolute;top:278px;left:75px;white-space:nowrap" class="ft313">&#160;</p>
+<p style="position:absolute;top:312px;left:89px;white-space:nowrap" class="ft311"><b>2&#160; Push change to Gerrit</b></p>
+<p style="position:absolute;top:362px;left:75px;white-space:nowrap" class="ft313">&#160;</p>
+<p style="position:absolute;top:396px;left:89px;white-space:nowrap" class="ft311"><b>3&#160; Review change</b></p>
+<p style="position:absolute;top:445px;left:75px;white-space:nowrap" class="ft313">&#160;</p>
+<p style="position:absolute;top:479px;left:89px;white-space:nowrap" class="ft311"><b>4&#160; Improve a change</b></p>
+<p style="position:absolute;top:529px;left:75px;white-space:nowrap" class="ft313">&#160;</p>
+<p style="position:absolute;top:563px;left:89px;white-space:nowrap" class="ft311"><b>5&#160; Submit a change to the codebase</b></p>
+<p style="position:absolute;top:612px;left:75px;white-space:nowrap" class="ft313">&#160;</p>
+<p style="position:absolute;top:646px;left:89px;white-space:nowrap" class="ft311"><b>6&#160; View Gerrit review notes</b></p>
+<p style="position:absolute;top:696px;left:75px;white-space:nowrap" class="ft314">&#160;</p>
+<p style="position:absolute;top:730px;left:89px;white-space:nowrap" class="ft311"><b>7&#160; Starting Demo Gerrit Server (backup)</b></p>
+<p style="position:absolute;top:779px;left:75px;white-space:nowrap" class="ft313">&#160;</p>
+<p style="position:absolute;top:864px;left:406px;white-space:nowrap" class="ft316">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft320{font-size:88px;font-family:Times;color:#000000;}
+	.ft321{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page32-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1032.png" alt="background image"/>
+<p style="position:absolute;top:350px;left:99px;white-space:nowrap" class="ft320"><b>Mylyn Integration</b></p>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft321">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft330{font-size:14px;font-family:Times;color:#000000;}
+	.ft331{font-size:52px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page33-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1033.png" alt="background image"/>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft330">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+<p style="position:absolute;top:49px;left:405px;white-space:nowrap" class="ft331"><b>90% Irrelevant</b></p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft340{font-size:14px;font-family:Times;color:#000000;}
+	.ft341{font-size:52px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page34-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1034.png" alt="background image"/>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft340">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+<p style="position:absolute;top:49px;left:373px;white-space:nowrap" class="ft341"><b>Task-focused IDE</b></p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft350{font-size:104px;font-family:Times;color:#000000;}
+	.ft351{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page35-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1035.png" alt="background image"/>
+<p style="position:absolute;top:337px;left:360px;white-space:nowrap" class="ft350"><b>&lt; Demo &gt;</b></p>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft351">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft360{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft361{font-size:46px;font-family:Times;color:#000000;}
+	.ft362{font-size:14px;font-family:Times;color:#000000;}
+	.ft363{font-size:46px;line-height:52px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page36-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1036.png" alt="background image"/>
+<p style="position:absolute;top:54px;left:62px;white-space:nowrap" class="ft360"><b>Exercises: Mylyn Integration</b></p>
+<p style="position:absolute;top:131px;left:75px;white-space:nowrap" class="ft363"><b>1 Mylyn / EGit Integration<br/>&#160;&#160;</b></p>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft362">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft370{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft371{font-size:46px;font-family:Times;color:#000000;}
+	.ft372{font-size:14px;font-family:Times;color:#000000;}
+	.ft373{font-size:46px;line-height:52px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page37-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1037.png" alt="background image"/>
+<p style="position:absolute;top:54px;left:62px;white-space:nowrap" class="ft370"><b>Exercises: Mylyn Integration</b></p>
+<p style="position:absolute;top:131px;left:75px;white-space:nowrap" class="ft373"><b>2 Use Gerrit from within the IDE<br/>&#160;&#160;</b></p>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft372">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft380{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft381{font-size:46px;font-family:Times;color:#000000;}
+	.ft382{font-size:46px;font-family:Times;color:#1155cc;}
+	.ft383{font-size:25px;font-family:Times;color:#000000;}
+	.ft384{font-size:31px;font-family:Times;color:#000000;}
+	.ft385{font-size:31px;font-family:Times;color:#000000;}
+	.ft386{font-size:31px;font-family:Times;color:#000000;}
+	.ft387{font-size:14px;font-family:Times;color:#000000;}
+	.ft388{font-size:46px;line-height:52px;font-family:Times;color:#000000;}
+	.ft389{font-size:46px;line-height:49px;font-family:Times;color:#000000;}
+	.ft3810{font-size:25px;line-height:29px;font-family:Times;color:#000000;}
+	.ft3811{font-size:31px;line-height:36px;font-family:Times;color:#000000;}
+	.ft3812{font-size:31px;line-height:36px;font-family:Times;color:#000000;}
+	.ft3813{font-size:31px;line-height:36px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page38-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1038.png" alt="background image"/>
+<p style="position:absolute;top:54px;left:62px;white-space:nowrap" class="ft380"><b>Exercises: Mylyn Integration</b></p>
+<p style="position:absolute;top:131px;left:75px;white-space:nowrap" class="ft3811"><b>&#160;<br/>1&#160;Mylyn / EGit Integration<br/>&#160;<br/>2&#160;Use Gerrit from within the IDE<br/></b>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/>&#160;<br/><i>Related talk<br/></i><b>Wednesday, 1:30PM - 2:15PM<br/></b>Build, Stage, Review, Merge: Task-focused Development the Eclipse&#160;<br/>Mylyn Way<br/>&#160;<br/><b>&#160;&#160;</b></p>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft387">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft390{font-size:88px;font-family:Times;color:#000000;}
+	.ft391{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page39-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1039.png" alt="background image"/>
+<p style="position:absolute;top:163px;left:103px;white-space:nowrap" class="ft390"><b>GitHub Eclipse Support</b></p>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft391">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft400{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft401{font-size:24px;font-family:Times;color:#0070c0;}
+	.ft402{font-size:41px;font-family:Times;color:#0070c0;}
+	.ft403{font-size:32px;font-family:Times;color:#000000;}
+	.ft404{font-size:41px;font-family:Times;color:#000000;}
+	.ft405{font-size:25px;font-family:Times;color:#000000;}
+	.ft406{font-size:24px;font-family:Times;color:#000000;}
+	.ft407{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page40-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1040.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:43px;white-space:nowrap" class="ft400"><b>GitHub Eclipse Support</b></p>
+<p style="position:absolute;top:188px;left:67px;white-space:nowrap" class="ft401">●</p>
+<p style="position:absolute;top:175px;left:83px;white-space:nowrap" class="ft402"><b>&#160; https://github.com/eclipse</b></p>
+<p style="position:absolute;top:229px;left:167px;white-space:nowrap" class="ft403">○</p>
+<p style="position:absolute;top:223px;left:188px;white-space:nowrap" class="ft404">&#160; 248 mirrored repositories</p>
+<p style="position:absolute;top:268px;left:178px;white-space:nowrap" class="ft405">&#160;</p>
+<p style="position:absolute;top:312px;left:67px;white-space:nowrap" class="ft406">●</p>
+<p style="position:absolute;top:300px;left:83px;white-space:nowrap" class="ft404">&#160; Browsing source code</p>
+<p style="position:absolute;top:360px;left:67px;white-space:nowrap" class="ft406">●</p>
+<p style="position:absolute;top:347px;left:83px;white-space:nowrap" class="ft404">&#160; Comparing branches and tags</p>
+<p style="position:absolute;top:407px;left:67px;white-space:nowrap" class="ft406">●</p>
+<p style="position:absolute;top:395px;left:83px;white-space:nowrap" class="ft404">&#160; Activity feeds</p>
+<p style="position:absolute;top:455px;left:67px;white-space:nowrap" class="ft406">●</p>
+<p style="position:absolute;top:442px;left:83px;white-space:nowrap" class="ft404">&#160; Charts &amp; graphs</p>
+<p style="position:absolute;top:502px;left:67px;white-space:nowrap" class="ft406">●</p>
+<p style="position:absolute;top:490px;left:83px;white-space:nowrap" class="ft404">&#160; Downloading snapshots</p>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft407">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft410{font-size:52px;font-family:Times;color:#2f2672;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page41-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1041.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:43px;white-space:nowrap" class="ft410"><b>GitHub Eclipse Support</b></p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft420{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft421{font-size:41px;font-family:Times;color:#0070c0;}
+	.ft422{font-size:41px;font-family:Times;color:#000000;}
+	.ft423{font-size:25px;font-family:Times;color:#000000;}
+	.ft424{font-size:14px;font-family:Times;color:#000000;}
+	.ft425{font-size:41px;line-height:47px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page42-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1042.png" alt="background image"/>
+<p style="position:absolute;top:63px;left:43px;white-space:nowrap" class="ft420"><b>GitHub EGit Integration</b></p>
+<p style="position:absolute;top:175px;left:124px;white-space:nowrap" class="ft421"><b>GitHub Mylyn Connector</b></p>
+<p style="position:absolute;top:223px;left:178px;white-space:nowrap" class="ft425">Issues<br/>Gists<br/>Pull Requests<br/>Import Wizard</p>
+<p style="position:absolute;top:411px;left:70px;white-space:nowrap" class="ft423">&#160;</p>
+<p style="position:absolute;top:444px;left:124px;white-space:nowrap" class="ft421"><b>GitHub Java API</b></p>
+<p style="position:absolute;top:491px;left:178px;white-space:nowrap" class="ft425">Maven plugins<br/>Reporting<br/>Automating tasks</p>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft424">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft430{font-size:52px;font-family:Times;color:#2f2672;}
+	.ft431{font-size:46px;font-family:Times;color:#000000;}
+	.ft432{font-size:46px;font-family:Times;color:#1155cc;}
+	.ft433{font-size:14px;font-family:Times;color:#000000;}
+	.ft434{font-size:46px;line-height:52px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page43-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1043.png" alt="background image"/>
+<p style="position:absolute;top:54px;left:62px;white-space:nowrap" class="ft430"><b>GitHub Exercises: EGit Integration</b></p>
+<p style="position:absolute;top:131px;left:75px;white-space:nowrap" class="ft434"><b>&#160;<br/>1&#160;Setup Share on GitHub<br/>&#160;&#160;</b></p>
+<p style="position:absolute;top:859px;left:255px;white-space:nowrap" class="ft433">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft440{font-size:104px;font-family:Times;color:#000000;}
+	.ft441{font-size:14px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page44-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1044.png" alt="background image"/>
+<p style="position:absolute;top:338px;left:99px;white-space:nowrap" class="ft440"><b>Q&amp;A</b></p>
+<p style="position:absolute;top:859px;left:243px;white-space:nowrap" class="ft441">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</p>
+</div>
+</body>
+</html>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+<title>The-Git-Tutorial-1-html.html</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+ <br/>
+<style type="text/css">
+<!--
+	p {margin: 0; padding: 0;}	.ft450{font-size:64px;font-family:Times;color:#000080;}
+	.ft451{font-size:25px;font-family:Times;color:#000000;}
+	.ft452{font-size:39px;font-family:Times;color:#000000;}
+	.ft453{font-size:107px;font-family:Times;color:#ffffff;}
+	.ft454{font-size:39px;font-family:Times;color:#0000cc;}
+	.ft455{font-size:25px;line-height:31px;font-family:Times;color:#000000;}
+-->
+</style>
+</head>
+<body bgcolor="#A0A0A0" vlink="blue" link="blue">
+<div id="page45-div" style="position:relative;width:1200px;height:900px;">
+<img width="1200" height="900" src="The-Git-Tutorial-1045.png" alt="background image"/>
+<p style="position:absolute;top:85px;left:70px;white-space:nowrap" class="ft450"><b>Give Feedback on the Sessions</b></p>
+<p style="position:absolute;top:423px;left:70px;white-space:nowrap" class="ft455">&#160;<br/>&#160;</p>
+<p style="position:absolute;top:487px;left:600px;white-space:nowrap" class="ft452"><b>&#160;</b></p>
+<p style="position:absolute;top:209px;left:85px;white-space:nowrap" class="ft453">1&#160;<b>Sign In: &#160;www.eclipsecon.org</b></p>
+<p style="position:absolute;top:402px;left:95px;white-space:nowrap" class="ft453">2&#160;<b>Select Session Evaluate</b></p>
+<p style="position:absolute;top:603px;left:93px;white-space:nowrap" class="ft453">3&#160;<b>Vote&#160;</b></p>
+</div>
+</body>
+</html>
