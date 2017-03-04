@@ -4,6 +4,8 @@ import sys
 import os
 from binascii import b2a_hex
 
+import ntpath
+
 from pdfminer.pdfparser import PDFParser
 from pdfminer.pdfdocument import PDFDocument, PDFNoOutlines
 from pdfminer.pdfpage import PDFPage
@@ -197,6 +199,15 @@ def get_pages (pdf_doc, pdf_pwd='', images_folder='/tmp'):
     """Process each of the pages in this pdf file and
     return a list of strings representing the text found in each page"""
     return with_pdf(pdf_doc, _parse_pages, pdf_pwd, *tuple([images_folder]))
+
+def pdf_to_html(path_to_file):
+    """One can use pdf2html utility of PDFMiner to get points."""
+    file_name = ntpath.basename(path_to_file)
+    file_name_without_extension, file_extension = os.path.splitext(file_name)
+    application_copy_of_input_file = os.path.join("InputFiles",file_name)
+    os.system("cp "+path_to_file+" "+application_copy_of_input_file)
+    os.system("pdf2html "+application_copy_of_input_file)
+    converted_html_file = os.path.join("ConvertedInputFiles",file_name_without_extension+"s.html")
 
 arr = get_pages('sample.pdf','','/images')
 f = open('sample_contents.txt','w')
