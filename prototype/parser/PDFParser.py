@@ -17,6 +17,8 @@ from pdfminer.pdfinterp import PDFResourceManager, PDFPageInterpreter
 from pdfminer.converter import PDFPageAggregator
 from pdfminer.layout import LAParams, LTTextBox, LTTextLine, LTFigure, LTImage, LTChar
 
+import requests
+
 def with_pdf (pdf_doc, fn, pdf_pwd, *args):
     result = None
     try:
@@ -209,7 +211,7 @@ class ElementsForSlides():
     pass
 
 
-def PDFToHTML(path_to_file):
+def PDFToHTMLOrXML(path_to_file, to_xml = False):
     """One can use pdf2html utility of PDFMiner to get points."""
     old_working_directory = os.getcwd()
     file_name = ntpath.basename(path_to_file)
@@ -221,11 +223,16 @@ def PDFToHTML(path_to_file):
     # do not know if this is not needed
     os.system("cp "+path_to_file+" "+file_name)
     # get images as separate files as well as group images by page
-    os.system("pdftohtml -s "+file_name)
-    converted_html_file = file_name_without_extension+"-html.html"
+    converted_file = None
+    if not to_xml:
+        os.system("pdftohtml -s "+file_name) #-s single html file
+        converted_file = file_name_without_extension+"-html.html"
+    else:
+        os.system("pdftohtml -xml " + file_name)
+        converted_file = file_name_without_extension + ".xml"
     os.chdir(old_working_directory)
 
-def GetRecognisedElements(path_to_html_file):
+def GetRecognisedElementsHTML(path_to_html_file):
     """
     Titles -
         Main Title of pdf usually has class - "ft10"
@@ -247,7 +254,24 @@ def GetRecognisedElements(path_to_html_file):
     recognised_elements.all_pTags_in_pdf = htmlTreeParser.xpath('//p//text()')
     return recognised_elements
 
-
+def GetXMLFromOnlineAPI(path_to_file):
+    """
+    Get XML output from online API
+    :param path_to_file: Full Path to the input PDF file.
+    """
+    api_url = "http://pdfx.cs.man.ac.uk"
+    file_descriptor = open(path_to_file, 'rb')
+    files_payload = {'file': file_descriptor}
+    try:
+        print 'Sending', path_to_file, 'to', api_url
+        xml_result = requests.post(api_url, files=files_payload, headers={'Content-Type': 'application/pdf'})
+        print 'Got status code', xml_result.status_code
+    finally:
+        file_descriptor.close()
+    xml_result_file = open(path_to_file + '_API.xml', 'w')
+    xml_result_file.write(xml_result.content)
+    xml_result_file.close()
+    print 'Written to', path_to_file + '.xml'
 
 # arr = get_pages('sample.pdf','','/images')
 # f = open('sample_contents.txt','w')
@@ -255,18 +279,78 @@ def GetRecognisedElements(path_to_html_file):
 #     f.write(line)
 #     f.write('\n')
 
-# PDFToHTML("/home/sudharshanasl/Downloads/imagefile.pdf")
 """
     file : imagefile.pdf
-    description : pdf with paragraphs and images
-    comments :
-        1) pdf has paragraph with different font.
-            - this caused malformed lines in html
-        2) images and text are grouped by page in html
-        3) need to check if images are recognised with formats and generated
+    description : pdf with paragraph, section, subsection, images
+    file : ForPoints.pdf
+    description : PDF with only points
+    file : os-sample.pdf
+    description : PDF of random pages from OS textbook
+    file : The-Git-Tutorial-1.pdf
+    description : PDF of Git tutorial
+    PDF to HTML comments :
+        Advantages :
+            1) Easy to identify important words/ keypoints.
+            2) Images and text are grouped by page in html.
+            3) Images are recognised with formats and generated.
+            4) Per Page analysis can be done for recognising section and subsection by looking into CSS3 class' font attribute values.
+        Disadvantages :
+            1) Tough to identify paragraphs.
+            2) Tough to differentiate between bullets and paragraphs.
+            3) Generated HTML DOM tree varies for each pdf.
+                - Patterns for section, subsection and content will vary.
+            4) PDF has paragraph with different font.
+                - this caused malformed lines in html
+            5) Logos or images repetition needs to be handled via hash history of images.
+            6) Tables and Diagrams using shapes pose a serious problem.
+        Next Steps :
+            a) Write code for recognising paragraphs.
+                - And then try to analyze if it is a point.
+            b) Test code against many PDF inputs.
+            c) Handle redundant generated images.
+            d) Try to identify the section, subsection, key points, etc.,.
+    PDF to XML comments :
+        Advantages :
+            1) Paragraphs can be identified in the files we have tested.
+            2) There seems to be a pattern based on attributes of text tags through which we can recognise Tables.
+            3) Unstructured Text Output can be suggested to user as diagram.
+            4) Similar XML output for the PDFs we have tested against.
+            5) Styling tags present to extract key points.
+            6) Images grouped and named corresponding to page.
+        Disadvantages :
+            1) Need complex Tree Parsing algorithms to pick out the points because of varied styles employed by Authors
+        Next Steps :
+            1) Algorithm to identify paragraphs and tables.
+            2) Pick images according to page numbers and generate slides.
+            3) Also identify key points and put them into slide corresponding to page number.
+    PDF to XML using API :
+        Advantages :
+            1) Paragraphs are already grouped.
+            2) Titles are found withing tags with title in their names.
+            3) Page Numbers can be identified.
+        Disadvantages :
+            1) Font styling is lost. Need to use NLP or Word2Vec to extract key points.
+            2) Relying on the API. API server can go down without a notification from their side.
+            3) Online Data extraction.
+            4) Tough to test for 100s of PDFs.
+            5) Images were not returned.
+        Next Steps :
+            1) Identify key points.
+            2) Map paragraphs to page numbers and generate slides.
+            3) Need to look into what other data one can extract from API result.
 """
-# PDFToHTML("/home/sudharshanasl/PycharmProjects/AutomaticSlidesGeneration/prototype/parser/InputFiles/ForPoints.pdf")
-# PDFToHTML("/home/sudharshanasl/Education/GitHub/The-Git-Tutorial-1.pdf")
+# PDFToHTMLOrXML("/home/sudharshanasl/PycharmProjects/AutomaticSlidesGeneration/prototype/parser/InputFiles/imagefile.pdf")
+# PDFToHTMLOrXML("/home/sudharshanasl/PycharmProjects/AutomaticSlidesGeneration/prototype/parser/InputFiles/ForPoints.pdf")
+# PDFToHTMLOrXML("/home/sudharshanasl/Education/GitHub/The-Git-Tutorial-1.pdf")
+# PDFToHTMLOrXML("/home/sudharshanasl/PycharmProjects/AutomaticSlidesGeneration/prototype/parser/InputFiles/os-sample.pdf")
+# PDFToHTMLOrXML("//home/sudharshanasl/PycharmProjects/AutomaticSlidesGeneration/prototype/parser/InputFiles/imagefile.pdf",to_xml = True)
+# PDFToHTMLOrXML("/home/sudharshanasl/PycharmProjects/AutomaticSlidesGeneration/prototype/parser/InputFiles/ForPoints.pdf",to_xml = True)
+# PDFToHTMLOrXML("/home/sudharshanasl/Education/GitHub/The-Git-Tutorial-1.pdf",to_xml = True)
+# PDFToHTMLOrXML("/home/sudharshanasl/PycharmProjects/AutomaticSlidesGeneration/prototype/parser/InputFiles/os-sample.pdf",to_xml=True)
 
-elements_of_html = GetRecognisedElements("/home/sudharshanasl/PycharmProjects/AutomaticSlidesGeneration/prototype/parser/InputFiles/imagefile_Data/imagefile-html.html")
-print elements_of_html.main_heading
+
+# elements_of_html = GetRecognisedElementsHTML("/home/sudharshanasl/PycharmProjects/AutomaticSlidesGeneration/prototype/parser/InputFiles/imagefile_Data/imagefile-html.html")
+# print elements_of_html.main_heading
+
+GetXMLFromOnlineAPI("/home/sudharshanasl/PycharmProjects/AutomaticSlidesGeneration/prototype/parser/InputFiles/imagefile.pdf")
+GetXMLFromOnlineAPI("/home/sudharshanasl/PycharmProjects/AutomaticSlidesGeneration/prototype/parser/InputFiles/os-sample.pdf")

@@ -1,0 +1,742 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pdf2xml SYSTEM "pdf2xml.dtd">
+
+<pdf2xml producer="poppler" version="0.24.5">
+<page number="1" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="0" size="64" family="Times" color="#000000"/>
+	<fontspec id="1" size="34" family="Times" color="#1155cc"/>
+	<fontspec id="2" size="25" family="Times" color="#000000"/>
+	<fontspec id="3" size="29" family="Times" color="#1155cc"/>
+	<fontspec id="4" size="16" family="Times" color="#000000"/>
+<image top="399" left="33" width="644" height="437" src="The-Git-Tutorial-1-1_1.png"/>
+<image top="203" left="21" width="103" height="137" src="The-Git-Tutorial-1-1_2.png"/>
+<image top="16" left="191" width="110" height="137" src="The-Git-Tutorial-1-1_3.png"/>
+<image top="16" left="21" width="112" height="137" src="The-Git-Tutorial-1-1_4.png"/>
+<image top="203" left="191" width="116" height="137" src="The-Git-Tutorial-1-1_5.png"/>
+<image top="14" left="350" width="129" height="136" src="The-Git-Tutorial-1-1_6.jpg"/>
+<text top="177" left="679" width="487" height="62" font="0"><b>The Git Tutorial</b></text>
+<text top="244" left="880" width="286" height="34" font="1"><b>EclipseCon 2012</b></text>
+<text top="282" left="612" width="7" height="25" font="2"> </text>
+<text top="313" left="612" width="7" height="25" font="2"> </text>
+<text top="344" left="612" width="7" height="25" font="2"> </text>
+<text top="375" left="612" width="7" height="25" font="2"> </text>
+<text top="407" left="886" width="280" height="30" font="3">http://eclipse.org/jgit</text>
+<text top="441" left="876" width="290" height="30" font="3">http://eclipse.org/egit</text>
+<text top="475" left="741" width="425" height="30" font="3">http://code.google.com/p/gerrit</text>
+<text top="510" left="612" width="7" height="25" font="2"> </text>
+<text top="347" left="20" width="115" height="17" font="4">Matthias Sohn</text>
+<text top="367" left="53" width="48" height="17" font="4">(SAP)</text>
+<text top="160" left="200" width="86" height="17" font="4">Stefan Lay</text>
+<text top="180" left="219" width="48" height="17" font="4">(SAP)</text>
+<text top="160" left="14" width="127" height="17" font="4">Chris Aniszczyk</text>
+<text top="180" left="44" width="66" height="17" font="4">(Twitter)</text>
+<text top="160" left="357" width="111" height="17" font="4">Kevin Sawicki</text>
+<text top="180" left="379" width="68" height="17" font="4">(GitHub)</text>
+<text top="347" left="176" width="156" height="17" font="4">Benjamin Muskalla </text>
+<text top="367" left="214" width="76" height="17" font="4">(Tasktop)</text>
+</page>
+<page number="2" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="5" size="52" family="Times" color="#2f2672"/>
+	<fontspec id="6" size="46" family="Times" color="#1155cc"/>
+	<fontspec id="7" size="46" family="Times" color="#000000"/>
+	<fontspec id="8" size="46" family="Times" color="#000000"/>
+	<fontspec id="9" size="46" family="Times" color="#000000"/>
+	<fontspec id="10" size="14" family="Times" color="#000000"/>
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-2_1.png"/>
+<text top="54" left="62" width="198" height="51" font="5"><b>Agenda</b></text>
+<text top="205" left="87" width="280" height="45" font="6"><i><b>Introduction</b></i></text>
+<text top="258" left="87" width="12" height="44" font="7"><i> </i></text>
+<text top="313" left="87" width="224" height="45" font="6"><i><b>Exercises</b></i></text>
+<text top="368" left="87" width="906" height="45" font="8"><b>Setup &amp; Cloning the Sample Repository</b></text>
+<text top="420" left="87" width="661" height="45" font="8"><b>Local Development with EGit</b></text>
+<text top="473" left="87" width="442" height="45" font="8"><b>Gerrit Code Review</b></text>
+<text top="525" left="87" width="397" height="45" font="8"><b>Mylyn Integration</b></text>
+<text top="577" left="87" width="538" height="45" font="8"><b>GitHub Eclipse Support</b></text>
+<text top="631" left="87" width="12" height="44" font="9"> </text>
+<text top="685" left="87" width="133" height="45" font="6"><i><b>Q &amp; A</b></i></text>
+<text top="859" left="255" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="3" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="11" size="38" family="Times" color="#0070c0"/>
+	<fontspec id="12" size="38" family="Times" color="#000000"/>
+	<fontspec id="13" size="28" family="Times" color="#000000"/>
+<image top="42" left="1066" width="80" height="97" src="The-Git-Tutorial-1-3_1.png"/>
+<image top="50" left="956" width="108" height="61" src="The-Git-Tutorial-1-3_2.png"/>
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-3_3.png"/>
+<text top="63" left="43" width="75" height="51" font="5"><b>Git</b></text>
+<text top="138" left="69" width="998" height="38" font="11"><b>… a distributed revision control system built by the </b></text>
+<text top="183" left="69" width="722" height="38" font="11"><b>Linux project to facilitate code review</b></text>
+<text top="225" left="69" width="7" height="25" font="2"> </text>
+<text top="258" left="69" width="704" height="38" font="12">Distributed means no central repository</text>
+<text top="309" left="68" width="11" height="17" font="4">●</text>
+<text top="300" left="83" width="268" height="28" font="13">No central authority!</text>
+<text top="342" left="68" width="11" height="17" font="4">●</text>
+<text top="333" left="83" width="245" height="28" font="13">Easy offline usage</text>
+<text top="375" left="68" width="11" height="17" font="4">●</text>
+<text top="366" left="83" width="323" height="28" font="13">Easy to branch a project</text>
+<text top="407" left="68" width="11" height="17" font="4">●</text>
+<text top="399" left="83" width="745" height="28" font="13">Protected against manipulation by cryptographic hashes</text>
+<text top="401" left="828" width="7" height="25" font="2"> </text>
+<text top="431" left="69" width="7" height="25" font="2"> </text>
+<text top="464" left="69" width="416" height="38" font="12">Really good at merging</text>
+<text top="515" left="68" width="11" height="17" font="4">●</text>
+<text top="507" left="83" width="537" height="28" font="13">Coordination only needed &#34;after the fact”</text>
+<text top="548" left="68" width="11" height="17" font="4">●</text>
+<text top="539" left="83" width="488" height="28" font="13">Easier to rejoin (or refresh) branches</text>
+<text top="572" left="69" width="7" height="25" font="2"> </text>
+<text top="605" left="69" width="731" height="38" font="12">Structured around commits (i.e. patches)</text>
+<text top="656" left="68" width="11" height="17" font="4">●</text>
+<text top="647" left="83" width="643" height="28" font="13">Tools for identifying problem commits (git bisect)</text>
+<text top="689" left="68" width="11" height="17" font="4">●</text>
+<text top="680" left="83" width="690" height="28" font="13">Tools for restructuring branches w/ specific commits</text>
+<text top="859" left="255" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="4" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="14" size="35" family="Times" color="#1155cc"/>
+<image top="25" left="987" width="209" height="115" src="The-Git-Tutorial-1-4_1.png"/>
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-4_2.png"/>
+<text top="63" left="43" width="342" height="51" font="5"><b>Git at Eclipse</b></text>
+<text top="175" left="70" width="79" height="38" font="11"><b>JGit</b></text>
+<text top="175" left="149" width="821" height="38" font="12"> is a lightweight Java library implementing Git </text>
+<text top="219" left="124" width="435" height="35" font="14"><a href="http://eclipse.org/projects/scmcountdown.php">http://www.eclipse.org/jgit/</a></text>
+<text top="258" left="70" width="7" height="25" font="2"> </text>
+<text top="291" left="70" width="83" height="38" font="11"><b>EGit</b></text>
+<text top="291" left="153" width="893" height="38" font="12"> is an Eclipse Team provider for Git based on JGit</text>
+<text top="335" left="124" width="448" height="35" font="14"><a href="http://code.google.com/p/rietveld/downloads/detail?name=Mondrian2006.pdf">http://www.eclipse.org/egit/</a></text>
+<text top="374" left="70" width="7" height="25" font="2"> </text>
+<text top="407" left="70" width="373" height="38" font="11"><b>Gerrit Code Review</b></text>
+<text top="407" left="444" width="533" height="38" font="12"> is a Git server based on JGit </text>
+<text top="452" left="70" width="837" height="38" font="12">adding permission control and review workflow</text>
+<text top="495" left="124" width="506" height="35" font="14">http://code.google.com/p/gerrit</text>
+<text top="537" left="70" width="11" height="38" font="12"> </text>
+<text top="581" left="70" width="314" height="38" font="11"><b>Gerrit @ Eclipse</b></text>
+<text top="581" left="384" width="180" height="38" font="12"> went live </text>
+<text top="627" left="124" width="377" height="35" font="14">https://git.eclipse.org/r/</text>
+<text top="697" left="70" width="7" height="25" font="2"> </text>
+<text top="859" left="255" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="5" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="15" size="25" family="Times" color="#1155cc"/>
+<image top="25" left="987" width="209" height="115" src="The-Git-Tutorial-1-5_1.png"/>
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-5_2.png"/>
+<image top="204" left="275" width="649" height="492" src="The-Git-Tutorial-1-5_3.png"/>
+<text top="63" left="43" width="608" height="51" font="5"><b>Eclipse is Moving to Git</b></text>
+<text top="149" left="43" width="685" height="25" font="2">CVS has been deprecated and will be retired end of 2012</text>
+<text top="179" left="43" width="7" height="25" font="2"> </text>
+<text top="786" left="43" width="540" height="25" font="15"><a href="http://eclipse.org/projects/scmcountdown.php">http://eclipse.org/projects/scmcountdown.php</a></text>
+<text top="859" left="255" width="569" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn, S. Zivkov</text>
+<text top="733" left="43" width="652" height="25" font="2">Project &amp; code repository breakdown as of 2012-03-25</text>
+</page>
+<page number="6" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="16" size="34" family="Times" color="#000000"/>
+<image top="25" left="987" width="209" height="115" src="The-Git-Tutorial-1-6_1.png"/>
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-6_2.png"/>
+<image top="231" left="36" width="1091" height="555" src="The-Git-Tutorial-1-6_3.png"/>
+<text top="63" left="43" width="769" height="51" font="5"><b>Gerrit Code Review @ Eclipse</b></text>
+<text top="157" left="43" width="271" height="25" font="15"><a href="https://git.eclipse.org/r/">https://git.eclipse.org/r/</a></text>
+<text top="150" left="315" width="10" height="34" font="16"><a href="https://git.eclipse.org/r/"> </a></text>
+<text top="155" left="325" width="407" height="28" font="13">is now available for all projects</text>
+<text top="190" left="43" width="9" height="33" font="16"> </text>
+<text top="859" left="255" width="569" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn, S. Zivkov</text>
+<text top="155" left="852" width="177" height="28" font="13">now used by:</text>
+<text top="189" left="852" width="8" height="28" font="13"> </text>
+<text top="224" left="852" width="216" height="28" font="13">EGit, Jetty, JGit,</text>
+<text top="258" left="852" width="245" height="28" font="13">Jubula, Libra, Lyo,</text>
+<text top="293" left="852" width="290" height="28" font="13">Mylyn, Platform, R4E,</text>
+<text top="327" left="852" width="220" height="28" font="13">Recommenders,</text>
+<text top="362" left="852" width="170" height="28" font="13">Skalli, Tycho</text>
+</page>
+<page number="7" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="17" size="39" family="Times" color="#000000"/>
+	<fontspec id="18" size="39" family="Times" color="#7f7f7f"/>
+	<fontspec id="19" size="29" family="Times" color="#7f7f7f"/>
+	<fontspec id="20" size="29" family="Times" color="#7f7f7f"/>
+	<fontspec id="21" size="14" family="Times" color="#ccccff"/>
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-7_1.png"/>
+<text top="54" left="62" width="893" height="51" font="5"><b>Modern Code Review – What is it ?</b></text>
+<text top="173" left="105" width="842" height="39" font="17"><b>When one developer writes code, another </b></text>
+<text top="219" left="105" width="767" height="39" font="17"><b>developer is asked to review that code</b></text>
+<text top="263" left="51" width="7" height="25" font="2"> </text>
+<text top="296" left="105" width="587" height="39" font="17"><b>A careful line-by-line critique </b></text>
+<text top="340" left="51" width="7" height="25" font="2"> </text>
+<text top="373" left="105" width="765" height="39" font="17"><b>Happens in a non-threatening context </b></text>
+<text top="417" left="51" width="7" height="25" font="2"> </text>
+<text top="450" left="105" width="746" height="39" font="17"><b>Goal is cooperation, not fault-finding </b></text>
+<text top="494" left="51" width="7" height="25" font="2"> </text>
+<text top="527" left="105" width="615" height="39" font="17"><b>Integral part of coding process</b></text>
+<text top="571" left="51" width="7" height="25" font="2"> </text>
+<text top="604" left="105" width="543" height="39" font="18"><b>Otherwise this will happen:</b></text>
+<text top="650" left="105" width="803" height="39" font="18"><b>Debugging someone else's broken code</b></text>
+<text top="694" left="105" width="858" height="30" font="19">– <b>Involuntary code review: </b>Not so good; emotions may flare</text>
+<text top="83" left="965" width="163" height="15" font="10">Guido van Rossum [1]</text>
+<text top="815" left="578" width="23" height="15" font="10">[1] </text>
+<text top="815" left="601" width="513" height="15" font="21"><a href="http://www.linuxfoundation.org/publications/linuxkerneldevelopment.php">http://code.google.com/p/rietveld/downloads/detail?name=Mondrian2006.pdf</a></text>
+<text top="859" left="255" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="8" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="22" size="29" family="Times" color="#000000"/>
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-8_1.png"/>
+<text top="54" left="62" width="609" height="51" font="5"><b>Code Review – Benefits</b></text>
+<text top="156" left="104" width="546" height="39" font="17"><b>Four eyes catch more bugs</b></text>
+<text top="200" left="158" width="625" height="30" font="22">Catch bugs early to save hours of debugging</text>
+<text top="235" left="50" width="8" height="29" font="22"> </text>
+<text top="272" left="104" width="862" height="39" font="17"><b>Mentoring of new developers / contributors</b></text>
+<text top="316" left="158" width="591" height="30" font="22">Learn from mistakes without breaking stuff</text>
+<text top="352" left="50" width="8" height="29" font="22"> </text>
+<text top="389" left="104" width="576" height="39" font="17"><b>Establish trust relationships </b></text>
+<text top="433" left="158" width="392" height="30" font="22">Prepare for more delegation</text>
+<text top="467" left="50" width="7" height="25" font="2"> </text>
+<text top="500" left="104" width="753" height="39" font="17"><b>Good alternative to pair programming</b></text>
+<text top="544" left="158" width="492" height="30" font="22">asynchronous and across locations</text>
+<text top="579" left="50" width="7" height="25" font="2"> </text>
+<text top="612" left="104" width="357" height="39" font="17"><b>Coding standards</b></text>
+<text top="656" left="158" width="602" height="30" font="22">Keep overall readability &amp; code quality high</text>
+<text top="83" left="673" width="163" height="15" font="10">Guido van Rossum [1]</text>
+<text top="806" left="552" width="23" height="15" font="10"><a href="http://eclipse.org/egit">[1] </a></text>
+<text top="807" left="575" width="513" height="15" font="21"><a href="http://eclipse.org/egit">http://code.google.com/p/rietveld/downloads/detail?name=Mondrian2006.pdf</a></text>
+<text top="859" left="255" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="9" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="23" size="25" family="Times" color="#ffffff"/>
+	<fontspec id="24" size="29" family="Times" color="#000000"/>
+<image top="466" left="224" width="379" height="277" src="The-Git-Tutorial-1-9_1.png"/>
+<image top="83" left="368" width="354" height="242" src="The-Git-Tutorial-1-9_2.png"/>
+<image top="186" left="428" width="72" height="80" src="The-Git-Tutorial-1-9_3.png"/>
+<image top="186" left="521" width="73" height="80" src="The-Git-Tutorial-1-9_4.png"/>
+<image top="210" left="581" width="72" height="80" src="The-Git-Tutorial-1-9_5.png"/>
+<image top="210" left="461" width="73" height="80" src="The-Git-Tutorial-1-9_6.png"/>
+<image top="483" left="172" width="380" height="277" src="The-Git-Tutorial-1-9_7.png"/>
+<image top="619" left="198" width="72" height="80" src="The-Git-Tutorial-1-9_8.png"/>
+<image top="662" left="241" width="72" height="80" src="The-Git-Tutorial-1-9_9.png"/>
+<image top="551" left="343" width="186" height="104" src="The-Git-Tutorial-1-9_10.png"/>
+<image top="620" left="343" width="63" height="61" src="The-Git-Tutorial-1-9_11.png"/>
+<image top="687" left="343" width="80" height="45" src="The-Git-Tutorial-1-9_12.png"/>
+<image top="101" left="394" width="63" height="60" src="The-Git-Tutorial-1-9_13.png"/>
+<image top="687" left="428" width="113" height="26" src="The-Git-Tutorial-1-9_14.png"/>
+<image top="321" left="359" width="762" height="388" src="The-Git-Tutorial-1-9_15.png"/>
+<image top="321" left="648" width="341" height="210" src="The-Git-Tutorial-1-9_16.png"/>
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-9_17.png"/>
+<text top="482" left="329" width="168" height="25" font="23">Developer PC</text>
+<text top="100" left="511" width="67" height="25" font="23">Gerrit</text>
+<text top="218" left="450" width="28" height="25" font="23">git</text>
+<text top="218" left="543" width="28" height="25" font="23">git</text>
+<text top="243" left="603" width="28" height="25" font="23">git</text>
+<text top="243" left="484" width="28" height="25" font="23">git</text>
+<text top="499" left="278" width="168" height="25" font="23">Developer PC</text>
+<text top="651" left="220" width="28" height="25" font="23">git</text>
+<text top="694" left="263" width="28" height="25" font="23">git</text>
+<text top="542" left="940" width="93" height="25" font="23">Hudson</text>
+<text top="375" left="46" width="273" height="30" font="24"><b>- clone repository </b></text>
+<text top="409" left="46" width="332" height="30" font="24"><b>- fetch / push changes</b></text>
+<text top="300" left="849" width="264" height="30" font="24"><b>- verify proposed </b></text>
+<text top="335" left="849" width="128" height="30" font="24"><b>changes</b></text>
+<text top="369" left="849" width="197" height="30" font="24"><b>- continuous </b></text>
+<text top="404" left="849" width="264" height="30" font="24"><b>integration builds</b></text>
+<text top="859" left="255" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="10" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="25" size="25" family="Times" color="#000000"/>
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-10_1.png"/>
+<image top="585" left="172" width="380" height="277" src="The-Git-Tutorial-1-10_2.png"/>
+<image top="24" left="683" width="353" height="242" src="The-Git-Tutorial-1-10_3.png"/>
+<image top="585" left="691" width="380" height="277" src="The-Git-Tutorial-1-10_4.png"/>
+<image top="331" left="231" width="176" height="387" src="The-Git-Tutorial-1-10_5.png"/>
+<image top="231" left="131" width="503" height="16" src="The-Git-Tutorial-1-10_6.png"/>
+<image top="282" left="377" width="193" height="15" src="The-Git-Tutorial-1-10_7.png"/>
+<image top="324" left="241" width="201" height="16" src="The-Git-Tutorial-1-10_8.png"/>
+<image top="237" left="454" width="209" height="136" src="The-Git-Tutorial-1-10_9.png"/>
+<image top="254" left="208" width="18" height="462" src="The-Git-Tutorial-1-10_10.png"/>
+<image top="363" left="630" width="103" height="361" src="The-Git-Tutorial-1-10_11.png"/>
+<image top="322" left="241" width="22" height="20" src="The-Git-Tutorial-1-10_12.png"/>
+<image top="322" left="317" width="22" height="20" src="The-Git-Tutorial-1-10_13.png"/>
+<image top="322" left="394" width="22" height="20" src="The-Git-Tutorial-1-10_14.png"/>
+<image top="356" left="512" width="23" height="21" src="The-Git-Tutorial-1-10_15.png"/>
+<image top="356" left="624" width="22" height="21" src="The-Git-Tutorial-1-10_16.png"/>
+<image top="279" left="530" width="22" height="21" src="The-Git-Tutorial-1-10_17.png"/>
+<image top="279" left="436" width="23" height="21" src="The-Git-Tutorial-1-10_18.png"/>
+<text top="601" left="278" width="168" height="25" font="23">Developer PC</text>
+<text top="754" left="220" width="28" height="25" font="23">git</text>
+<text top="796" left="262" width="28" height="25" font="23">git</text>
+<text top="40" left="826" width="67" height="25" font="23">Gerrit</text>
+<text top="158" left="798" width="28" height="25" font="23">git</text>
+<text top="158" left="892" width="28" height="25" font="23">git</text>
+<text top="184" left="951" width="28" height="25" font="23">git</text>
+<text top="184" left="832" width="28" height="25" font="23">git</text>
+<text top="508" left="349" width="234" height="30" font="24"><b>push improved </b></text>
+<text top="542" left="349" width="154" height="30" font="24"><b>change 10</b></text>
+<text top="601" left="797" width="168" height="25" font="23">Developer PC</text>
+<text top="754" left="739" width="28" height="25" font="23">git</text>
+<text top="796" left="781" width="28" height="25" font="23">git</text>
+<text top="503" left="710" width="247" height="30" font="24"><b>fetch change 23 </b></text>
+<text top="538" left="710" width="107" height="30" font="24"><b>to try it</b></text>
+<text top="210" left="410" width="89" height="25" font="25"><b>master</b></text>
+<text top="268" left="465" width="84" height="17" font="4">change 12</text>
+<text top="310" left="332" width="84" height="17" font="4">change 10</text>
+<text top="344" left="548" width="84" height="17" font="4">change 23</text>
+<text top="276" left="604" width="257" height="30" font="24"><b>submit accepted </b></text>
+<text top="310" left="604" width="154" height="30" font="24"><b>change 12</b></text>
+<text top="488" left="16" width="196" height="30" font="24"><b>fetch master </b></text>
+<text top="522" left="16" width="94" height="30" font="24"><b>to get </b></text>
+<text top="556" left="16" width="121" height="30" font="24"><b>updates</b></text>
+<text top="871" left="243" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="11" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="26" size="88" family="Times" color="#000000"/>
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-11_1.png"/>
+<text top="306" left="99" width="849" height="84" font="26"><b>Local Development </b></text>
+<text top="405" left="99" width="389" height="84" font="26"><b>with EGit</b></text>
+<text top="859" left="243" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="12" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="466" left="225" width="376" height="277" src="The-Git-Tutorial-1-12_1.png"/>
+<image top="83" left="369" width="351" height="242" src="The-Git-Tutorial-1-12_2.png"/>
+<image top="186" left="429" width="70" height="80" src="The-Git-Tutorial-1-12_3.png"/>
+<image top="186" left="522" width="71" height="80" src="The-Git-Tutorial-1-12_4.png"/>
+<image top="210" left="582" width="70" height="80" src="The-Git-Tutorial-1-12_5.png"/>
+<image top="210" left="463" width="71" height="80" src="The-Git-Tutorial-1-12_6.png"/>
+<image top="483" left="173" width="377" height="277" src="The-Git-Tutorial-1-12_7.png"/>
+<image top="619" left="199" width="70" height="80" src="The-Git-Tutorial-1-12_8.png"/>
+<image top="662" left="242" width="70" height="80" src="The-Git-Tutorial-1-12_9.png"/>
+<image top="551" left="344" width="184" height="104" src="The-Git-Tutorial-1-12_10.png"/>
+<image top="620" left="344" width="61" height="61" src="The-Git-Tutorial-1-12_11.png"/>
+<image top="687" left="344" width="78" height="45" src="The-Git-Tutorial-1-12_12.png"/>
+<image top="101" left="395" width="61" height="60" src="The-Git-Tutorial-1-12_13.png"/>
+<image top="687" left="429" width="110" height="26" src="The-Git-Tutorial-1-12_14.png"/>
+<image top="828" left="0" width="1200" height="76" src="The-Git-Tutorial-1-12_15.png"/>
+<text top="482" left="329" width="168" height="25" font="23">Developer PC</text>
+<text top="100" left="511" width="67" height="25" font="23">Gerrit</text>
+<text top="218" left="450" width="28" height="25" font="23">git</text>
+<text top="218" left="543" width="28" height="25" font="23">git</text>
+<text top="243" left="603" width="28" height="25" font="23">git</text>
+<text top="243" left="484" width="28" height="25" font="23">git</text>
+<text top="499" left="278" width="168" height="25" font="23">Developer PC</text>
+<text top="651" left="220" width="28" height="25" font="23">git</text>
+<text top="694" left="263" width="28" height="25" font="23">git</text>
+<text top="379" left="183" width="254" height="30" font="24"><b>clone repository </b></text>
+<text top="864" left="406" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="13" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="27" size="58" family="Times" color="#2f2672"/>
+<image top="828" left="0" width="1200" height="76" src="The-Git-Tutorial-1-13_1.png"/>
+<image top="280" left="314" width="502" height="357" src="The-Git-Tutorial-1-13_2.png"/>
+<text top="131" left="100" width="556" height="56" font="27"><b>Sample Application</b></text>
+<text top="864" left="406" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="14" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="28" size="52" family="Times" color="#2f2672"/>
+	<fontspec id="29" size="46" family="Times" color="#1155cc"/>
+<image top="828" left="0" width="1200" height="76" src="The-Git-Tutorial-1-14_1.png"/>
+<text top="91" left="75" width="356" height="51" font="5"><b>Git Exercises</b> </text>
+<text top="233" left="79" width="27" height="45" font="29"><b>1</b></text>
+<text top="233" left="106" width="893" height="45" font="8"><b>  Setup &amp; Clone the example repository</b></text>
+<text top="283" left="66" width="7" height="25" font="2"> </text>
+<text top="317" left="79" width="27" height="45" font="29"><b>2</b></text>
+<text top="317" left="106" width="426" height="45" font="8"><b>  Develop a feature</b></text>
+<text top="366" left="66" width="7" height="25" font="2"> </text>
+<text top="400" left="79" width="27" height="45" font="29"><b>3</b></text>
+<text top="400" left="106" width="981" height="45" font="8"><b>  Develop 2nd feature and use staging view</b></text>
+<text top="450" left="66" width="7" height="25" font="2"> </text>
+<text top="484" left="79" width="27" height="45" font="29"><b>4</b></text>
+<text top="484" left="106" width="682" height="45" font="8"><b>  Work on branches in parallel</b></text>
+<text top="533" left="66" width="7" height="25" font="2"> </text>
+<text top="567" left="79" width="27" height="45" font="29"><b>5</b></text>
+<text top="567" left="106" width="504" height="45" font="8"><b>  Fetch the latest state</b></text>
+<text top="616" left="66" width="7" height="25" font="2"> </text>
+<text top="651" left="79" width="27" height="45" font="29"><b>6</b></text>
+<text top="651" left="106" width="930" height="45" font="8"><b>  Merging, Rebasing, Resolving Conflicts</b></text>
+<text top="864" left="406" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="15" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="828" left="0" width="1200" height="76" src="The-Git-Tutorial-1-15_1.png"/>
+<text top="91" left="75" width="356" height="51" font="5"><b>Git Exercises</b> </text>
+<text top="196" left="72" width="7" height="25" font="2"> </text>
+<text top="230" left="86" width="27" height="45" font="29"><b>7</b></text>
+<text top="230" left="113" width="309" height="45" font="8"><b>  History view</b></text>
+<text top="280" left="72" width="7" height="25" font="2"> </text>
+<text top="314" left="86" width="27" height="45" font="29"><b>8</b></text>
+<text top="314" left="113" width="728" height="45" font="8"><b>  Reset branch to previous state</b></text>
+<text top="363" left="72" width="7" height="25" font="2"> </text>
+<text top="397" left="86" width="27" height="45" font="29"><b>9</b></text>
+<text top="397" left="113" width="664" height="45" font="8"><b>  Change a series of commits</b></text>
+<text top="447" left="72" width="7" height="25" font="2"> </text>
+<text top="481" left="86" width="53" height="45" font="29"><b>10</b></text>
+<text top="481" left="139" width="245" height="45" font="8"><b>  Git blame</b></text>
+<text top="530" left="72" width="7" height="25" font="2"> </text>
+<text top="564" left="86" width="53" height="45" font="29"><b>11</b></text>
+<text top="564" left="139" width="157" height="45" font="8"><b>  Stash</b></text>
+<text top="614" left="72" width="7" height="25" font="2"> </text>
+<text top="648" left="86" width="53" height="45" font="29"><b>12</b></text>
+<text top="648" left="139" width="314" height="45" font="8"><b>  Submodules</b></text>
+<text top="864" left="406" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="16" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-16_1.png"/>
+<text top="350" left="185" width="830" height="84" font="26"><b>Gerrit Code Review</b></text>
+<text top="859" left="255" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="17" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="30" size="52" family="Times" color="#000000"/>
+	<fontspec id="31" size="64" family="Times" color="#0070c0"/>
+<image top="825" left="0" width="1200" height="75" src="The-Git-Tutorial-1-17_1.jpg"/>
+<image top="42" left="1076" width="79" height="74" src="The-Git-Tutorial-1-17_2.png"/>
+<image top="323" left="583" width="557" height="400" src="The-Git-Tutorial-1-17_3.png"/>
+<text top="63" left="57" width="147" height="51" font="5"><b>Gerrit</b></text>
+<text top="141" left="71" width="1043" height="51" font="30"><b>Server managing central Git repositories</b></text>
+<text top="205" left="593" width="7" height="25" font="2"> </text>
+<text top="244" left="593" width="238" height="56" font="31"><b>Gerrit</b></text>
+<text top="864" left="406" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="18" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="825" left="0" width="1200" height="75" src="The-Git-Tutorial-1-18_1.jpg"/>
+<image top="42" left="1076" width="79" height="74" src="The-Git-Tutorial-1-18_2.png"/>
+<image top="356" left="583" width="557" height="400" src="The-Git-Tutorial-1-18_3.png"/>
+<text top="63" left="57" width="147" height="51" font="5"><b>Gerrit</b></text>
+<text top="141" left="388" width="396" height="51" font="30"><b>Access Control</b></text>
+<text top="239" left="593" width="7" height="25" font="2"> </text>
+<text top="278" left="593" width="238" height="56" font="31"><b>Gerrit</b></text>
+<text top="864" left="406" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="19" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="32" size="34" family="Times" color="#00cc99"/>
+<image top="825" left="0" width="1200" height="75" src="The-Git-Tutorial-1-19_1.jpg"/>
+<image top="42" left="1076" width="79" height="74" src="The-Git-Tutorial-1-19_2.png"/>
+<image top="356" left="583" width="557" height="400" src="The-Git-Tutorial-1-19_3.png"/>
+<image top="263" left="56" width="175" height="178" src="The-Git-Tutorial-1-19_4.png"/>
+<text top="63" left="57" width="147" height="51" font="5"><b>Gerrit</b></text>
+<text top="141" left="388" width="396" height="51" font="30"><b>Access Control</b></text>
+<text top="239" left="593" width="7" height="25" font="2"> </text>
+<text top="278" left="593" width="238" height="56" font="31"><b>Gerrit</b></text>
+<text top="864" left="406" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+<text top="525" left="185" width="140" height="34" font="32"><b>git push</b></text>
+</page>
+<page number="20" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="825" left="0" width="1200" height="75" src="The-Git-Tutorial-1-20_1.jpg"/>
+<image top="42" left="1076" width="79" height="74" src="The-Git-Tutorial-1-20_2.png"/>
+<image top="356" left="583" width="557" height="400" src="The-Git-Tutorial-1-20_3.png"/>
+<image top="544" left="64" width="166" height="170" src="The-Git-Tutorial-1-20_4.jpg"/>
+<image top="263" left="56" width="175" height="178" src="The-Git-Tutorial-1-20_5.png"/>
+<text top="63" left="57" width="147" height="51" font="5"><b>Gerrit</b></text>
+<text top="141" left="388" width="396" height="51" font="30"><b>Access Control</b></text>
+<text top="239" left="593" width="7" height="25" font="2"> </text>
+<text top="278" left="593" width="238" height="56" font="31"><b>Gerrit</b></text>
+<text top="864" left="406" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="21" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="825" left="0" width="1200" height="75" src="The-Git-Tutorial-1-21_1.jpg"/>
+<image top="42" left="1076" width="79" height="74" src="The-Git-Tutorial-1-21_2.png"/>
+<image top="356" left="583" width="557" height="400" src="The-Git-Tutorial-1-21_3.png"/>
+<image top="544" left="64" width="166" height="170" src="The-Git-Tutorial-1-21_4.jpg"/>
+<image top="263" left="56" width="175" height="178" src="The-Git-Tutorial-1-21_5.png"/>
+<text top="63" left="57" width="147" height="51" font="5"><b>Gerrit</b></text>
+<text top="141" left="388" width="396" height="51" font="30"><b>Access Control</b></text>
+<text top="239" left="593" width="7" height="25" font="2"> </text>
+<text top="278" left="593" width="238" height="56" font="31"><b>Gerrit</b></text>
+<text top="864" left="406" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="22" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="825" left="0" width="1200" height="75" src="The-Git-Tutorial-1-22_1.jpg"/>
+<image top="42" left="1076" width="79" height="74" src="The-Git-Tutorial-1-22_2.png"/>
+<image top="356" left="583" width="557" height="400" src="The-Git-Tutorial-1-22_3.png"/>
+<text top="63" left="57" width="147" height="51" font="5"><b>Gerrit</b></text>
+<text top="141" left="418" width="336" height="51" font="30"><b>Code Review</b></text>
+<text top="239" left="593" width="7" height="25" font="2"> </text>
+<text top="278" left="593" width="238" height="56" font="31"><b>Gerrit</b></text>
+<text top="864" left="406" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="23" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="825" left="0" width="1200" height="75" src="The-Git-Tutorial-1-23_1.jpg"/>
+<image top="42" left="1076" width="79" height="74" src="The-Git-Tutorial-1-23_2.png"/>
+<image top="356" left="583" width="557" height="400" src="The-Git-Tutorial-1-23_3.png"/>
+<image top="412" left="52" width="175" height="178" src="The-Git-Tutorial-1-23_4.png"/>
+<text top="63" left="57" width="147" height="51" font="5"><b>Gerrit</b></text>
+<text top="141" left="418" width="336" height="51" font="30"><b>Code Review</b></text>
+<text top="239" left="593" width="7" height="25" font="2"> </text>
+<text top="278" left="593" width="238" height="56" font="31"><b>Gerrit</b></text>
+<text top="864" left="406" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+<text top="407" left="270" width="140" height="34" font="32"><b>git push</b></text>
+</page>
+<page number="24" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="825" left="0" width="1200" height="75" src="The-Git-Tutorial-1-24_1.jpg"/>
+<image top="42" left="1076" width="79" height="74" src="The-Git-Tutorial-1-24_2.png"/>
+<image top="356" left="583" width="557" height="400" src="The-Git-Tutorial-1-24_3.png"/>
+<image top="412" left="52" width="175" height="178" src="The-Git-Tutorial-1-24_4.png"/>
+<text top="63" left="57" width="147" height="51" font="5"><b>Gerrit</b></text>
+<text top="141" left="418" width="336" height="51" font="30"><b>Code Review</b></text>
+<text top="239" left="593" width="7" height="25" font="2"> </text>
+<text top="278" left="593" width="238" height="56" font="31"><b>Gerrit</b></text>
+<text top="864" left="406" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+<text top="411" left="266" width="140" height="34" font="32"><b>git push</b></text>
+</page>
+<page number="25" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="825" left="0" width="1200" height="75" src="The-Git-Tutorial-1-25_1.jpg"/>
+<image top="42" left="1076" width="79" height="74" src="The-Git-Tutorial-1-25_2.png"/>
+<image top="356" left="583" width="557" height="400" src="The-Git-Tutorial-1-25_3.png"/>
+<image top="412" left="52" width="175" height="178" src="The-Git-Tutorial-1-25_4.png"/>
+<image top="458" left="336" width="187" height="155" src="The-Git-Tutorial-1-25_5.png"/>
+<image top="561" left="455" width="97" height="90" src="The-Git-Tutorial-1-25_6.png"/>
+<image top="590" left="214" width="175" height="178" src="The-Git-Tutorial-1-25_7.png"/>
+<image top="612" left="268" width="175" height="178" src="The-Git-Tutorial-1-25_8.png"/>
+<text top="63" left="57" width="147" height="51" font="5"><b>Gerrit</b></text>
+<text top="141" left="418" width="336" height="51" font="30"><b>Code Review</b></text>
+<text top="239" left="593" width="7" height="25" font="2"> </text>
+<text top="278" left="593" width="238" height="56" font="31"><b>Gerrit</b></text>
+<text top="864" left="406" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+<text top="416" left="208" width="372" height="34" font="32"><b>git push &lt;for_review&gt;</b></text>
+</page>
+<page number="26" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="825" left="0" width="1200" height="75" src="The-Git-Tutorial-1-26_1.jpg"/>
+<image top="42" left="1076" width="79" height="74" src="The-Git-Tutorial-1-26_2.png"/>
+<image top="253" left="26" width="677" height="533" src="The-Git-Tutorial-1-26_3.png"/>
+<image top="413" left="328" width="857" height="373" src="The-Git-Tutorial-1-26_4.png"/>
+<text top="63" left="57" width="147" height="51" font="5"><b>Gerrit</b></text>
+<text top="141" left="421" width="330" height="51" font="30"><b>Commenting</b></text>
+<text top="864" left="406" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="27" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="203" left="89" width="503" height="624" src="The-Git-Tutorial-1-27_1.png"/>
+<image top="825" left="0" width="1200" height="75" src="The-Git-Tutorial-1-27_2.jpg"/>
+<image top="42" left="1076" width="79" height="74" src="The-Git-Tutorial-1-27_3.png"/>
+<image top="379" left="382" width="774" height="411" src="The-Git-Tutorial-1-27_4.png"/>
+<text top="63" left="57" width="147" height="51" font="5"><b>Gerrit</b></text>
+<text top="141" left="277" width="617" height="51" font="30"><b>Discussing &amp; Improving</b></text>
+<text top="864" left="406" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="28" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="825" left="0" width="1200" height="75" src="The-Git-Tutorial-1-28_1.jpg"/>
+<image top="42" left="1076" width="79" height="74" src="The-Git-Tutorial-1-28_2.png"/>
+<image top="199" left="362" width="633" height="614" src="The-Git-Tutorial-1-28_3.png"/>
+<text top="63" left="57" width="147" height="51" font="5"><b>Gerrit</b></text>
+<text top="141" left="502" width="168" height="51" font="30"><b>Voting</b></text>
+<text top="864" left="406" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="29" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="33" size="34" family="Times" color="#000000"/>
+<image top="825" left="0" width="1200" height="75" src="The-Git-Tutorial-1-29_1.jpg"/>
+<image top="42" left="1076" width="79" height="74" src="The-Git-Tutorial-1-29_2.png"/>
+<text top="63" left="57" width="147" height="51" font="5"><b>Gerrit</b></text>
+<text top="165" left="74" width="218" height="34" font="33"><b>Do not miss:</b></text>
+<text top="246" left="74" width="953" height="34" font="33"><b>Talk by Shawn Pearce (Gerrit founder and Project Lead)</b></text>
+<text top="327" left="128" width="10" height="34" font="33"><b> </b></text>
+<text top="409" left="128" width="538" height="34" font="33"><b>Harnessing Peer Code Reviews</b></text>
+<text top="490" left="128" width="524" height="34" font="33"><b>Wednesday, 14:15, Ballroom A</b></text>
+<text top="543" left="74" width="7" height="25" font="2"> </text>
+<text top="864" left="406" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="30" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="466" left="224" width="379" height="277" src="The-Git-Tutorial-1-30_1.png"/>
+<image top="107" left="368" width="354" height="242" src="The-Git-Tutorial-1-30_2.png"/>
+<image top="209" left="427" width="72" height="80" src="The-Git-Tutorial-1-30_3.png"/>
+<image top="209" left="521" width="73" height="80" src="The-Git-Tutorial-1-30_4.png"/>
+<image top="234" left="580" width="72" height="80" src="The-Git-Tutorial-1-30_5.png"/>
+<image top="234" left="461" width="73" height="80" src="The-Git-Tutorial-1-30_6.png"/>
+<image top="483" left="172" width="380" height="277" src="The-Git-Tutorial-1-30_7.png"/>
+<image top="619" left="198" width="72" height="80" src="The-Git-Tutorial-1-30_8.png"/>
+<image top="662" left="241" width="72" height="80" src="The-Git-Tutorial-1-30_9.png"/>
+<image top="551" left="343" width="186" height="104" src="The-Git-Tutorial-1-30_10.png"/>
+<image top="620" left="343" width="63" height="61" src="The-Git-Tutorial-1-30_11.png"/>
+<image top="687" left="343" width="80" height="45" src="The-Git-Tutorial-1-30_12.png"/>
+<image top="125" left="394" width="63" height="60" src="The-Git-Tutorial-1-30_13.png"/>
+<image top="687" left="428" width="113" height="26" src="The-Git-Tutorial-1-30_14.png"/>
+<image top="344" left="359" width="762" height="388" src="The-Git-Tutorial-1-30_15.png"/>
+<image top="344" left="648" width="341" height="210" src="The-Git-Tutorial-1-30_16.png"/>
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-30_17.png"/>
+<text top="482" left="329" width="168" height="25" font="23">Developer PC</text>
+<text top="123" left="511" width="67" height="25" font="23">Gerrit</text>
+<text top="241" left="449" width="28" height="25" font="23">git</text>
+<text top="241" left="543" width="28" height="25" font="23">git</text>
+<text top="267" left="602" width="28" height="25" font="23">git</text>
+<text top="267" left="483" width="28" height="25" font="23">git</text>
+<text top="499" left="278" width="168" height="25" font="23">Developer PC</text>
+<text top="651" left="220" width="28" height="25" font="23">git</text>
+<text top="694" left="263" width="28" height="25" font="23">git</text>
+<text top="556" left="943" width="93" height="25" font="23">Hudson</text>
+<text top="386" left="46" width="273" height="30" font="24"><b>- clone repository </b></text>
+<text top="421" left="46" width="332" height="30" font="24"><b>- fetch / push changes</b></text>
+<text top="291" left="837" width="264" height="30" font="24"><b>- verify proposed </b></text>
+<text top="326" left="837" width="128" height="30" font="24"><b>changes</b></text>
+<text top="360" left="837" width="197" height="30" font="24"><b>- continuous </b></text>
+<text top="394" left="837" width="264" height="30" font="24"><b>integration builds</b></text>
+<text top="859" left="255" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+<text top="53" left="387" width="301" height="30" font="3"><a href="http://git.eclipse.org/r/">http://git.eclipse.org/r/</a></text>
+</page>
+<page number="31" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="34" size="25" family="Times" color="#808080"/>
+	<fontspec id="35" size="46" family="Times" color="#999999"/>
+<image top="828" left="0" width="1200" height="76" src="The-Git-Tutorial-1-31_1.png"/>
+<text top="91" left="75" width="429" height="51" font="5"><b>Gerrit Exercises </b></text>
+<text top="229" left="89" width="27" height="45" font="29"><b>1</b></text>
+<text top="229" left="116" width="583" height="45" font="8"><b>  Configure push to Gerrit</b></text>
+<text top="278" left="75" width="7" height="25" font="2"> </text>
+<text top="312" left="89" width="27" height="45" font="29"><b>2</b></text>
+<text top="312" left="116" width="527" height="45" font="8"><b>  Push change to Gerrit</b></text>
+<text top="362" left="75" width="7" height="25" font="2"> </text>
+<text top="396" left="89" width="27" height="45" font="29"><b>3</b></text>
+<text top="396" left="116" width="373" height="45" font="8"><b>  Review change</b></text>
+<text top="445" left="75" width="7" height="25" font="2"> </text>
+<text top="479" left="89" width="27" height="45" font="29"><b>4</b></text>
+<text top="479" left="116" width="434" height="45" font="8"><b>  Improve a change</b></text>
+<text top="529" left="75" width="7" height="25" font="2"> </text>
+<text top="563" left="89" width="27" height="45" font="29"><b>5</b></text>
+<text top="563" left="116" width="789" height="45" font="8"><b>  Submit a change to the codebase</b></text>
+<text top="612" left="75" width="7" height="25" font="2"> </text>
+<text top="646" left="89" width="27" height="45" font="29"><b>6</b></text>
+<text top="646" left="116" width="584" height="45" font="8"><b>  View Gerrit review notes</b></text>
+<text top="696" left="75" width="7" height="25" font="34"> </text>
+<text top="730" left="89" width="27" height="45" font="29"><b>7</b></text>
+<text top="730" left="116" width="874" height="45" font="35"><b>  Starting Demo Gerrit Server (backup)</b></text>
+<text top="779" left="75" width="7" height="25" font="2"> </text>
+<text top="864" left="406" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="32" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-32_1.png"/>
+<text top="350" left="99" width="744" height="84" font="26"><b>Mylyn Integration</b></text>
+<text top="859" left="255" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="33" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-33_1.png"/>
+<image top="132" left="168" width="876" height="657" src="The-Git-Tutorial-1-33_2.png"/>
+<text top="859" left="255" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+<text top="49" left="405" width="366" height="51" font="30"><b>90% Irrelevant</b></text>
+</page>
+<page number="34" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-34_1.png"/>
+<image top="132" left="156" width="930" height="645" src="The-Git-Tutorial-1-34_2.png"/>
+<text top="859" left="255" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+<text top="49" left="373" width="453" height="51" font="30"><b>Task-focused IDE</b></text>
+</page>
+<page number="35" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="36" size="104" family="Times" color="#000000"/>
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-35_1.png"/>
+<text top="337" left="360" width="479" height="100" font="36"><b>&lt; Demo &gt;</b></text>
+<text top="859" left="255" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="36" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-36_1.png"/>
+<image top="194" left="98" width="983" height="589" src="The-Git-Tutorial-1-36_2.png"/>
+<text top="54" left="62" width="732" height="51" font="5"><b>Exercises: Mylyn Integration</b></text>
+<text top="131" left="75" width="575" height="45" font="8"><b>1 Mylyn / EGit Integration</b></text>
+<text top="184" left="75" width="27" height="45" font="8"><b>  </b></text>
+<text top="859" left="255" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="37" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-37_1.png"/>
+<image top="185" left="197" width="807" height="604" src="The-Git-Tutorial-1-37_2.png"/>
+<text top="54" left="62" width="732" height="51" font="5"><b>Exercises: Mylyn Integration</b></text>
+<text top="131" left="75" width="722" height="45" font="8"><b>2 Use Gerrit from within the IDE</b></text>
+<text top="184" left="75" width="27" height="45" font="8"><b>  </b></text>
+<text top="859" left="255" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="38" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="37" size="31" family="Times" color="#000000"/>
+	<fontspec id="38" size="31" family="Times" color="#000000"/>
+	<fontspec id="39" size="31" family="Times" color="#000000"/>
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-38_1.png"/>
+<text top="54" left="62" width="732" height="51" font="5"><b>Exercises: Mylyn Integration</b></text>
+<text top="131" left="75" width="13" height="45" font="8"><b> </b></text>
+<text top="184" left="75" width="27" height="45" font="29"><b>1</b></text>
+<text top="184" left="102" width="549" height="45" font="8"><b> Mylyn / EGit Integration</b></text>
+<text top="236" left="75" width="13" height="45" font="8"><b> </b></text>
+<text top="289" left="75" width="27" height="45" font="29"><b>2</b></text>
+<text top="289" left="102" width="695" height="45" font="8"><b> Use Gerrit from within the IDE</b></text>
+<text top="338" left="75" width="7" height="25" font="2"> </text>
+<text top="368" left="75" width="7" height="25" font="2"> </text>
+<text top="397" left="75" width="7" height="25" font="2"> </text>
+<text top="427" left="75" width="7" height="25" font="2"> </text>
+<text top="456" left="75" width="7" height="25" font="2"> </text>
+<text top="485" left="75" width="7" height="25" font="2"> </text>
+<text top="515" left="75" width="7" height="25" font="2"> </text>
+<text top="545" left="75" width="9" height="31" font="37"> </text>
+<text top="581" left="75" width="9" height="31" font="37"> </text>
+<text top="617" left="75" width="174" height="31" font="38"><i>Related talk</i></text>
+<text top="653" left="75" width="462" height="31" font="39"><b>Wednesday, 1:30PM - 2:15PM</b></text>
+<text top="689" left="75" width="1015" height="31" font="37">Build, Stage, Review, Merge: Task-focused Development the Eclipse </text>
+<text top="725" left="75" width="161" height="31" font="37">Mylyn Way</text>
+<text top="761" left="75" width="9" height="31" font="37"> </text>
+<text top="797" left="75" width="18" height="31" font="39"><b>  </b></text>
+<text top="859" left="255" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="39" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-39_1.png"/>
+<image top="264" left="352" width="496" height="478" src="The-Git-Tutorial-1-39_2.jpg"/>
+<text top="163" left="103" width="1009" height="84" font="26"><b>GitHub Eclipse Support</b></text>
+<text top="859" left="255" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="40" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="40" size="24" family="Times" color="#0070c0"/>
+	<fontspec id="41" size="41" family="Times" color="#0070c0"/>
+	<fontspec id="42" size="32" family="Times" color="#000000"/>
+	<fontspec id="43" size="41" family="Times" color="#000000"/>
+	<fontspec id="44" size="24" family="Times" color="#000000"/>
+<image top="25" left="987" width="209" height="115" src="The-Git-Tutorial-1-40_1.png"/>
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-40_2.png"/>
+<text top="63" left="43" width="605" height="51" font="5"><b>GitHub Eclipse Support</b></text>
+<text top="188" left="67" width="16" height="25" font="40">●</text>
+<text top="175" left="83" width="562" height="41" font="41"><b>  https://github.com/eclipse</b></text>
+<text top="229" left="167" width="21" height="33" font="42">○</text>
+<text top="223" left="188" width="507" height="41" font="43">  248 mirrored repositories</text>
+<text top="268" left="178" width="7" height="25" font="2"> </text>
+<text top="312" left="67" width="16" height="25" font="44">●</text>
+<text top="300" left="83" width="452" height="41" font="43">  Browsing source code</text>
+<text top="360" left="67" width="16" height="25" font="44">●</text>
+<text top="347" left="83" width="607" height="41" font="43">  Comparing branches and tags</text>
+<text top="407" left="67" width="16" height="25" font="44">●</text>
+<text top="395" left="83" width="280" height="41" font="43">  Activity feeds</text>
+<text top="455" left="67" width="16" height="25" font="44">●</text>
+<text top="442" left="83" width="338" height="41" font="43">  Charts &amp; graphs</text>
+<text top="502" left="67" width="16" height="25" font="44">●</text>
+<text top="490" left="83" width="486" height="41" font="43">  Downloading snapshots</text>
+<text top="859" left="255" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="41" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="25" left="987" width="209" height="115" src="The-Git-Tutorial-1-41_1.png"/>
+<image top="133" left="60" width="1062" height="769" src="The-Git-Tutorial-1-41_2.png"/>
+<text top="63" left="43" width="605" height="51" font="5"><b>GitHub Eclipse Support</b></text>
+</page>
+<page number="42" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="25" left="987" width="209" height="115" src="The-Git-Tutorial-1-42_1.png"/>
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-42_2.png"/>
+<text top="63" left="43" width="599" height="51" font="5"><b>GitHub EGit Integration</b></text>
+<text top="175" left="124" width="509" height="41" font="41"><b>GitHub Mylyn Connector</b></text>
+<text top="223" left="178" width="126" height="41" font="43">Issues</text>
+<text top="270" left="178" width="99" height="41" font="43">Gists</text>
+<text top="318" left="178" width="268" height="41" font="43">Pull Requests</text>
+<text top="365" left="178" width="271" height="41" font="43">Import Wizard</text>
+<text top="411" left="70" width="7" height="25" font="2"> </text>
+<text top="444" left="124" width="338" height="41" font="41"><b>GitHub Java API</b></text>
+<text top="491" left="178" width="280" height="41" font="43">Maven plugins</text>
+<text top="539" left="178" width="189" height="41" font="43">Reporting</text>
+<text top="586" left="178" width="333" height="41" font="43">Automating tasks</text>
+<text top="859" left="255" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="43" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-43_1.png"/>
+<text top="54" left="62" width="884" height="51" font="5"><b>GitHub Exercises: EGit Integration</b></text>
+<text top="131" left="75" width="13" height="45" font="8"><b> </b></text>
+<text top="184" left="75" width="27" height="45" font="29"><b>1</b></text>
+<text top="184" left="102" width="538" height="45" font="8"><b> Setup Share on GitHub</b></text>
+<text top="236" left="75" width="27" height="45" font="8"><b>  </b></text>
+<text top="859" left="255" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="44" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="828" left="0" width="1200" height="72" src="The-Git-Tutorial-1-44_1.png"/>
+<text top="338" left="99" width="237" height="100" font="36"><b>Q&amp;A</b></text>
+<text top="859" left="243" width="492" height="15" font="10">Copyright © C. Aniszczyk, S. Lay, B. Muskalla, K. Sawicki, M. Sohn</text>
+</page>
+<page number="45" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="45" size="64" family="Times" color="#000080"/>
+	<fontspec id="46" size="107" family="Times" color="#ffffff"/>
+	<fontspec id="47" size="39" family="Times" color="#0000cc"/>
+<image top="279" left="938" width="190" height="304" src="The-Git-Tutorial-1-45_1.png"/>
+<text top="85" left="70" width="989" height="62" font="45"><b>Give Feedback on the Sessions</b></text>
+<text top="423" left="70" width="7" height="25" font="2"> </text>
+<text top="454" left="70" width="7" height="25" font="2"> </text>
+<text top="487" left="600" width="12" height="39" font="17"><b> </b></text>
+<text top="209" left="85" width="55" height="99" font="46">1</text>
+<text top="237" left="227" width="177" height="39" font="17"><b>Sign In:  </b></text>
+<text top="237" left="404" width="406" height="39" font="47"><b>www.eclipsecon.org</b></text>
+<text top="402" left="95" width="55" height="99" font="46">2</text>
+<text top="422" left="227" width="480" height="39" font="17"><b>Select Session Evaluate</b></text>
+<text top="603" left="93" width="55" height="99" font="46">3</text>
+<text top="627" left="227" width="103" height="39" font="17"><b>Vote </b></text>
+</page>
+</pdf2xml>
