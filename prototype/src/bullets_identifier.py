@@ -26,8 +26,6 @@ def read_sentences(filepath, chunk_size=10240):
                 yield sentence.replace('\n', ' ')
         yield last.replace('\n', ' ')
 
-
-
 def identify_bullet_sentences(file_name):
 	acceptable_range = range(32,128)
 	continuous = 0
