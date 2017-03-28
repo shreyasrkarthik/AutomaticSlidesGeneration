@@ -31,8 +31,6 @@
 """
 Implementation of stream filters for PDF.
 """
-__author__ = "Mathieu Fenniak"
-__author_email__ = "biziqe@mathieu.fenniak.net"
 
 from utils import PdfReadError
 try:
