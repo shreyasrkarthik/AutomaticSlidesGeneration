@@ -1,7 +1,7 @@
 topWordsPercentage threshold - average stop words
 all - ''---''--''
 
-weights number of ovrlappping with title - 0.4
+weights number of overlapping with title - 0.4
 	Noun Phrases - 0.3
 	Stop words percent - 0.2
 	Verb phrases - 0.1

@@ -13,7 +13,7 @@ def create_title_slide(prs, inp_title = "", inp_subtitle = ""):
 	subtitle.text = inp_subtitle
 
 def setFooter(prs, slide_no,footer_text):
-        slide = prs[slide_no]
+        slide = prs.slides[slide_no]
         left = Inches(2.8)
         width = Inches(3.7)
         top = Inches(6.7)
@@ -23,7 +23,7 @@ def setFooter(prs, slide_no,footer_text):
         footer_paragraph = text_box_frame.add_paragraph()
         footer_paragraph.text = footer_text
         footer_paragraph.font.bold = True
-        footer_paragraph.font.size = Pt(10)
+        footer_paragraph.font.size = Pt(13)
 
 def add_bullet_slide(prs, title, array_of_bullet_sentences):
 	bullet_slide_layout = prs.slide_layouts[1]
@@ -38,7 +38,7 @@ def add_bullet_slide(prs, title, array_of_bullet_sentences):
 		for bullet in array_of_bullet_sentences[1:]:
 			p = tf.add_paragraph()
 			p.text = bullet
-			p.font.size = Pt(5)
+			p.font.size = Pt(18)
 
 def add_text_slide(prs,text_array,title = ""):
 	blank_slide_layout = prs.slide_layouts[6]
@@ -71,7 +71,7 @@ def add_image(prs, slide_no, image_path):
 
 
 def setLogo(prs,slide_no,logo_path):
-    slide = prs[slide_no]
+    slide = prs.slides[slide_no]
     left = Inches(8.6)
     top = Inches(0.2)
     slide.shapes.add_picture(logo_path,left,top)
