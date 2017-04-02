@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/ python
 
 import sys
 import os
@@ -180,6 +180,9 @@ def get_pages (pdf_doc, pdf_pwd='', images_folder='/tmp'):
 
 arr = get_pages(sys.argv[1],'','/images')
 f = open(sys.argv[2],'w')
+os.chmod(sys.argv[1], 0o777)
+os.chmod(sys.argv[2], 0o777)
+
 for line in arr:
     f.write(line)
     f.write('\n')

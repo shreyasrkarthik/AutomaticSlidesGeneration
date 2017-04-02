@@ -1,3 +1,5 @@
+#!/usr/bin/ python
+
 from FeatureExtractor import FeatureExtractor as fe
 import operator
 from nltk.tokenize import sent_tokenize
@@ -7,6 +9,7 @@ from bullets_identifier import *
 from SlideGenerator import *
 from pptx import Presentation
 from pptx.util import Inches, Pt
+import sys
 
 class Driver:
     
@@ -80,19 +83,20 @@ class Driver:
             bullets.insert(0,"")
             # print bullets
             add_bullet_slide(prs, bullet_title, bullets)
-            setLogo(prs,(i/5)+1,'logo.png')
+            # setLogo(prs,(i/5)+1,'logo.png')
             setFooter(prs,(i/5)+1, 'PES Institute of Technology ISE Dept.')
         # add_text_slide(prs, ['jksdhflkadhsofhsakdhbf','asdfsfd'], 'TEXT HERE')
         prs.save(file_name+ '.pptx')
 
 if __name__ == '__main__':
     d = Driver()
-    sortedSentDict = d.driver("s1.txt")
+    print sys.argv[1]
+    sortedSentDict = d.driver(sys.argv[1])
     sent_dict = d.extractSentFromDict(sortedSentDict)
     sent_dict = dict(sent_dict)
     important_sent_num =  sent_dict.keys()
     final_list = list(important_sent_num)
-    sentences, bullet_map = identify_bullet_sentences("s1.txt")
+    sentences, bullet_map = identify_bullet_sentences(sys.argv[1]   )
     # print important_sent_num
     all_bullet_sentence_nos = []
     for bullet_data in bullets_map.values():
