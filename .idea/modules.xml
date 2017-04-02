@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/AutomaticSlidesGeneration.iml" filepath="$PROJECT_DIR$/.idea/AutomaticSlidesGeneration.iml" />
-      <module fileurl="file://$USER_HOME$/PycharmProjects/AutomaticSlidesGeneration/.idea/AutomaticSlidesGeneration.iml" filepath="$USER_HOME$/PycharmProjects/AutomaticSlidesGeneration/.idea/AutomaticSlidesGeneration.iml" />
     </modules>
   </component>
 </project>
