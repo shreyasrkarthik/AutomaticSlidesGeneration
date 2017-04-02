@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no"/>
+    <title>Presentation Slides Generator</title>
+
+    <!-- CSS  -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+<nav class="teal" role="navigation">
+    <div class="nav-wrapper container">
+        <a id="logo-container" href="index.html" class="brand-logo white-text">Presentation Slides Generator</a>
+    </div>
+</nav>
+
+<div id="index-banner" class="parallax-container">
+    <div class="parallax"><img src="images/presentation-art-1.jpg" alt="Unsplashed background img 1"></div>
+</div>
+
+<div class="container">
+    <div class="section">
+        <form action="server.php" method="post" enctype="multipart/form-data">
+            <div class="file-field input-field">
+                <div class="btn blue">
+                    <span>Upload</span>
+                    <input type="file">
+                </div>
+                <div class="file-path-wrapper">
+                    <input placeholder="Click to upload your PDF file" class="file-path validate" type="text">
+                </div>
+            </div>
+            <div class="center">
+                <button class="btn blue waves-effect waves-light" type="submit" name="action">
+                    Submit
+                    <i class="material-icons right">send</i>
+                </button>
+            </div>
+        </form>
+    </div>
+    <div class="divider"></div>
+    <div class="section">
+
+        <!--   Icon Section   -->
+        <div class="row">
+            <div class="col s12 m4 l3 hoverable">
+                <div class="icon-block">
+                    <h2 class="center brown-text"><i class="material-icons">attachment</i></h2>
+                    <h5 class="center">Upload PDF</h5>
+                    <img src="images/pdf-icon.png" alt="PDF Icon" class="responsive-img">
+                    <p class="light">Attach your resource file in the form.</p>
+                </div>
+            </div>
+
+            <div class="valign-wrapper col l1 hide-on-mid-and-down">
+                <h1 class="valign"><i class="medium material-icons">forward</i></h1>
+            </div>
+
+            <div class="col s12 m4 l4 hoverable">
+                <div class="icon-block">
+                    <h2 class="center brown-text"><i class="material-icons">cached</i></h2>
+                    <h5 class="center">Process Data</h5>
+                    <table class="responsive-table striped brown-text">
+                        <tbody>
+                        <tr>
+                            <td>Extract Data</td>
+                            <td class="right icon-block">
+                                <h4><i class="material-icons">ic_chrome_reader_mode</i></h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Text and Images</td>
+                            <td class="right icon-block">
+                                <h4><i class="material-icons">find_in_page</i></h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Break-up Text</td>
+                            <td class="right icon-block">
+                                <h4><i class="material-icons">line_style</i></h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Important Data</td>
+                            <td class="right icon-block">
+                                <h4><i class="material-icons">low_priority</i></h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Extract Bullets</td>
+                            <td class="right icon-block">
+                                <h4><i class="material-icons">format_list_bulleted</i></h4>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Presentation Slides</td>
+                            <td class="right icon-block">
+                                <h4><i class="material-icons">view_day</i></h4>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="valign-wrapper col l1 hide-on-mid-and-down">
+                <h1 class="valign"><i class="medium material-icons">forward</i></h1>
+            </div>
+
+            <div class="col s12 m4 l3 hoverable">
+                <div class="icon-block">
+                    <h2 class="center brown-text"><i class="material-icons">archive</i></h2>
+                    <h5 class="center">Download Files</h5>
+                    <img src="images/pptx-icon.png" alt="PDF Icon" class="responsive-img">
+                    <p class="light">You then download the archive with all extracted images, important data if you find
+                        the need to add them to the slides, and yes, finally your presentation slides we would have
+                        generated!</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<footer class="page-footer teal">
+    <div>
+        <div class="row">
+            <div class="col s12 center">
+                <h5 class="white-text">About us</h5>
+                <p class="white-text">
+                    We are a team of college students working on this project for our final semester project.
+                    Any suggestions are gracefully accepted. Please fill the form and submit suggestions. Thanks.
+                </p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!--  Scripts-->
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/materialize.js"></script>
+<script src="js/init.js"></script>
+
+</body>
+</html>
