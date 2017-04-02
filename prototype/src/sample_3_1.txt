@@ -1,5 +1,4 @@
-3.1 WHAT IS
- A PROCESS?
+3.1 WHAT IS A PROCESS?
 
 The design of an operating system (OS) reflects certain general requirements.All multiprogramming  operating  systems, from  single-user  systems  such  as Windows  98  to
 mainframe systems such as IBM’s mainframe operating system, z/OS, which can support thousands of users, are built around the concept of the process. Most requirements
@@ -8,7 +7,7 @@ that the OS must meet can be expressed with reference to processes:
 processor utilization while providing reasonable response time.
 • The OS must allocate resources to processes in conformance with a specific
 policy (e.g., certain functions or applications are of higher priority) while at
-the same time avoiding deadlock.1
+the same time avoiding deadlock.
 • The OS may be required to support interprocess communication and user creation of processes, both of which may aid in the structuring of applications.
 We begin our detailed study of operating systems with an examination of the
 way in which they represent and control processes. After an introduction to the concept of a process, the chapter discusses process states, which characterize the behavior
@@ -57,11 +56,11 @@ PROCESSES AND PROCESS CONTROL BLOCKS
 
 Recall  from  Chapter  2  that  we  suggested  several  definitions  of  the  term  process,
 including
-• A program in execution
-• An instance of a program running on a computer
-• The entity that can be assigned to and executed on a processor
+• A program in execution.
+• An instance of a program running on a computer.
+• The entity that can be assigned to and executed on a processor.
 • A unit of activity characterized by the execution of a sequence of instructions,
-a current state, and an associated set of system resources
+a current state, and an associated set of system resources.
 We can also think of a process as an entity that consists of a number of elements.
 Two essential elements of a process are program code (which may be shared with
 other processes that are executing the same program) and a set of data associated
@@ -69,10 +68,10 @@ with that code. Let us suppose that the processor begins to execute this program
 code, and we refer to this executing entity as a process. At any given point in time,
 while  the  program  is  executing, this  process  can  be  uniquely  characterized  by  a
 number of elements, including the following:
-• Identifier: A  unique  identifier  associated  with  this  process, to  distinguish  it
+• Identifier: A  unique  identifier  associated  with  this  process, to  distinguish  it.
 • State: If the process is currently executing, it is in the running state.
 • Priority: Priority level relative to other processes.
-• Program  counter: The  address  of  the  next  instruction  in  the  program  to  be
+• Program  counter: The  address  of  the  next  instruction  in  the  program  to  be.
 • Memory pointers: Includes pointers to the program code and data associated
 with this process, plus any memory blocks shared with other processes.
 • Context  data: These  are  data  that  are  present  in  registers  in  the  processor
@@ -80,3 +79,7 @@ with this process, plus any memory blocks shared with other processes.
 drives) assigned to this process, a list of files in use by the process, and so on.
 • Accounting information: May include the amount of processor time and clock time used,
 time limits, account numbers, and so on.
+so this ends here.
+so this ends here.
+so this ends here.
+
