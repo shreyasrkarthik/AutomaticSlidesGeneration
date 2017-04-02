@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 
 import sys
 import os
@@ -16,11 +17,6 @@ from pdfminer.layout import LAParams, LTTextBox, LTTextLine, LTFigure, LTImage, 
 def get_toc (pdf_doc, pdf_pwd=''):
     """Return the table of contents (toc), if any, for this pdf file"""
     return with_pdf(pdf_doc, _parse_toc, pdf_pwd)
-
-
-###
-### Extracting Images
-###
 
 def write_file (folder, filename, filedata, flags='w'):
     """Write the file data to the folder and filename combination
@@ -181,8 +177,9 @@ def get_pages (pdf_doc, pdf_pwd='', images_folder='/tmp'):
     return a list of strings representing the text found in each page"""
     return with_pdf(pdf_doc, _parse_pages, pdf_pwd, *tuple([images_folder]))
 
-arr = get_pages('sample.pdf','','/images')
-f = open('s1.txt','w')
+
+arr = get_pages(sys.argv[1],'','/images')
+f = open(sys.argv[2],'w')
 for line in arr:
     f.write(line)
     f.write('\n')
