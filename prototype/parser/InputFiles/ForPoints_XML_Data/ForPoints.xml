@@ -1,0 +1,905 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE pdf2xml SYSTEM "pdf2xml.dtd">
+
+<pdf2xml producer="poppler" version="0.24.5">
+<page number="1" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="0" size="70" family="Times" color="#000000"/>
+	<fontspec id="1" size="49" family="Times" color="#000000"/>
+	<fontspec id="2" size="19" family="Times" color="#000000"/>
+	<fontspec id="3" size="34" family="Times" color="#000000"/>
+<image top="804" left="1" width="104" height="102" src="ForPoints-1_1.jpg"/>
+<text top="7" left="191" width="844" height="80" font="0">Adhoc Wireless Networks </text>
+<text top="164" left="317" width="568" height="80" font="0">Routing Protocols</text>
+<text top="510" left="390" width="436" height="57" font="1">Dr. Ram P Rustagi </text>
+<text top="566" left="459" width="298" height="57" font="1">Dept of CSE </text>
+<text top="623" left="431" width="354" height="57" font="1">PES University </text>
+<text top="678" left="384" width="432" height="57" font="1"><a href="mailto:rprustagi@pes.edu">rprustagi@pes.edu</a></text>
+<text top="826" left="980" width="11" height="23" font="2">1</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="2" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="4" size="58" family="Times" color="#000000"/>
+	<fontspec id="5" size="46" family="Times" color="#000000"/>
+<image top="804" left="1" width="104" height="102" src="ForPoints-2_1.jpg"/>
+<text top="33" left="126" width="873" height="69" font="4">AHWN Routing Proto Characterist</text>
+<text top="22" left="999" width="75" height="83" font="0">ics</text>
+<text top="151" left="101" width="372" height="59" font="1">• Fully distributed</text>
+<text top="215" left="101" width="841" height="59" font="1">• Adaptive to frequent topology changes</text>
+<text top="278" left="101" width="976" height="59" font="1">• Route computation should involve min nodes</text>
+<text top="341" left="101" width="680" height="59" font="1">• Avoid global state maintenance</text>
+<text top="404" left="101" width="685" height="59" font="1">• Loop free and not stale routing</text>
+<text top="467" left="101" width="440" height="59" font="1">• Quick convergence</text>
+<text top="530" left="101" width="591" height="59" font="1">• Provide some level of QoS</text>
+<text top="593" left="101" width="563" height="59" font="1">• Optimal use of resources</text>
+<text top="654" left="143" width="681" height="55" font="5">– BW, computing, battery, memory </text>
+<text top="826" left="980" width="11" height="23" font="2">2</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="3" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-3_1.jpg"/>
+<text top="22" left="110" width="980" height="83" font="0">Classification of Routing Protocol</text>
+<text top="151" left="101" width="536" height="59" font="1">• Classification categories</text>
+<text top="212" left="143" width="798" height="56" font="5">– Routing information update mechanism</text>
+<text top="270" left="143" width="814" height="55" font="5">– Use of temporal information for routing</text>
+<text top="327" left="143" width="371" height="56" font="5">– Routing topology</text>
+<text top="385" left="143" width="644" height="55" font="5">– Utilization of specific resources</text>
+<text top="445" left="101" width="961" height="59" font="1">• Above classification is not mutually exclusive</text>
+<text top="826" left="980" width="11" height="23" font="2">3</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="4" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-4_1.jpg"/>
+<text top="22" left="134" width="934" height="83" font="0">Routing Info Update Mechanism</text>
+<text top="151" left="101" width="551" height="59" font="1">• Proactive or table driven</text>
+<text top="212" left="143" width="942" height="56" font="5">– Each node maintains topology in routing tables</text>
+<text top="270" left="143" width="817" height="55" font="5">– Routing info is flooded in the whole n/w</text>
+<text top="327" left="143" width="922" height="56" font="5">– To reach dst, run path finding algo in the table</text>
+<text top="387" left="101" width="700" height="59" font="1">• Reactive or on-demand routing </text>
+<text top="448" left="143" width="795" height="55" font="5">– Node does not maintaint topology info</text>
+<text top="506" left="143" width="694" height="55" font="5">– Node obtains path when required</text>
+<text top="563" left="143" width="754" height="55" font="5">– No periodic exchange of routing info</text>
+<text top="623" left="101" width="877" height="59" font="1">• Hybrid routing (combination above two)</text>
+<text top="684" left="143" width="828" height="55" font="5">– Within a zone, use table driven approach</text>
+<text top="742" left="143" width="806" height="56" font="5">– Beyond the zone, use on deman routing</text>
+<text top="826" left="980" width="11" height="23" font="2">4</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="5" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="6" size="43" family="Times" color="#000000"/>
+	<fontspec id="7" size="40" family="Times" color="#000000"/>
+<image top="804" left="1" width="104" height="102" src="ForPoints-5_1.jpg"/>
+<text top="22" left="122" width="958" height="83" font="0">Use of Temporal Info for Routing</text>
+<text top="151" left="101" width="545" height="59" font="1">• Using past temporal info</text>
+<text top="212" left="143" width="499" height="56" font="5">– Uses past status of links</text>
+<text top="270" left="197" width="501" height="52" font="6">• Availability of wirless links</text>
+<text top="325" left="197" width="597" height="52" font="6">• Topology change will break this</text>
+<text top="382" left="101" width="586" height="59" font="1">• Using future temporal info</text>
+<text top="442" left="143" width="588" height="55" font="5">– Future status of wirless links</text>
+<text top="500" left="143" width="470" height="56" font="5">– Future status of nodes</text>
+<text top="558" left="197" width="624" height="52" font="6">• e.g. Battery status, discharge rate</text>
+<text top="612" left="251" width="359" height="48" font="7">– Location prediction</text>
+<text top="826" left="980" width="11" height="23" font="2">5</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="6" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-6_1.jpg"/>
+<text top="22" left="242" width="716" height="83" font="0">Based on N/W Topology</text>
+<text top="151" left="101" width="700" height="59" font="1">• Internet topology is hierarchical</text>
+<text top="212" left="143" width="613" height="56" font="5">– Reduces size of routing tables</text>
+<text top="272" left="101" width="895" height="59" font="1">• Adhoc networks are much smaller in size</text>
+<text top="333" left="143" width="746" height="55" font="5">– Can use flat or hierarchical topology</text>
+<text top="393" left="101" width="687" height="59" font="1">• Flat topology routing protocols</text>
+<text top="454" left="143" width="895" height="56" font="5">– Flat addressing scheme e.g. IEEE 802.3 LANs</text>
+<text top="512" left="197" width="658" height="52" font="6">• Assumes globally unique addresses</text>
+<text top="568" left="101" width="861" height="59" font="1">• Hierarchical topology routing protocols</text>
+<text top="629" left="143" width="831" height="56" font="5">– Logical hierarchy &amp; associated addressing</text>
+<text top="687" left="143" width="875" height="55" font="5">– Could be based on hops or geographic info</text>
+<text top="826" left="980" width="11" height="23" font="2">6</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="7" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-7_1.jpg"/>
+<text top="22" left="132" width="936" height="83" font="0">Utilization of Specific Resources</text>
+<text top="151" left="101" width="471" height="59" font="1">• Power aware routing</text>
+<text top="212" left="143" width="703" height="56" font="5">– Minimize the battery consumption</text>
+<text top="270" left="143" width="865" height="55" font="5">– Can consider local power consumption of </text>
+<text top="319" left="177" width="517" height="55" font="5">global power consumption</text>
+<text top="378" left="101" width="738" height="59" font="1">• Geographical info assisted routing</text>
+<text top="439" left="143" width="652" height="55" font="5">– Reduce control overhead using </text>
+<text top="497" left="197" width="317" height="52" font="6">• Geographic info</text>
+<text top="551" left="143" width="609" height="55" font="5">– Improve routing performance</text>
+<text top="826" left="980" width="11" height="23" font="2">7</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="8" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="8" size="46" family="Times" color="#000000"/>
+	<fontspec id="9" size="46" family="Times" color="#a6aaa9"/>
+	<fontspec id="10" size="49" family="Times" color="#a6aaa9"/>
+<image top="804" left="1" width="104" height="102" src="ForPoints-8_1.jpg"/>
+<text top="22" left="210" width="779" height="83" font="0">AHWN Routing Protocols</text>
+<text top="151" left="101" width="453" height="59" font="1">• Table driven routing</text>
+<text top="214" left="143" width="24" height="55" font="5">–</text>
+<text top="213" left="177" width="150" height="57" font="8"><b>DSDV</b>, </text>
+<text top="214" left="321" width="103" height="55" font="9">WRP</text>
+<text top="275" left="101" width="447" height="59" font="10">• On demand routing</text>
+<text top="335" left="143" width="401" height="55" font="9">– DSR, AODV, TORA</text>
+<text top="396" left="101" width="357" height="59" font="10">• Hybrid Routing</text>
+<text top="456" left="143" width="187" height="56" font="9">– CEDAR</text>
+<text top="516" left="101" width="189" height="59" font="10">• Others</text>
+<text top="577" left="143" width="730" height="55" font="9">– Efficient flooding mechanisms based</text>
+<text top="635" left="143" width="420" height="55" font="9">– Hierarchical routing</text>
+<text top="692" left="143" width="440" height="55" font="9">– Power aware routing</text>
+<text top="826" left="980" width="11" height="23" font="2">8</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="9" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-9_1.jpg"/>
+<text top="22" left="120" width="961" height="83" font="0">Direct Sequence Distance Vector</text>
+<text top="151" left="101" width="1004" height="59" font="1">• DSDV: the first protocol proposed for AHWN</text>
+<text top="215" left="101" width="852" height="59" font="1">• Based on distributed Bellman-Ford algo</text>
+<text top="275" left="143" width="885" height="55" font="5">– Shortest path from this node to every node</text>
+<text top="335" left="101" width="908" height="59" font="1">• Node maintains info about all destinations</text>
+<text top="398" left="101" width="727" height="59" font="1">• Tables are exchanged periodically</text>
+<text top="462" left="101" width="994" height="59" font="1">• Sequence number based table updates achieve</text>
+<text top="522" left="143" width="707" height="56" font="5">– Address Count to Infinity problem</text>
+<text top="580" left="143" width="301" height="55" font="5">– Prevent loops</text>
+<text top="637" left="143" width="411" height="55" font="5">– Faster convergence</text>
+<text top="826" left="980" width="11" height="23" font="2">9</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="10" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="11" size="70" family="Times" color="#021eaa"/>
+	<fontspec id="12" size="29" family="Times" color="#021eaa"/>
+	<fontspec id="13" size="46" family="Times" color="#021eaa"/>
+<text top="26" left="81" width="980" height="83" font="11">Distance Vector Routing (Review)</text>
+<text top="137" left="120" width="28" height="35" font="12">v</text>
+<text top="126" left="147" width="244" height="56" font="5">Assumption </text>
+<text top="180" left="174" width="22" height="53" font="13">§</text>
+<text top="179" left="197" width="754" height="56" font="5">node knows cost of its connected link </text>
+<text top="233" left="174" width="22" height="53" font="13">§</text>
+<text top="231" left="197" width="877" height="56" font="5">A down (or non-existent) link cost is infinity </text>
+<text top="294" left="120" width="28" height="35" font="12">v</text>
+<text top="284" left="147" width="235" height="56" font="5">Distributed </text>
+<text top="337" left="174" width="22" height="53" font="13">§</text>
+<text top="336" left="197" width="779" height="56" font="5">each node receives info from neighbors </text>
+<text top="390" left="174" width="22" height="53" font="13">§</text>
+<text top="387" left="197" width="915" height="56" font="5">computes routing and distributes to neighbors </text>
+<text top="442" left="174" width="22" height="53" font="13">§</text>
+<text top="440" left="197" width="470" height="56" font="5">no central computation </text>
+<text top="503" left="120" width="28" height="35" font="12">v</text>
+<text top="492" left="147" width="187" height="56" font="5">Iterative  </text>
+<text top="547" left="174" width="22" height="53" font="13">§</text>
+<text top="545" left="197" width="915" height="56" font="5">routing computation stops when no more info </text>
+<text top="599" left="174" width="22" height="53" font="13">§</text>
+<text top="597" left="197" width="815" height="56" font="5">it is self terminating - no external control </text>
+<text top="660" left="120" width="28" height="35" font="12">v</text>
+<text top="650" left="147" width="291" height="56" font="5">Asynchronous </text>
+<text top="704" left="174" width="22" height="53" font="13">§</text>
+<text top="702" left="197" width="898" height="56" font="5">each node does not work in sync with others </text>
+<text top="765" left="120" width="28" height="35" font="12">v</text>
+<text top="755" left="147" width="632" height="56" font="5">Based on Bellman-Ford equation</text>
+</page>
+<page number="11" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="14" size="29" family="Times" color="#000000"/>
+	<fontspec id="15" size="41" family="Times" color="#000000"/>
+<text top="26" left="81" width="980" height="83" font="11">Distance Vector Routing (Review)</text>
+<text top="136" left="116" width="28" height="35" font="12">v</text>
+<text top="125" left="144" width="815" height="56" font="5">Router doesn’t know exact n/w topology </text>
+<text top="194" left="116" width="28" height="35" font="12">v</text>
+<text top="183" left="144" width="894" height="56" font="5">Uses router as signposts along the path to dst</text>
+<text top="183" left="1038" width="25" height="37" font="14">n </text>
+<text top="251" left="116" width="28" height="35" font="12">v</text>
+<text top="240" left="144" width="461" height="56" font="5">Sends periodic updates </text>
+<text top="309" left="116" width="28" height="35" font="12">v</text>
+<text top="299" left="144" width="501" height="56" font="5">Core of the DV protocol </text>
+<text top="357" left="170" width="22" height="53" font="13">§</text>
+<text top="356" left="195" width="461" height="56" font="5">Bellman Ford Algorithm</text>
+<text top="356" left="656" width="9" height="37" font="14"> </text>
+<text top="424" left="116" width="28" height="35" font="12">v</text>
+<text top="413" left="144" width="824" height="56" font="5">Works best in following type of situations </text>
+<text top="471" left="170" width="22" height="53" font="13">§</text>
+<text top="470" left="195" width="512" height="56" font="5">network is simple and flat </text>
+<text top="529" left="224" width="786" height="60" font="6">•does not require hierarchical design </text>
+<text top="600" left="170" width="22" height="53" font="13">§</text>
+<text top="599" left="195" width="884" height="56" font="5">administrators don’t have enough knowledge </text>
+<text top="657" left="224" width="598" height="58" font="15">•configure/troubleshoot LSP </text>
+<text top="726" left="170" width="22" height="53" font="13">§</text>
+<text top="725" left="195" width="944" height="56" font="5">Worst case <b>convergence</b> time is not a concern</text>
+</page>
+<page number="12" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="16" size="37" family="Times" color="#000000"/>
+	<fontspec id="17" size="25" family="Times" color="#000000"/>
+<image top="249" left="57" width="975" height="455" src="ForPoints-12_1.png"/>
+<text top="64" left="81" width="647" height="83" font="11">DV Routing - Example</text>
+<text top="202" left="65" width="245" height="44" font="16">Initial Network</text>
+<text top="748" left="188" width="250" height="30" font="17"><i>Src: CCNA Module 2</i></text>
+</page>
+<page number="13" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="18" size="25" family="Times" color="#021eaa"/>
+<image top="228" left="35" width="1112" height="543" src="ForPoints-13_1.png"/>
+<text top="64" left="81" width="647" height="83" font="11">DV Routing - Example</text>
+<text top="168" left="121" width="24" height="30" font="18">v</text>
+<text top="159" left="149" width="642" height="49" font="7">After the exchange of routing packets</text>
+<text top="780" left="183" width="250" height="30" font="17"><i>Src: CCNA Module 2</i></text>
+</page>
+<page number="14" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="19" size="37" family="Times" color="#021eaa"/>
+<image top="371" left="68" width="951" height="398" src="ForPoints-14_1.png"/>
+<text top="25" left="81" width="554" height="83" font="11">DV Routing - Loop</text>
+<text top="139" left="124" width="24" height="30" font="18">v</text>
+<text top="129" left="152" width="820" height="49" font="7">src: CCNA Mod2/Chap4/4.4.1.1 loop animation </text>
+<text top="180" left="178" width="18" height="43" font="19">§</text>
+<text top="180" left="204" width="697" height="45" font="16">what happens when Fa0/0 of R3 goes down </text>
+<text top="228" left="178" width="18" height="43" font="19">§</text>
+<text top="228" left="204" width="639" height="45" font="16">R2 informs R3 that it can reach 10.4.0.0 </text>
+<text top="276" left="178" width="18" height="43" font="19">§</text>
+<text top="276" left="204" width="791" height="45" font="16">R3 makes routing entry for 10.4.0.0 to send to R2</text>
+</page>
+<page number="15" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="398" left="29" width="1014" height="414" src="ForPoints-15_1.png"/>
+<text top="7" left="81" width="888" height="83" font="11">DV Routing - Count to Infinity</text>
+<text top="152" left="121" width="24" height="30" font="18">v</text>
+<text top="142" left="149" width="843" height="49" font="7">aec: CCNA Mod2/Chap4/4.4.2.1 count to infinity </text>
+<text top="193" left="175" width="18" height="43" font="19">§</text>
+<text top="193" left="200" width="697" height="45" font="16">what happens when Fa0/0 of R3 goes down </text>
+<text top="241" left="175" width="18" height="43" font="19">§</text>
+<text top="240" left="200" width="639" height="45" font="16">R2 informs R3 that it can reach 10.4.0.0 </text>
+<text top="288" left="175" width="18" height="43" font="19">§</text>
+<text top="288" left="200" width="573" height="45" font="16">R3 makes routing entry for 10.4.0.0 </text>
+<text top="336" left="175" width="18" height="43" font="19">§</text>
+<text top="336" left="200" width="826" height="45" font="16">R3 updates R2, R2 updated its hop count to 10.4.0.0</text>
+</page>
+<page number="16" position="absolute" top="0" left="0" height="900" width="1200">
+<text top="10" left="81" width="790" height="83" font="11">DV Routing - Split Horizon</text>
+<text top="227" left="134" width="24" height="30" font="18">v</text>
+<text top="220" left="162" width="42" height="49" font="7">So</text>
+<text top="215" left="204" width="503" height="56" font="5">lution to count to infinity </text>
+<text top="272" left="188" width="22" height="53" font="13">§</text>
+<text top="270" left="213" width="661" height="56" font="5">define some fixed value as infinity </text>
+<text top="396" left="134" width="28" height="35" font="12">v</text>
+<text top="384" left="162" width="360" height="56" font="5">Split horizon Rule </text>
+<text top="443" left="188" width="22" height="53" font="13">§</text>
+<text top="441" left="213" width="467" height="56" font="5">prevents routing loops? </text>
+<text top="500" left="188" width="22" height="53" font="13">§</text>
+<text top="498" left="213" width="754" height="56" font="8"><b>“A Router should not advertise a </b></text>
+<text top="545" left="213" width="814" height="56" font="8"><b>network through the interface from </b></text>
+<text top="593" left="213" width="562" height="56" font="8"><b>which the update came” </b></text>
+<text top="651" left="188" width="22" height="53" font="13">§</text>
+<text top="648" left="213" width="693" height="56" font="5">Apply this rule to previous example</text>
+</page>
+<page number="17" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="20" size="52" family="Times" color="#021eaa"/>
+	<fontspec id="21" size="28" family="Times" color="#000000"/>
+	<fontspec id="22" size="25" family="Times" color="#000000"/>
+<text top="37" left="26" width="813" height="63" font="20">Count to Infinity with poison reverse</text>
+<text top="143" left="92" width="28" height="35" font="12">v</text>
+<text top="132" left="120" width="237" height="56" font="5">Stable state </text>
+<text top="190" left="146" width="22" height="53" font="13">§</text>
+<text top="189" left="170" width="24" height="56" font="5">d</text>
+<text top="208" left="194" width="16" height="37" font="14">x</text>
+<text top="189" left="210" width="159" height="56" font="5">(A)=1, d</text>
+<text top="208" left="369" width="14" height="37" font="14">y</text>
+<text top="189" left="383" width="159" height="56" font="5">(A)=3, d</text>
+<text top="208" left="541" width="13" height="37" font="14">z</text>
+<text top="189" left="555" width="128" height="56" font="5">(A)=4 </text>
+<text top="257" left="92" width="28" height="35" font="12">v</text>
+<text top="246" left="120" width="323" height="56" font="5">Link X to A fails </text>
+<text top="305" left="146" width="22" height="53" font="13">§</text>
+<text top="303" left="170" width="548" height="56" font="5">thus A is not reachable at all</text>
+<text top="216" left="806" width="15" height="34" font="21">x</text>
+<text top="209" left="1076" width="20" height="44" font="16">z</text>
+<text top="127" left="1025" width="15" height="30" font="22">1</text>
+<text top="126" left="855" width="15" height="30" font="22">2</text>
+<text top="276" left="947" width="15" height="30" font="22">3</text>
+<text top="73" left="944" width="15" height="34" font="21">y</text>
+<text top="330" left="935" width="20" height="34" font="21">A</text>
+<text top="312" left="756" width="15" height="30" font="22">1</text>
+</page>
+<page number="18" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="23" size="27" family="Times" color="#021eaa"/>
+	<fontspec id="24" size="43" family="Times" color="#021eaa"/>
+	<fontspec id="25" size="52" family="Times" color="#ff4013"/>
+	<fontspec id="26" size="43" family="Times" color="#000000"/>
+<text top="16" left="26" width="813" height="63" font="20">Count to Infinity with poison reverse</text>
+<text top="85" left="79" width="26" height="32" font="23">v</text>
+<text top="75" left="105" width="222" height="52" font="6">Stable state </text>
+<text top="129" left="133" width="21" height="50" font="24">§</text>
+<text top="129" left="156" width="23" height="52" font="6">d</text>
+<text top="147" left="179" width="15" height="35" font="21">x</text>
+<text top="129" left="194" width="149" height="52" font="6">(A)=1, d</text>
+<text top="147" left="343" width="13" height="35" font="21">y</text>
+<text top="129" left="356" width="149" height="52" font="6">(A)=3, d</text>
+<text top="147" left="504" width="13" height="35" font="21">z</text>
+<text top="129" left="517" width="120" height="52" font="6">(A)=4 </text>
+<text top="194" left="79" width="26" height="32" font="23">v</text>
+<text top="185" left="105" width="303" height="52" font="6">Link X to A fails </text>
+<text top="239" left="133" width="21" height="50" font="24">§</text>
+<text top="239" left="156" width="526" height="52" font="6">Thus A is not reachable at all</text>
+<text top="216" left="806" width="15" height="34" font="21">x</text>
+<text top="209" left="1076" width="20" height="44" font="16">z</text>
+<text top="127" left="1025" width="15" height="30" font="22">1</text>
+<text top="126" left="855" width="15" height="30" font="22">2</text>
+<text top="276" left="947" width="15" height="30" font="22">3</text>
+<text top="73" left="944" width="15" height="34" font="21">y</text>
+<text top="330" left="935" width="20" height="34" font="21">A</text>
+<text top="312" left="756" width="15" height="30" font="22">1</text>
+<text top="305" left="855" width="36" height="60" font="25"><b>X</b></text>
+<text top="344" left="40" width="26" height="32" font="23">v</text>
+<text top="335" left="71" width="381" height="52" font="6">How does DV work </text>
+<text top="389" left="94" width="21" height="50" font="24">§</text>
+<text top="389" left="120" width="864" height="52" font="6">Y learns from Z that it can reach A with cost 4 </text>
+<text top="445" left="148" width="617" height="61" font="6">•Y updates its cost to A as 5 </text>
+<text top="515" left="94" width="21" height="50" font="24">§</text>
+<text top="515" left="120" width="856" height="52" font="6">Y advertises to X that it can reach with cost 5 </text>
+<text top="569" left="94" width="21" height="50" font="24">§</text>
+<text top="569" left="120" width="955" height="52" font="6">X updates it table, says A is reachable with cost of 7 </text>
+<text top="623" left="94" width="21" height="50" font="24">§</text>
+<text top="623" left="120" width="831" height="52" font="6">X advertises to Z that updated cost to A is 7 </text>
+<text top="677" left="94" width="21" height="50" font="24">§</text>
+<text top="677" left="120" width="740" height="52" font="6">Z updates its cost to A 10 (7+3) from 4. </text>
+<text top="731" left="94" width="21" height="50" font="24">§</text>
+<text top="731" left="120" width="581" height="52" font="6">The process goes on till infinity </text>
+<text top="796" left="40" width="26" height="32" font="23">v</text>
+<text top="786" left="71" width="907" height="52" font="26"><b>Solution: Define infinity as some fixed value</b></text>
+</page>
+<page number="19" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-19_1.jpg"/>
+<text top="22" left="510" width="181" height="83" font="0">DSDV</text>
+<text top="151" left="101" width="674" height="59" font="1">• Table updates are of two types</text>
+<text top="212" left="143" width="427" height="56" font="5">– Incremental updates</text>
+<text top="270" left="197" width="585" height="52" font="6">• Local topo sess minor changes</text>
+<text top="324" left="143" width="388" height="56" font="5">– Full dumps update</text>
+<text top="382" left="197" width="568" height="52" font="6">• Topology changes significantly</text>
+<text top="439" left="197" width="797" height="53" font="6">• Table updates require more than 1 NPDU</text>
+<text top="497" left="101" width="984" height="59" font="1">• Each update by destination uses new seq num</text>
+<text top="560" left="101" width="962" height="59" font="1">• One link break propagates across whole n/w</text>
+<text top="621" left="143" width="747" height="55" font="5">–  Neighbour node uses odd sequence</text>
+<text top="681" left="101" width="933" height="59" font="1">• Destination node itself used even sequence</text>
+<text top="826" left="975" width="21" height="23" font="2">19</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="20" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-20_1.jpg"/>
+<image top="86" left="173" width="992" height="803" src="ForPoints-20_2.png"/>
+<image top="888" left="172" width="992" height="182" src="ForPoints-20_3.png"/>
+<text top="13" left="510" width="181" height="83" font="0">DSDV</text>
+<text top="826" left="975" width="21" height="23" font="2">20</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="21" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-21_1.jpg"/>
+<image top="0" left="23" width="1155" height="900" src="ForPoints-21_2.png"/>
+<image top="900" left="23" width="1154" height="182" src="ForPoints-21_3.png"/>
+<text top="826" left="975" width="21" height="23" font="2">21</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="22" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-22_1.jpg"/>
+<text top="22" left="510" width="181" height="83" font="0">DSDV</text>
+<text top="151" left="101" width="913" height="59" font="1">• Maintains the simplicity of Distance Vector</text>
+<text top="215" left="101" width="550" height="59" font="1">• Guarantee loop freeness</text>
+<text top="275" left="143" width="790" height="55" font="5">– New entry for seq number in DV table</text>
+<text top="335" left="101" width="862" height="59" font="1">• Allow fast reaction to topology changes</text>
+<text top="396" left="143" width="958" height="55" font="5">– Immediate advertisement on significant changes</text>
+<text top="454" left="143" width="838" height="56" font="5">– Wait with advertiszem of unstable routes</text>
+<text top="514" left="101" width="787" height="59" font="1">• Seq num originates from destination</text>
+<text top="574" left="143" width="458" height="55" font="5">– Ensures loop freeness</text>
+<text top="826" left="975" width="21" height="23" font="2">22</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="23" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-23_1.jpg"/>
+<text top="13" left="510" width="181" height="83" font="0">DSDV</text>
+<text top="118" left="101" width="813" height="59" font="1">• Routing information in advertisement</text>
+<text top="179" left="143" width="797" height="56" font="5">– Dstn addr, seq num, metric (hop count)</text>
+<text top="239" left="101" width="799" height="59" font="1">• Rules to set seq number information</text>
+<text top="300" left="143" width="934" height="55" font="5">– On own advertisement, increase seq num by 2</text>
+<text top="358" left="197" width="278" height="52" font="6">• Even seq num</text>
+<text top="412" left="143" width="876" height="55" font="5">– If a node is not reachable, increase seq by 1</text>
+<text top="471" left="197" width="551" height="53" font="6">• Set metric (hop count) to ∞</text>
+<text top="528" left="101" width="469" height="59" font="1">• Routing table update</text>
+<text top="588" left="143" width="776" height="56" font="5">– Select route with higher dstn seq num</text>
+<text top="646" left="197" width="579" height="52" font="6">• Ensures newest info from dstn</text>
+<text top="701" left="143" width="839" height="56" font="5">– Same seq num, selcet better metric route</text>
+<text top="826" left="975" width="21" height="23" font="2">23</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="24" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="27" size="35" family="Times" color="#000000"/>
+<image top="804" left="1" width="104" height="102" src="ForPoints-24_1.jpg"/>
+<text top="22" left="510" width="181" height="83" font="0">DSDV</text>
+<text top="826" left="975" width="21" height="23" font="2">24</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+<text top="369" left="84" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="424" left="84" width="136" height="42" font="27">A A 0</text>
+<text top="424" left="269" width="56" height="42" font="27">300</text>
+<text top="481" left="84" width="136" height="42" font="27">B B 1</text>
+<text top="481" left="269" width="56" height="42" font="27">198</text>
+<text top="538" left="84" width="136" height="42" font="27">C B 2</text>
+<text top="538" left="269" width="56" height="42" font="27">100</text>
+<text top="366" left="422" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="421" left="422" width="136" height="42" font="27">A A 1</text>
+<text top="421" left="606" width="56" height="42" font="27">300</text>
+<text top="478" left="422" width="136" height="42" font="27">B B 0</text>
+<text top="478" left="606" width="56" height="42" font="27">198</text>
+<text top="535" left="422" width="136" height="42" font="27">C B 1</text>
+<text top="535" left="606" width="56" height="42" font="27">100</text>
+<text top="366" left="779" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="421" left="779" width="136" height="42" font="27">A B 2</text>
+<text top="421" left="963" width="56" height="42" font="27">300</text>
+<text top="478" left="779" width="136" height="42" font="27">B B 1</text>
+<text top="478" left="963" width="56" height="42" font="27">198</text>
+<text top="535" left="779" width="136" height="42" font="27">C C 0</text>
+<text top="535" left="963" width="56" height="42" font="27">100</text>
+<text top="241" left="114" width="26" height="40" font="3">A</text>
+<text top="241" left="521" width="24" height="40" font="3">B</text>
+<text top="241" left="929" width="24" height="40" font="3">C</text>
+</page>
+<page number="25" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="28" size="35" family="Times" color="#b36ae2"/>
+<image top="804" left="1" width="104" height="102" src="ForPoints-25_1.jpg"/>
+<text top="22" left="189" width="823" height="83" font="0">DSDV Route Advertisement</text>
+<text top="826" left="975" width="21" height="23" font="2">25</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+<text top="369" left="84" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="424" left="84" width="136" height="42" font="27">A A 0</text>
+<text top="424" left="269" width="56" height="42" font="27">300</text>
+<text top="481" left="84" width="136" height="42" font="27">B B 1</text>
+<text top="481" left="269" width="56" height="42" font="28">200</text>
+<text top="538" left="84" width="136" height="42" font="27">C B 2</text>
+<text top="538" left="269" width="56" height="42" font="27">100</text>
+<text top="366" left="422" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="421" left="422" width="136" height="42" font="27">A A 1</text>
+<text top="421" left="606" width="56" height="42" font="27">300</text>
+<text top="478" left="422" width="136" height="42" font="27">B B 0</text>
+<text top="478" left="606" width="56" height="42" font="28">200</text>
+<text top="535" left="422" width="136" height="42" font="27">C B 1</text>
+<text top="535" left="606" width="56" height="42" font="27">100</text>
+<text top="366" left="779" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="421" left="779" width="136" height="42" font="27">A B 2</text>
+<text top="421" left="963" width="56" height="42" font="27">300</text>
+<text top="478" left="779" width="136" height="42" font="27">B B 1</text>
+<text top="478" left="963" width="56" height="42" font="28">200</text>
+<text top="535" left="779" width="136" height="42" font="27">C C 0</text>
+<text top="535" left="963" width="56" height="42" font="27">100</text>
+<text top="241" left="114" width="26" height="40" font="3">A</text>
+<text top="241" left="521" width="24" height="40" font="3">B</text>
+<text top="241" left="929" width="24" height="40" font="3">C</text>
+</page>
+<page number="26" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-26_1.jpg"/>
+<text top="22" left="335" width="529" height="83" font="0">DSDV New Node</text>
+<text top="826" left="975" width="21" height="23" font="2">26</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+<text top="369" left="84" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="424" left="84" width="136" height="42" font="27">A A 0</text>
+<text top="424" left="269" width="56" height="42" font="27">300</text>
+<text top="481" left="84" width="136" height="42" font="27">B B 1</text>
+<text top="481" left="269" width="56" height="42" font="27">200</text>
+<text top="538" left="84" width="136" height="42" font="27">C B 2</text>
+<text top="538" left="269" width="56" height="42" font="27">100</text>
+<text top="366" left="422" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="421" left="422" width="136" height="42" font="27">A A 1</text>
+<text top="421" left="606" width="56" height="42" font="27">300</text>
+<text top="478" left="422" width="136" height="42" font="27">B B 0</text>
+<text top="478" left="606" width="56" height="42" font="27">200</text>
+<text top="535" left="422" width="136" height="42" font="27">C B 1</text>
+<text top="535" left="606" width="56" height="42" font="27">100</text>
+<text top="366" left="779" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="420" left="779" width="136" height="42" font="27">A B 2</text>
+<text top="420" left="963" width="56" height="42" font="27">300</text>
+<text top="475" left="779" width="136" height="42" font="27">B B 1</text>
+<text top="475" left="963" width="56" height="42" font="27">200</text>
+<text top="529" left="779" width="136" height="42" font="27">C C 0</text>
+<text top="529" left="963" width="56" height="42" font="27">100</text>
+<text top="585" left="779" width="136" height="42" font="27">D D 1</text>
+<text top="585" left="963" width="19" height="42" font="27">0</text>
+<text top="241" left="114" width="26" height="40" font="3">A</text>
+<text top="241" left="521" width="24" height="40" font="3">B</text>
+<text top="241" left="929" width="24" height="40" font="3">C</text>
+<text top="236" left="1149" width="26" height="40" font="3">D</text>
+</page>
+<page number="27" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-27_1.jpg"/>
+<text top="22" left="219" width="762" height="83" font="0">DSDV New Node Update</text>
+<text top="826" left="975" width="21" height="23" font="2">27</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+<text top="369" left="84" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="424" left="84" width="136" height="42" font="27">A A 0</text>
+<text top="424" left="269" width="56" height="42" font="27">300</text>
+<text top="480" left="84" width="136" height="42" font="27">B B 1</text>
+<text top="480" left="269" width="56" height="42" font="27">200</text>
+<text top="537" left="84" width="136" height="42" font="27">C B 2</text>
+<text top="537" left="269" width="56" height="42" font="27">100</text>
+<text top="594" left="84" width="136" height="42" font="27">D B 3</text>
+<text top="594" left="269" width="19" height="42" font="27">0</text>
+<text top="366" left="422" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="420" left="422" width="136" height="42" font="27">A A 1</text>
+<text top="420" left="606" width="56" height="42" font="27">300</text>
+<text top="475" left="422" width="136" height="42" font="27">B B 0</text>
+<text top="475" left="606" width="56" height="42" font="27">200</text>
+<text top="532" left="422" width="136" height="42" font="27">C C 1</text>
+<text top="532" left="606" width="56" height="42" font="27">100</text>
+<text top="588" left="422" width="136" height="42" font="27">D C 2</text>
+<text top="588" left="606" width="19" height="42" font="27">0</text>
+<text top="366" left="779" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="420" left="779" width="136" height="42" font="27">A B 2</text>
+<text top="420" left="963" width="56" height="42" font="27">300</text>
+<text top="475" left="779" width="136" height="42" font="27">B B 1</text>
+<text top="475" left="963" width="56" height="42" font="27">200</text>
+<text top="529" left="779" width="136" height="42" font="27">C C 0</text>
+<text top="529" left="963" width="56" height="42" font="27">100</text>
+<text top="585" left="779" width="136" height="42" font="27">D D 1</text>
+<text top="585" left="963" width="19" height="42" font="27">0</text>
+<text top="241" left="114" width="26" height="40" font="3">A</text>
+<text top="241" left="521" width="24" height="40" font="3">B</text>
+<text top="241" left="929" width="24" height="40" font="3">C</text>
+<text top="236" left="1149" width="26" height="40" font="3">D</text>
+</page>
+<page number="28" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-28_1.jpg"/>
+<text top="22" left="228" width="745" height="83" font="0">DSDV After Few Updates</text>
+<text top="826" left="975" width="21" height="23" font="2">28</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+<text top="369" left="84" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="424" left="84" width="136" height="42" font="27">A A 0</text>
+<text top="424" left="269" width="56" height="42" font="27">400</text>
+<text top="480" left="84" width="136" height="42" font="27">B B 1</text>
+<text top="480" left="269" width="56" height="42" font="27">300</text>
+<text top="537" left="84" width="136" height="42" font="27">C B 2</text>
+<text top="537" left="269" width="56" height="42" font="27">200</text>
+<text top="594" left="84" width="136" height="42" font="27">D B 3</text>
+<text top="594" left="269" width="56" height="42" font="27">100</text>
+<text top="366" left="422" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="420" left="422" width="136" height="42" font="27">A A 1</text>
+<text top="420" left="606" width="56" height="42" font="27">400</text>
+<text top="475" left="422" width="136" height="42" font="27">B B 0</text>
+<text top="475" left="606" width="56" height="42" font="27">300</text>
+<text top="532" left="422" width="136" height="42" font="27">C C 1</text>
+<text top="532" left="606" width="56" height="42" font="27">200</text>
+<text top="588" left="422" width="136" height="42" font="27">D C 2</text>
+<text top="588" left="606" width="56" height="42" font="27">100</text>
+<text top="366" left="779" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="420" left="779" width="136" height="42" font="27">A B 2</text>
+<text top="420" left="963" width="56" height="42" font="27">400</text>
+<text top="475" left="779" width="136" height="42" font="27">B B 1</text>
+<text top="475" left="963" width="56" height="42" font="27">300</text>
+<text top="529" left="779" width="136" height="42" font="27">C C 0</text>
+<text top="529" left="963" width="56" height="42" font="27">200</text>
+<text top="585" left="779" width="136" height="42" font="27">D D 1</text>
+<text top="585" left="963" width="56" height="42" font="27">100</text>
+<text top="241" left="114" width="26" height="40" font="3">A</text>
+<text top="241" left="521" width="24" height="40" font="3">B</text>
+<text top="241" left="929" width="24" height="40" font="3">C</text>
+<text top="236" left="1149" width="26" height="40" font="3">D</text>
+</page>
+<page number="29" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="29" size="52" family="Times" color="#c82506"/>
+<image top="804" left="1" width="104" height="102" src="ForPoints-29_1.jpg"/>
+<text top="22" left="345" width="510" height="83" font="0">DSDV Link Break</text>
+<text top="826" left="975" width="21" height="23" font="2">29</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+<text top="369" left="84" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="424" left="84" width="136" height="42" font="27">A A 0</text>
+<text top="424" left="269" width="56" height="42" font="27">400</text>
+<text top="480" left="84" width="136" height="42" font="27">B B 1</text>
+<text top="480" left="269" width="56" height="42" font="27">300</text>
+<text top="537" left="84" width="136" height="42" font="27">C B 2</text>
+<text top="537" left="269" width="56" height="42" font="27">200</text>
+<text top="594" left="84" width="136" height="42" font="27">D B 3</text>
+<text top="594" left="269" width="56" height="42" font="27">100</text>
+<text top="366" left="422" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="420" left="422" width="136" height="42" font="27">A A 1</text>
+<text top="420" left="606" width="56" height="42" font="27">400</text>
+<text top="475" left="422" width="136" height="42" font="27">B B 0</text>
+<text top="475" left="606" width="56" height="42" font="27">300</text>
+<text top="532" left="422" width="136" height="42" font="27">C C 1</text>
+<text top="532" left="606" width="56" height="42" font="27">200</text>
+<text top="588" left="422" width="136" height="42" font="27">D C 2</text>
+<text top="588" left="606" width="56" height="42" font="27">100</text>
+<text top="366" left="779" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="420" left="779" width="136" height="42" font="27">A B 2</text>
+<text top="420" left="963" width="56" height="42" font="27">400</text>
+<text top="475" left="779" width="136" height="42" font="27">B B 1</text>
+<text top="475" left="963" width="56" height="42" font="27">300</text>
+<text top="529" left="779" width="136" height="42" font="27">C C 0</text>
+<text top="529" left="963" width="56" height="42" font="27">200</text>
+<text top="585" left="779" width="241" height="42" font="27">D D ∞ 101</text>
+<text top="241" left="114" width="26" height="40" font="3">A</text>
+<text top="241" left="521" width="24" height="40" font="3">B</text>
+<text top="241" left="929" width="24" height="40" font="3">C</text>
+<text top="236" left="1149" width="26" height="40" font="3">D</text>
+<text top="232" left="1038" width="39" height="60" font="29">X</text>
+</page>
+<page number="30" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-30_1.jpg"/>
+<text top="22" left="270" width="659" height="83" font="0">DSDV Immediate Advt</text>
+<text top="826" left="975" width="21" height="23" font="2">30</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+<text top="369" left="84" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="424" left="84" width="136" height="42" font="27">A A 0</text>
+<text top="424" left="269" width="56" height="42" font="27">400</text>
+<text top="480" left="84" width="136" height="42" font="27">B B 1</text>
+<text top="480" left="269" width="56" height="42" font="27">300</text>
+<text top="537" left="84" width="136" height="42" font="27">C B 2</text>
+<text top="537" left="269" width="56" height="42" font="27">200</text>
+<text top="594" left="84" width="241" height="42" font="27">D B ∞ 101</text>
+<text top="366" left="422" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="420" left="422" width="136" height="42" font="27">A A 1</text>
+<text top="420" left="606" width="56" height="42" font="27">400</text>
+<text top="475" left="422" width="136" height="42" font="27">B B 0</text>
+<text top="475" left="606" width="56" height="42" font="27">300</text>
+<text top="532" left="422" width="136" height="42" font="27">C C 1</text>
+<text top="532" left="606" width="56" height="42" font="27">200</text>
+<text top="588" left="422" width="241" height="42" font="27">D C ∞ 101</text>
+<text top="366" left="779" width="225" height="30" font="22">Dst Nxt Hop Seq</text>
+<text top="420" left="779" width="136" height="42" font="27">A B 2</text>
+<text top="420" left="963" width="56" height="42" font="27">400</text>
+<text top="475" left="779" width="136" height="42" font="27">B B 1</text>
+<text top="475" left="963" width="56" height="42" font="27">300</text>
+<text top="529" left="779" width="136" height="42" font="27">C C 0</text>
+<text top="529" left="963" width="56" height="42" font="27">200</text>
+<text top="585" left="779" width="241" height="42" font="27">D D ∞ 101</text>
+<text top="241" left="114" width="26" height="40" font="3">A</text>
+<text top="241" left="521" width="24" height="40" font="3">B</text>
+<text top="241" left="929" width="24" height="40" font="3">C</text>
+<text top="236" left="1149" width="26" height="40" font="3">D</text>
+<text top="232" left="1038" width="39" height="60" font="29">X</text>
+</page>
+<page number="31" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="30" size="46" family="Times" color="#c82506"/>
+<image top="804" left="1" width="104" height="102" src="ForPoints-31_1.jpg"/>
+<text top="22" left="324" width="552" height="83" font="0">DSDV Fluctuations</text>
+<text top="151" left="470" width="373" height="59" font="1">• Entry for D in A</text>
+<text top="212" left="512" width="311" height="56" font="5">– [D, C, 20, 100]</text>
+<text top="272" left="470" width="525" height="59" font="1">• D makes Bcast: seq 102</text>
+<text top="335" left="470" width="566" height="59" font="1">• A receives update from B</text>
+<text top="396" left="512" width="102" height="55" font="5">– [D, </text>
+<text top="395" left="613" width="27" height="55" font="30">B</text>
+<text top="395" left="640" width="86" height="55" font="5">, 21, </text>
+<text top="395" left="727" width="72" height="55" font="30">102</text>
+<text top="395" left="799" width="16" height="55" font="5">]</text>
+<text top="454" left="512" width="448" height="56" font="5">– propagates this route</text>
+<text top="514" left="470" width="573" height="59" font="1">• A receives udpate from C</text>
+<text top="574" left="512" width="102" height="55" font="5">– [D, </text>
+<text top="574" left="613" width="34" height="55" font="30">C</text>
+<text top="574" left="649" width="174" height="55" font="5">, 20, 102]</text>
+<text top="632" left="512" width="412" height="56" font="5">– propages this route</text>
+<text top="692" left="470" width="626" height="59" font="1">• Leads to unnecessary route </text>
+<text top="745" left="510" width="313" height="59" font="1">advertisements</text>
+<text top="826" left="975" width="21" height="23" font="2">31</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+<text top="181" left="194" width="26" height="40" font="3">A</text>
+<text top="283" left="101" width="24" height="40" font="3">B</text>
+<text top="283" left="290" width="24" height="40" font="3">C</text>
+<text top="662" left="170" width="26" height="40" font="3">D</text>
+<text top="403" left="35" width="124" height="40" font="3">Hop cnt </text>
+<text top="443" left="35" width="36" height="40" font="3">21</text>
+<text top="403" left="267" width="124" height="40" font="3">Hop cnt </text>
+<text top="443" left="267" width="36" height="40" font="3">20</text>
+</page>
+<page number="32" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-32_1.jpg"/>
+<text top="22" left="324" width="552" height="83" font="0">DSDV Fluctuations</text>
+<text top="151" left="101" width="581" height="59" font="1">• How to damp fluctuations</text>
+<text top="212" left="143" width="721" height="56" font="5">– Record settling time of every route</text>
+<text top="270" left="143" width="703" height="55" font="5">– On first update with new seq num</text>
+<text top="328" left="197" width="858" height="52" font="6">• wait for this settling time before advertising it</text>
+<text top="381" left="251" width="683" height="48" font="7">– Propose wait time: 2* avg. settling time</text>
+<text top="433" left="143" width="740" height="55" font="5">– Results in avoidance of unnecessary </text>
+<text top="481" left="177" width="276" height="55" font="5">advertisement</text>
+<text top="539" left="197" width="387" height="52" font="6">• Saving of bandwidth</text>
+<text top="826" left="975" width="21" height="23" font="2">32</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="33" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-33_1.jpg"/>
+<text top="22" left="363" width="474" height="83" font="0">DSDV Summary</text>
+<text top="151" left="101" width="275" height="59" font="1">• Advantages</text>
+<text top="212" left="143" width="557" height="56" font="5">– Simple, like distance vector</text>
+<text top="270" left="143" width="821" height="55" font="5">– Loop free (thru destination seq number)</text>
+<text top="327" left="143" width="800" height="56" font="5">– Quick convergene (no latency in route </text>
+<text top="376" left="177" width="201" height="55" font="5">discovery)</text>
+<text top="436" left="101" width="331" height="59" font="1">• Disadvantages</text>
+<text top="497" left="143" width="395" height="55" font="5">– No sleeping nodes</text>
+<text top="554" left="143" width="862" height="55" font="5">– When N1 does not communicate with N2</text>
+<text top="612" left="197" width="873" height="52" font="6">• Routing table overhead of maintaining this info</text>
+<text top="826" left="975" width="21" height="23" font="2">33</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="34" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-34_1.jpg"/>
+<text top="22" left="210" width="779" height="83" font="0">AHWN Routing Protocols</text>
+<text top="151" left="101" width="453" height="59" font="1">• Table driven routing</text>
+<text top="214" left="143" width="24" height="55" font="5">–</text>
+<text top="214" left="177" width="121" height="55" font="9">DSDV</text>
+<text top="214" left="291" width="32" height="55" font="5">,  </text>
+<text top="213" left="324" width="111" height="57" font="8"><b>WRP</b></text>
+<text top="275" left="101" width="447" height="59" font="10">• On demand routing</text>
+<text top="335" left="143" width="401" height="55" font="9">– DSR, AODV, TORA</text>
+<text top="396" left="101" width="357" height="59" font="10">• Hybrid Routing</text>
+<text top="456" left="143" width="187" height="56" font="9">– CEDAR</text>
+<text top="516" left="101" width="189" height="59" font="10">• Others</text>
+<text top="577" left="143" width="730" height="55" font="9">– Efficient flooding mechanisms based</text>
+<text top="635" left="143" width="420" height="55" font="9">– Hierarchical routing</text>
+<text top="692" left="143" width="440" height="55" font="9">– Power aware routing</text>
+<text top="826" left="975" width="21" height="23" font="2">34</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="35" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-35_1.jpg"/>
+<text top="22" left="212" width="778" height="83" font="0">Wireless Routing Protocol</text>
+<text top="120" left="101" width="380" height="59" font="1">• Similar to DSDV</text>
+<text top="181" left="143" width="763" height="55" font="5">– Maintains up to date view of network</text>
+<text top="239" left="143" width="797" height="55" font="5">– Each node has route to each dstn node</text>
+<text top="299" left="101" width="781" height="59" font="1">• Differences from DSDV in following</text>
+<text top="359" left="143" width="871" height="55" font="5">– Employs unique method of maintaining info</text>
+<text top="417" left="197" width="685" height="52" font="6">• Shortest distance to each dstn node</text>
+<text top="472" left="197" width="871" height="52" font="6">• Predecessor (penultimate) node for dstn node</text>
+<text top="526" left="143" width="422" height="55" font="5">– Uses multiple tables</text>
+<text top="584" left="197" width="851" height="52" font="6">• Maintains more accurate info (than topology)</text>
+<text top="639" left="143" width="743" height="55" font="5">– Table update process &amp; maintenance</text>
+<text top="696" left="143" width="794" height="56" font="5">– Checks for other neighbour’s distances</text>
+<text top="826" left="975" width="21" height="23" font="2">35</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="36" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="31" size="64" family="Times" color="#000000"/>
+<image top="804" left="1" width="104" height="102" src="ForPoints-36_1.jpg"/>
+<text top="28" left="132" width="753" height="76" font="31">Wireless Routing Protocol -</text>
+<text top="22" left="885" width="20" height="83" font="0"> </text>
+<text top="28" left="905" width="164" height="76" font="31">Tables</text>
+<text top="151" left="101" width="885" height="59" font="1">• Distance table (DT) of a node x contains</text>
+<text top="212" left="143" width="897" height="56" font="5">– Distance of each dstn y via each neighbour z</text>
+<text top="270" left="143" width="911" height="55" font="5">– Downstream neighbour of z via the path to y</text>
+<text top="330" left="101" width="852" height="59" font="1">• Routing table (RT) of a node x contains</text>
+<text top="390" left="143" width="675" height="56" font="5">– Shortest distance to each dstn y, </text>
+<text top="448" left="143" width="844" height="55" font="5">– Predecessor (penultimate) node to dstn y</text>
+<text top="506" left="143" width="680" height="55" font="5">– Successor node of x on path to y</text>
+<text top="563" left="143" width="661" height="55" font="5">– Path status (simple, invalid, loop)</text>
+<text top="826" left="975" width="21" height="23" font="2">36</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="37" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-37_1.jpg"/>
+<text top="28" left="132" width="753" height="76" font="31">Wireless Routing Protocol -</text>
+<text top="22" left="885" width="20" height="83" font="0"> </text>
+<text top="28" left="905" width="164" height="76" font="31">Tables</text>
+<text top="151" left="101" width="744" height="59" font="1">• Link Cost Table (LCT) of a node x</text>
+<text top="212" left="143" width="629" height="56" font="5">– Cost of link to each neighbour</text>
+<text top="270" left="143" width="908" height="55" font="5">– Num of timeouts since last successful update</text>
+<text top="330" left="101" width="770" height="59" font="1">• Message Retransmission List (MRL)</text>
+<text top="390" left="143" width="1010" height="56" font="5">– Which neighbour node has not ack’ed update msg</text>
+<text top="448" left="143" width="923" height="55" font="5">– Update msg to be retransmitted w/ a counter</text>
+<text top="506" left="197" width="908" height="52" font="6">• Counter decremented after each retransmission</text>
+<text top="826" left="975" width="21" height="23" font="2">37</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="38" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-38_1.jpg"/>
+<text top="19" left="132" width="753" height="76" font="31">Wireless Routing Protocol -</text>
+<text top="13" left="885" width="20" height="83" font="0"> </text>
+<text top="19" left="905" width="164" height="76" font="31">Tables</text>
+<text top="100" left="99" width="938" height="59" font="1">• Mechanism of exchanging info (update msg)</text>
+<text top="161" left="141" width="506" height="56" font="5">– Exchange routing tables </text>
+<text top="219" left="141" width="365" height="55" font="5">– Link changes info</text>
+<text top="276" left="141" width="950" height="55" font="5">– Nodes on MRL need to ack rcpt of update msg</text>
+<text top="334" left="141" width="587" height="55" font="5">– If no change in routing table,</text>
+<text top="392" left="195" width="861" height="52" font="6">• Node sends Hello msg to ensure connectivity</text>
+<text top="446" left="141" width="516" height="55" font="5">– On receiving update msg</text>
+<text top="504" left="195" width="855" height="52" font="6">• Node modifies DT,  and looks for better path</text>
+<text top="559" left="195" width="912" height="52" font="6">• Any new path found is relayed back to orig node</text>
+<text top="613" left="249" width="618" height="48" font="7">– Original node can update its tables</text>
+<text top="664" left="141" width="750" height="55" font="5">– On receiving Ack, node updates MRL</text>
+<text top="722" left="141" width="966" height="55" font="5">– Consistency check of neighbours on link change</text>
+<text top="780" left="195" width="381" height="52" font="6">• Faster convergence</text>
+<text top="826" left="975" width="21" height="23" font="2">38</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="39" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="32" size="34" family="Times" color="#5f327c"/>
+	<fontspec id="33" size="34" family="Times" color="#b36ae2"/>
+	<fontspec id="34" size="34" family="Times" color="#773f9b"/>
+<image top="804" left="1" width="104" height="102" src="ForPoints-39_1.jpg"/>
+<image top="2" left="62" width="1109" height="768" src="ForPoints-39_2.png"/>
+<text top="22" left="522" width="155" height="83" font="0">WRP</text>
+<text top="826" left="975" width="21" height="23" font="2">39</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+<text top="665" left="288" width="448" height="40" font="32">Node with predecessor as 12 ? </text>
+<text top="706" left="288" width="333" height="40" font="32">  12, 10, 8,7,6,5,4,3,2,1</text>
+<text top="592" left="1106" width="26" height="40" font="33"><b>X</b></text>
+<text top="592" left="1140" width="18" height="40" font="34"><b>7</b></text>
+<text top="635" left="1107" width="26" height="40" font="33"><b>X</b></text>
+<text top="635" left="1142" width="36" height="40" font="34"><b>10</b></text>
+</page>
+<page number="40" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="35" size="34" family="Times" color="#c82506"/>
+<image top="804" left="1" width="104" height="102" src="ForPoints-40_1.jpg"/>
+<image top="15" left="47" width="1107" height="768" src="ForPoints-40_2.png"/>
+<text top="22" left="522" width="155" height="83" font="0">WRP</text>
+<text top="826" left="975" width="21" height="23" font="2">40</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+<text top="149" left="377" width="273" height="40" font="35"><b>X, the link breaks</b></text>
+<text top="667" left="284" width="429" height="40" font="3">12 sends msg to 14,10,4,8,13 </text>
+<text top="707" left="284" width="330" height="40" font="3">15 sends msg to 14, 13</text>
+<text top="754" left="275" width="478" height="40" font="3">10,4,8 delete their routing entries</text>
+<text top="604" left="1088" width="26" height="40" font="33"><b>X</b></text>
+<text top="604" left="1122" width="18" height="40" font="34"><b>7</b></text>
+<text top="644" left="1088" width="26" height="40" font="33"><b>X</b></text>
+<text top="644" left="1124" width="36" height="40" font="34"><b>10</b></text>
+<text top="149" left="377" width="26" height="40" font="35"><b>X</b></text>
+<text top="355" left="1013" width="26" height="40" font="35"><b>X</b></text>
+<text top="439" left="1011" width="26" height="40" font="35"><b>X</b></text>
+<text top="604" left="1011" width="26" height="40" font="35"><b>X</b></text>
+</page>
+<page number="41" position="absolute" top="0" left="0" height="900" width="1200">
+	<fontspec id="36" size="25" family="Times" color="#000000"/>
+<image top="804" left="1" width="104" height="102" src="ForPoints-41_1.jpg"/>
+<image top="15" left="47" width="1107" height="768" src="ForPoints-41_2.png"/>
+<text top="22" left="522" width="155" height="83" font="0">WRP</text>
+<text top="826" left="975" width="21" height="23" font="2">41</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+<text top="149" left="377" width="26" height="40" font="35"><b>X</b></text>
+<text top="688" left="284" width="351" height="40" font="3">12 updates routing entry</text>
+<text top="754" left="275" width="402" height="40" font="3">10,4,8 update their min cost</text>
+<text top="277" left="923" width="27" height="30" font="36"><b>13</b></text>
+<text top="271" left="878" width="26" height="40" font="35"><b>X</b></text>
+<text top="271" left="1013" width="26" height="40" font="35"><b>X</b></text>
+<text top="271" left="1088" width="26" height="40" font="35"><b>X</b></text>
+<text top="277" left="1040" width="27" height="30" font="36"><b>13</b></text>
+<text top="277" left="1118" width="14" height="30" font="36"><b>5</b></text>
+<text top="644" left="1088" width="26" height="40" font="33"><b>X</b></text>
+<text top="644" left="1124" width="36" height="40" font="34"><b>10</b></text>
+<text top="358" left="878" width="26" height="40" font="35"><b>X</b></text>
+<text top="358" left="1013" width="26" height="40" font="35"><b>X</b></text>
+<text top="358" left="1088" width="26" height="40" font="35"><b>X</b></text>
+<text top="364" left="1124" width="27" height="30" font="36"><b>10</b></text>
+<text top="364" left="923" width="27" height="30" font="36"><b>14</b></text>
+<text top="364" left="1040" width="27" height="30" font="36"><b>14</b></text>
+<text top="445" left="878" width="26" height="40" font="35"><b>X</b></text>
+<text top="445" left="1013" width="26" height="40" font="35"><b>X</b></text>
+<text top="445" left="1088" width="26" height="40" font="35"><b>X</b></text>
+<text top="451" left="923" width="27" height="30" font="36"><b>13</b></text>
+<text top="451" left="1040" width="27" height="30" font="36"><b>13</b></text>
+<text top="447" left="1118" width="14" height="30" font="36"><b>9</b></text>
+<text top="604" left="878" width="26" height="40" font="35"><b>X</b></text>
+<text top="604" left="1013" width="26" height="40" font="35"><b>X</b></text>
+<text top="604" left="1088" width="26" height="40" font="35"><b>X</b></text>
+<text top="609" left="938" width="27" height="30" font="36"><b>10</b></text>
+<text top="609" left="1040" width="27" height="30" font="36"><b>14</b></text>
+<text top="609" left="1118" width="26" height="30" font="36"><b>11</b></text>
+</page>
+<page number="42" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-42_1.jpg"/>
+<image top="2" left="65" width="1112" height="735" src="ForPoints-42_2.png"/>
+<text top="22" left="522" width="155" height="83" font="0">WRP</text>
+<text top="826" left="975" width="21" height="23" font="2">42</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+<text top="659" left="236" width="525" height="40" font="3">12 sends update msg to 14,10,4,8,13</text>
+<text top="712" left="242" width="470" height="40" font="3">10,4 update their routing entries </text>
+<text top="752" left="242" width="517" height="40" font="3">In turn they update their neighbours</text>
+</page>
+<page number="43" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-43_1.jpg"/>
+<text top="22" left="111" width="1003" height="83" font="0">WRP: Advantages &amp; Disadvantages</text>
+<text top="151" left="101" width="286" height="59" font="1">• Advantages:</text>
+<text top="212" left="143" width="323" height="56" font="5">– Same as DSDV</text>
+<text top="270" left="143" width="643" height="55" font="5">– Faster convergence than DSDV</text>
+<text top="327" left="143" width="425" height="56" font="5">– Fewer table updates</text>
+<text top="387" left="101" width="331" height="59" font="1">• Disadvantages</text>
+<text top="448" left="143" width="951" height="55" font="5">– Need large memory and more compute power</text>
+<text top="506" left="197" width="455" height="52" font="6">• More number of tables.</text>
+<text top="560" left="143" width="956" height="55" font="5">– At high mobility, control overhead for updating </text>
+<text top="608" left="177" width="540" height="55" font="5">table entries same as DSDV</text>
+<text top="667" left="197" width="924" height="52" font="6">• Not suitable for highly dynamic topology, AHWN</text>
+<text top="826" left="975" width="21" height="23" font="2">43</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+<page number="44" position="absolute" top="0" left="0" height="900" width="1200">
+<image top="804" left="1" width="104" height="102" src="ForPoints-44_1.jpg"/>
+<text top="22" left="375" width="451" height="83" font="0">Assignment -01</text>
+<text top="151" left="101" width="478" height="59" font="1">• Adhoc Wifi Network</text>
+<text top="826" left="975" width="21" height="23" font="2">44</text>
+<text top="835" left="351" width="112" height="40" font="3">AHWN</text>
+</page>
+</pdf2xml>

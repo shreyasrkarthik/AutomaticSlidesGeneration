@@ -1,0 +1,406 @@
+<!DOCTYPE html><html>
+<head>
+<title></title>
+<style type="text/css">
+<!--
+.xflip {
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    -o-transform: scaleX(-1);
+    transform: scaleX(-1);
+    filter: fliph;
+}
+.yflip {
+    -moz-transform: scaleY(-1);
+    -webkit-transform: scaleY(-1);
+    -o-transform: scaleY(-1);
+    transform: scaleY(-1);
+    filter: flipv;
+}
+.xyflip {
+    -moz-transform: scaleX(-1) scaleY(-1);
+    -webkit-transform: scaleX(-1) scaleY(-1);
+    -o-transform: scaleX(-1) scaleY(-1);
+    transform: scaleX(-1) scaleY(-1);
+    filter: fliph + flipv;
+}
+-->
+</style>
+</head>
+<body>
+<a name=1></a><img src="os-sample-1_1.jpg"/><br/>
+<img class="xflip" src="os-sample-1_2.jpg"/><br/>
+<img class="xflip" src="os-sample-1_3.png"/><br/>
+<img src="os-sample-1_4.jpg"/><br/>
+<b>OPERATING</b><br/>
+<b>SYSTEM</b><br/>
+<b>CONCEPTS</b><br/>
+ABRAHAM SILBERSCHATZ<br/>Yale University<br/>
+PETER BAER GALVIN<br/>Pluribus Networks<br/>
+GREG GAGNE<br/>Westminster College<br/>
+NINTH EDITION<br/>
+<hr/>
+<a name=2></a>Preface<br/>
+Operating&#160;systems&#160;are&#160;an&#160;essential&#160;part&#160;of&#160;any&#160;computer&#160;system.&#160;Similarly,<br/>
+a&#160;course&#160;on&#160;operating&#160;systems&#160;is&#160;an&#160;essential&#160;part&#160;of&#160;any&#160;computer&#160;science<br/>
+education.&#160;This&#160;ﬁeld&#160;is&#160;undergoing&#160;rapid&#160;change,&#160;as&#160;computers&#160;are&#160;now<br/>
+prevalent&#160;in&#160;virtually&#160;every&#160;arena&#160;of&#160;day-to-day&#160;life—from&#160;embedded&#160;devices<br/>
+in&#160;automobiles&#160;through&#160;the&#160;most&#160;sophisticated&#160;planning&#160;tools&#160;for&#160;governments<br/>
+and&#160;multinational&#160;ﬁrms.&#160;Yet&#160;the&#160;fundamental&#160;concepts&#160;remain&#160;fairly&#160;clear,&#160;and<br/>
+it&#160;is&#160;on&#160;these&#160;that&#160;we&#160;base&#160;this&#160;book.<br/>
+We&#160;wrote&#160;this&#160;book&#160;as&#160;a&#160;text&#160;for&#160;an&#160;introductory&#160;course&#160;in&#160;operating&#160;systems<br/>
+at&#160;the&#160;junior&#160;or&#160;senior&#160;undergraduate&#160;level&#160;or&#160;at&#160;the&#160;ﬁrst-year&#160;graduate&#160;level.&#160;We<br/>
+hope&#160;that&#160;practitioners&#160;will&#160;also&#160;ﬁnd&#160;it&#160;useful.&#160;It&#160;provides&#160;a&#160;clear&#160;description&#160;of<br/>
+the&#160;<i>concepts&#160;</i>that&#160;underlie&#160;operating&#160;systems.&#160;As&#160;prerequisites,&#160;we&#160;assume&#160;that<br/>
+the&#160;reader&#160;is&#160;familiar&#160;with&#160;basic&#160;data&#160;structures,&#160;computer&#160;organization,&#160;and<br/>
+a&#160;high-level&#160;language,&#160;such&#160;as&#160;C&#160;or&#160;Java.&#160;The&#160;hardware&#160;topics&#160;required&#160;for&#160;an<br/>
+understanding&#160;of&#160;operating&#160;systems&#160;are&#160;covered&#160;in&#160;Chapter&#160;1.&#160;In&#160;that&#160;chapter,<br/>
+we&#160;also&#160;include&#160;an&#160;overview&#160;of&#160;the&#160;fundamental&#160;data&#160;structures&#160;that&#160;are<br/>
+prevalent&#160;in&#160;most&#160;operating&#160;systems.&#160;For&#160;code&#160;examples,&#160;we&#160;use&#160;predominantly<br/>
+C,&#160;with&#160;some&#160;Java,&#160;but&#160;the&#160;reader&#160;can&#160;still&#160;understand&#160;the&#160;algorithms&#160;without<br/>
+a&#160;thorough&#160;knowledge&#160;of&#160;these&#160;languages.<br/>
+Concepts&#160;are&#160;presented&#160;using&#160;intuitive&#160;descriptions.&#160;Important&#160;theoretical<br/>
+results&#160;are&#160;covered,&#160;but&#160;formal&#160;proofs&#160;are&#160;largely&#160;omitted.&#160;The&#160;bibliographical<br/>
+notes&#160;at&#160;the&#160;end&#160;of&#160;each&#160;chapter&#160;contain&#160;pointers&#160;to&#160;research&#160;papers&#160;in&#160;which<br/>
+results&#160;were&#160;ﬁrst&#160;presented&#160;and&#160;proved,&#160;as&#160;well&#160;as&#160;references&#160;to&#160;recent&#160;material<br/>
+for&#160;further&#160;reading.&#160;In&#160;place&#160;of&#160;proofs,&#160;ﬁgures&#160;and&#160;examples&#160;are&#160;used&#160;to&#160;suggest<br/>
+why&#160;we&#160;should&#160;expect&#160;the&#160;result&#160;in&#160;question&#160;to&#160;be&#160;true.<br/>
+The&#160;fundamental&#160;concepts&#160;and&#160;algorithms&#160;covered&#160;in&#160;the&#160;book&#160;are&#160;often<br/>
+based&#160;on&#160;those&#160;used&#160;in&#160;both&#160;commercial&#160;and&#160;open-source&#160;operating&#160;systems.<br/>
+Our&#160;aim&#160;is&#160;to&#160;present&#160;these&#160;concepts&#160;and&#160;algorithms&#160;in&#160;a&#160;general&#160;setting&#160;that<br/>
+is&#160;not&#160;tied&#160;to&#160;one&#160;particular&#160;operating&#160;system.&#160;However,&#160;we&#160;present&#160;a&#160;large<br/>
+number&#160;of&#160;examples&#160;that&#160;pertain&#160;to&#160;the&#160;most&#160;popular&#160;and&#160;the&#160;most&#160;innovative<br/>
+operating&#160;systems,&#160;including&#160;Linux,&#160;Microsoft&#160;Windows,&#160;Apple&#160;Mac&#160;OS&#160;X,&#160;and<br/>
+Solaris.&#160;We&#160;also&#160;include&#160;examples&#160;of&#160;both&#160;Android&#160;and&#160;iOS,&#160;currently&#160;the&#160;two<br/>
+dominant&#160;mobile&#160;operating&#160;systems.<br/>
+The&#160;organization&#160;of&#160;the&#160;text&#160;reﬂects&#160;our&#160;many&#160;years&#160;of&#160;teaching&#160;courses&#160;on<br/>
+operating&#160;systems,&#160;as&#160;well&#160;as&#160;curriculum&#160;guidelines&#160;published&#160;by&#160;the&#160;IEEE<br/>
+<b>vii</b><br/>
+<hr/>
+<a name=3></a><b>viii</b><br/>
+<b>Preface</b><br/>
+Computing&#160;Society&#160;and&#160;the&#160;Association&#160;for&#160;Computing&#160;Machinery&#160;(ACM).<br/>
+Consideration&#160;was&#160;also&#160;given&#160;to&#160;the&#160;feedback&#160;provided&#160;by&#160;the&#160;reviewers&#160;of<br/>
+the&#160;text,&#160;along&#160;with&#160;the&#160;many&#160;comments&#160;and&#160;suggestions&#160;we&#160;received&#160;from<br/>
+readers&#160;of&#160;our&#160;previous&#160;editions&#160;and&#160;from&#160;our&#160;current&#160;and&#160;former&#160;students.<br/>
+Content&#160;of&#160;This&#160;Book<br/>
+The&#160;text&#160;is&#160;organized&#160;in&#160;eight&#160;major&#160;parts:<br/>
+•&#160;<b>Overview</b>.&#160;Chapters&#160;1&#160;and&#160;2&#160;explain&#160;what&#160;operating&#160;systems&#160;are,&#160;what<br/>
+they&#160;do,&#160;and&#160;how&#160;they&#160;are&#160;designed&#160;and&#160;constructed.&#160;These&#160;chapters<br/>
+discuss&#160;what&#160;the&#160;common&#160;features&#160;of&#160;an&#160;operating&#160;system&#160;are&#160;and&#160;what&#160;an<br/>
+operating&#160;system&#160;does&#160;for&#160;the&#160;user.&#160;We&#160;include&#160;coverage&#160;of&#160;both&#160;traditional<br/>PC&#160;and&#160;server&#160;operating&#160;systems,&#160;as&#160;well&#160;as&#160;operating&#160;systems&#160;for&#160;mobile<br/>
+devices.&#160;The&#160;presentation&#160;is&#160;motivational&#160;and&#160;explanatory&#160;in&#160;nature.&#160;We<br/>
+have&#160;avoided&#160;a&#160;discussion&#160;of&#160;how&#160;things&#160;are&#160;done&#160;internally&#160;in&#160;these<br/>
+chapters.&#160;Therefore,&#160;they&#160;are&#160;suitable&#160;for&#160;individual&#160;readers&#160;or&#160;for&#160;students<br/>
+in&#160;lower-level&#160;classes&#160;who&#160;want&#160;to&#160;learn&#160;what&#160;an&#160;operating&#160;system&#160;is<br/>
+without&#160;getting&#160;into&#160;the&#160;details&#160;of&#160;the&#160;internal&#160;algorithms.<br/>
+•&#160;<b>Process&#160;management</b>.&#160;Chapters&#160;3&#160;through&#160;7&#160;describe&#160;the&#160;process&#160;concept<br/>
+and&#160;concurrency&#160;as&#160;the&#160;heart&#160;of&#160;modern&#160;operating&#160;systems.&#160;A&#160;<i><b>process</b></i><br/>
+is&#160;the&#160;unit&#160;of&#160;work&#160;in&#160;a&#160;system.&#160;Such&#160;a&#160;system&#160;consists&#160;of&#160;a&#160;collection<br/>
+of&#160;<i><b>concurrently&#160;</b></i>executing&#160;processes,&#160;some&#160;of&#160;which&#160;are&#160;operating-system<br/>
+processes&#160;(those&#160;that&#160;execute&#160;system&#160;code)&#160;and&#160;the&#160;rest&#160;of&#160;which&#160;are&#160;user<br/>
+processes&#160;(those&#160;that&#160;execute&#160;user&#160;code).&#160;These&#160;chapters&#160;cover&#160;methods&#160;for<br/>
+process&#160;scheduling,&#160;interprocess&#160;communication,&#160;process&#160;synchronization,<br/>
+and&#160;deadlock&#160;handling.&#160;Also&#160;included&#160;is&#160;a&#160;discussion&#160;of&#160;threads,&#160;as&#160;well<br/>
+as&#160;an&#160;examination&#160;of&#160;issues&#160;related&#160;to&#160;multicore&#160;systems&#160;and&#160;parallel<br/>
+programming.<br/>
+•&#160;<b>Memory&#160;management</b>.&#160;Chapters&#160;8&#160;and&#160;9&#160;deal&#160;with&#160;the&#160;management&#160;of<br/>
+main&#160;memory&#160;during&#160;the&#160;execution&#160;of&#160;a&#160;process.&#160;To&#160;improve&#160;both&#160;the<br/>
+utilization&#160;of&#160;the&#160;CPU&#160;and&#160;the&#160;speed&#160;of&#160;its&#160;response&#160;to&#160;its&#160;users,&#160;the<br/>
+computer&#160;must&#160;keep&#160;several&#160;processes&#160;in&#160;memory.&#160;There&#160;are&#160;many&#160;different<br/>
+memory-management&#160;schemes,&#160;reﬂecting&#160;various&#160;approaches&#160;to&#160;memory<br/>
+management,&#160;and&#160;the&#160;effectiveness&#160;of&#160;a&#160;particular&#160;algorithm&#160;depends&#160;on<br/>
+the&#160;situation.<br/>
+•&#160;<b>Storage&#160;management</b>.&#160;Chapters&#160;10&#160;through&#160;13&#160;describe&#160;how&#160;mass&#160;storage,<br/>
+the&#160;ﬁle&#160;system,&#160;and&#160;I/O&#160;are&#160;handled&#160;in&#160;a&#160;modern&#160;computer&#160;system.&#160;The<br/>
+ﬁle&#160;system&#160;provides&#160;the&#160;mechanism&#160;for&#160;on-line&#160;storage&#160;of&#160;and&#160;access<br/>
+to&#160;both&#160;data&#160;and&#160;programs.&#160;We&#160;describe&#160;the&#160;classic&#160;internal&#160;algorithms<br/>
+and&#160;structures&#160;of&#160;storage&#160;management&#160;and&#160;provide&#160;a&#160;ﬁrm&#160;practical<br/>
+understanding&#160;of&#160;the&#160;algorithms&#160;used—their&#160;properties,&#160;advantages,&#160;and<br/>
+disadvantages.&#160;Since&#160;the&#160;I/O&#160;devices&#160;that&#160;attach&#160;to&#160;a&#160;computer&#160;vary&#160;widely,<br/>
+the&#160;operating&#160;system&#160;needs&#160;to&#160;provide&#160;a&#160;wide&#160;range&#160;of&#160;functionality&#160;to<br/>
+applications&#160;to&#160;allow&#160;them&#160;to&#160;control&#160;all&#160;aspects&#160;of&#160;these&#160;devices.&#160;We<br/>
+discuss&#160;system&#160;I/O&#160;in&#160;depth,&#160;including&#160;I/O&#160;system&#160;design,&#160;interfaces,&#160;and<br/>
+internal&#160;system&#160;structures&#160;and&#160;functions.&#160;In&#160;many&#160;ways,&#160;I/O&#160;devices&#160;are<br/>
+the&#160;slowest&#160;major&#160;components&#160;of&#160;the&#160;computer.&#160;Because&#160;they&#160;represent&#160;a<br/>
+<hr/>
+<a name=4></a><b>Preface</b><br/>
+<b>ix</b><br/>
+performance&#160;bottleneck,&#160;we&#160;also&#160;examine&#160;performance&#160;issues&#160;associated<br/>
+with&#160;I/O&#160;devices.<br/>
+•&#160;<b>Protection&#160;and&#160;security</b>.&#160;Chapters&#160;14&#160;and&#160;15&#160;discuss&#160;the&#160;mechanisms<br/>
+necessary&#160;for&#160;the&#160;protection&#160;and&#160;security&#160;of&#160;computer&#160;systems.&#160;The<br/>
+processes&#160;in&#160;an&#160;operating&#160;system&#160;must&#160;be&#160;protected&#160;from&#160;one&#160;another’s<br/>
+activities,&#160;and&#160;to&#160;provide&#160;such&#160;protection,&#160;we&#160;must&#160;ensure&#160;that&#160;only<br/>
+processes&#160;that&#160;have&#160;gained&#160;proper&#160;authorization&#160;from&#160;the&#160;operating&#160;system<br/>
+can&#160;operate&#160;on&#160;the&#160;ﬁles,&#160;memory,&#160;CPU,&#160;and&#160;other&#160;resources&#160;of&#160;the&#160;system.<br/>
+Protection&#160;is&#160;a&#160;mechanism&#160;for&#160;controlling&#160;the&#160;access&#160;of&#160;programs,&#160;processes,<br/>
+or&#160;users&#160;to&#160;computer-system&#160;resources.&#160;This&#160;mechanism&#160;must&#160;provide&#160;a<br/>
+means&#160;of&#160;specifying&#160;the&#160;controls&#160;to&#160;be&#160;imposed,&#160;as&#160;well&#160;as&#160;a&#160;means&#160;of<br/>
+enforcement.&#160;Security&#160;protects&#160;the&#160;integrity&#160;of&#160;the&#160;information&#160;stored&#160;in<br/>
+the&#160;system&#160;(both&#160;data&#160;and&#160;code),&#160;as&#160;well&#160;as&#160;the&#160;physical&#160;resources&#160;of&#160;the<br/>
+system,&#160;from&#160;unauthorized&#160;access,&#160;malicious&#160;destruction&#160;or&#160;alteration,&#160;and<br/>
+accidental&#160;introduction&#160;of&#160;inconsistency.<br/>
+•&#160;<b>Advanced&#160;topics.&#160;</b>Chapters&#160;16&#160;and&#160;17&#160;discuss&#160;virtual&#160;machines&#160;and<br/>
+distributed&#160;systems.&#160;Chapter&#160;16&#160;is&#160;a&#160;new&#160;chapter&#160;that&#160;provides&#160;an&#160;overview<br/>
+of&#160;virtual&#160;machines&#160;and&#160;their&#160;relationship&#160;to&#160;contemporary&#160;operating<br/>
+systems.&#160;Included&#160;is&#160;an&#160;overview&#160;of&#160;the&#160;hardware&#160;and&#160;software&#160;techniques<br/>
+that&#160;make&#160;virtualization&#160;possible.&#160;Chapter&#160;17&#160;condenses&#160;and&#160;updates&#160;the<br/>
+three&#160;chapters&#160;on&#160;distributed&#160;computing&#160;from&#160;the&#160;previous&#160;edition.&#160;This<br/>
+change&#160;is&#160;meant&#160;to&#160;make&#160;it&#160;easier&#160;for&#160;instructors&#160;to&#160;cover&#160;the&#160;material&#160;in<br/>
+the&#160;limited&#160;time&#160;available&#160;during&#160;a&#160;semester&#160;and&#160;for&#160;students&#160;to&#160;gain&#160;an<br/>
+understanding&#160;of&#160;the&#160;core&#160;ideas&#160;of&#160;distributed&#160;computing&#160;more&#160;quickly.<br/>
+•&#160;<b>Case&#160;studies</b>.&#160;Chapters&#160;18&#160;and&#160;19&#160;in&#160;the&#160;text,&#160;along&#160;with&#160;Appendices&#160;A&#160;and<br/>
+B&#160;(which&#160;are&#160;available&#160;on&#160;(http://www.os-book.com),&#160;present&#160;detailed<br/>
+case&#160;studies&#160;of&#160;real&#160;operating&#160;systems,&#160;including&#160;Linux,&#160;Windows&#160;7,<br/>FreeBSD,&#160;and&#160;Mach.&#160;Coverage&#160;of&#160;both&#160;Linux&#160;and&#160;Windows&#160;7&#160;are&#160;presented<br/>
+throughout&#160;this&#160;text;&#160;however,&#160;the&#160;case&#160;studies&#160;provide&#160;much&#160;more&#160;detail.<br/>
+It&#160;is&#160;especially&#160;interesting&#160;to&#160;compare&#160;and&#160;contrast&#160;the&#160;design&#160;of&#160;these&#160;two<br/>
+very&#160;different&#160;systems.&#160;Chapter&#160;20&#160;brieﬂy&#160;describes&#160;a&#160;few&#160;other&#160;inﬂuential<br/>
+operating&#160;systems.<br/>
+The&#160;Ninth&#160;Edition<br/>
+As&#160;we&#160;wrote&#160;this&#160;Ninth&#160;Edition&#160;of&#160;<i>Operating&#160;System&#160;Concepts,&#160;</i>we&#160;were&#160;guided<br/>
+by&#160;the&#160;recent&#160;growth&#160;in&#160;three&#160;fundamental&#160;areas&#160;that&#160;affect&#160;operating&#160;systems:<br/>
+<b>1.&#160;</b>Multicore&#160;systems<br/><b>2.&#160;</b>Mobile&#160;computing<br/><b>3.&#160;</b>Virtualization<br/>
+To&#160;emphasize&#160;these&#160;topics,&#160;we&#160;have&#160;integrated&#160;relevant&#160;coverage&#160;throughout<br/>
+this&#160;new&#160;edition—and,&#160;in&#160;the&#160;case&#160;of&#160;virtualization,&#160;have&#160;written&#160;an&#160;entirely<br/>
+new&#160;chapter.&#160;Additionally,&#160;we&#160;have&#160;rewritten&#160;material&#160;in&#160;almost&#160;every&#160;chapter<br/>
+by&#160;bringing&#160;older&#160;material&#160;up&#160;to&#160;date&#160;and&#160;removing&#160;material&#160;that&#160;is&#160;no&#160;longer<br/>
+interesting&#160;or&#160;relevant.<br/>
+<hr/>
+<a name=5></a><b>x</b><br/>
+<b>Preface</b><br/>
+We&#160;have&#160;also&#160;made&#160;substantial&#160;organizational&#160;changes.&#160;For&#160;example,&#160;we<br/>
+have&#160;eliminated&#160;the&#160;chapter&#160;on&#160;real-time&#160;systems&#160;and&#160;instead&#160;have&#160;integrated<br/>
+appropriate&#160;coverage&#160;of&#160;these&#160;systems&#160;throughout&#160;the&#160;text.&#160;We&#160;have&#160;reordered<br/>
+the&#160;chapters&#160;on&#160;storage&#160;management&#160;and&#160;have&#160;moved&#160;up&#160;the&#160;presentation<br/>
+of&#160;process&#160;synchronization&#160;so&#160;that&#160;it&#160;appears&#160;before&#160;process&#160;scheduling.&#160;Most<br/>
+of&#160;these&#160;organizational&#160;changes&#160;are&#160;based&#160;on&#160;our&#160;experiences&#160;while&#160;teaching<br/>
+courses&#160;on&#160;operating&#160;systems.<br/>
+Below,&#160;we&#160;provide&#160;a&#160;brief&#160;outline&#160;of&#160;the&#160;major&#160;changes&#160;to&#160;the&#160;various<br/>
+chapters:<br/>
+•&#160;<b>Chapter&#160;1,&#160;Introduction,&#160;</b>includes&#160;updated&#160;coverage&#160;of&#160;multiprocessor<br/>
+and&#160;multicore&#160;systems,&#160;as&#160;well&#160;as&#160;a&#160;new&#160;section&#160;on&#160;kernel&#160;data&#160;structures.<br/>
+Additionally,&#160;the&#160;coverage&#160;of&#160;computing&#160;environments&#160;now&#160;includes<br/>
+mobile&#160;systems&#160;and&#160;cloud&#160;computing.&#160;We&#160;also&#160;have&#160;incorporated&#160;an<br/>
+overview&#160;of&#160;real-time&#160;systems.<br/>
+•&#160;<b>Chapter&#160;2,&#160;Operating-System&#160;Structures,&#160;</b>provides&#160;new&#160;coverage&#160;of&#160;user<br/>
+interfaces&#160;for&#160;mobile&#160;devices,&#160;including&#160;discussions&#160;of&#160;iOS&#160;and&#160;Android,<br/>
+and&#160;expanded&#160;coverage&#160;of&#160;Mac&#160;OS&#160;X&#160;as&#160;a&#160;type&#160;of&#160;hybrid&#160;system.<br/>
+•&#160;<b>Chapter&#160;3,&#160;Processes,&#160;</b>now&#160;includes&#160;coverage&#160;of&#160;multitasking&#160;in&#160;mobile<br/>
+operating&#160;systems,&#160;support&#160;for&#160;the&#160;multiprocess&#160;model&#160;in&#160;Google’s&#160;Chrome<br/>
+web&#160;browser,&#160;and&#160;zombie&#160;and&#160;orphan&#160;processes&#160;in&#160;UNIX.<br/>
+•&#160;<b>Chapter&#160;4,&#160;Threads,&#160;</b>supplies&#160;expanded&#160;coverage&#160;of&#160;parallelism&#160;and<br/>
+Amdahl’s&#160;law.&#160;It&#160;also&#160;provides&#160;a&#160;new&#160;section&#160;on&#160;implicit&#160;threading,<br/>
+including&#160;OpenMP&#160;and&#160;Apple’s&#160;Grand&#160;Central&#160;Dispatch.<br/>
+•&#160;<b>Chapter&#160;5,&#160;Process&#160;Synchronization&#160;</b>(previously&#160;Chapter&#160;6),&#160;adds&#160;a&#160;new<br/>
+section&#160;on&#160;mutex&#160;locks&#160;as&#160;well&#160;as&#160;coverage&#160;of&#160;synchronization&#160;using<br/>
+OpenMP,&#160;as&#160;well&#160;as&#160;functional&#160;languages.<br/>
+•&#160;<b>Chapter&#160;6,&#160;CPU&#160;Scheduling&#160;</b>(previously&#160;Chapter&#160;5),&#160;contains&#160;new&#160;coverage<br/>
+of&#160;the&#160;Linux&#160;CFS&#160;scheduler&#160;and&#160;Windows&#160;user-mode&#160;scheduling.&#160;Coverage<br/>
+of&#160;real-time&#160;scheduling&#160;algorithms&#160;has&#160;also&#160;been&#160;integrated&#160;into&#160;this<br/>
+chapter.<br/>
+•&#160;<b>Chapter&#160;7,&#160;Deadlocks,&#160;</b>has&#160;no&#160;major&#160;changes.<br/>•&#160;<b>Chapter&#160;8,&#160;Main&#160;Memory,&#160;</b>includes&#160;new&#160;coverage&#160;of&#160;swapping&#160;on&#160;mobile<br/>
+systems&#160;and&#160;Intel&#160;32-&#160;and&#160;64-bit&#160;architectures.&#160;A&#160;new&#160;section&#160;discusses<br/>ARM&#160;architecture.<br/>
+•&#160;<b>Chapter&#160;9,&#160;Virtual&#160;Memory,&#160;</b>updates&#160;kernel&#160;memory&#160;management&#160;to<br/>
+include&#160;the&#160;Linux&#160;SLUB&#160;and&#160;SLOB&#160;memory&#160;allocators.<br/>
+•&#160;<b>Chapter&#160;10,&#160;Mass-Storage&#160;Structure&#160;</b>(previously&#160;Chapter&#160;12),&#160;adds&#160;cover-<br/>
+age&#160;of&#160;solid-state&#160;disks.<br/>
+•&#160;<b>Chapter&#160;11,&#160;File-System&#160;Interface&#160;</b>(previously&#160;Chapter&#160;10),&#160;is&#160;updated<br/>
+with&#160;information&#160;about&#160;current&#160;technologies.<br/>
+•&#160;<b>Chapter&#160;12,&#160;File-System&#160;Implementation&#160;</b>(previously&#160;Chapter&#160;11),&#160;is<br/>
+updated&#160;with&#160;coverage&#160;of&#160;current&#160;technologies.<br/>
+•&#160;<b>Chapter&#160;13,&#160;I/O,&#160;</b>updates&#160;technologies&#160;and&#160;performance&#160;numbers,&#160;expands<br/>
+coverage&#160;of&#160;synchronous/asynchronous&#160;and&#160;blocking/nonblocking&#160;I/O,<br/>
+and&#160;adds&#160;a&#160;section&#160;on&#160;vectored&#160;I/O.<br/>
+<hr/>
+<a name=6></a>Part&#160;One<br/>
+Overview<br/>
+An&#160;operating&#160;system&#160;acts&#160;as&#160;an&#160;intermediary&#160;between&#160;the&#160;user&#160;of&#160;a<br/>computer&#160;and&#160;the&#160;computer&#160;hardware.&#160;The&#160;purpose&#160;of&#160;an&#160;operating<br/>system&#160;is&#160;to&#160;provide&#160;an&#160;environment&#160;in&#160;which&#160;a&#160;user&#160;can&#160;execute<br/>programs&#160;in&#160;a&#160;convenient&#160;and&#160;efﬁcient&#160;manner.<br/>
+An&#160;operating&#160;system&#160;is&#160;software&#160;that&#160;manages&#160;the&#160;computer&#160;hard-<br/>
+ware.&#160;The&#160;hardware&#160;must&#160;provide&#160;appropriate&#160;mechanisms&#160;to&#160;ensure&#160;the<br/>correct&#160;operation&#160;of&#160;the&#160;computer&#160;system&#160;and&#160;to&#160;prevent&#160;user&#160;programs<br/>from&#160;interfering&#160;with&#160;the&#160;proper&#160;operation&#160;of&#160;the&#160;system.<br/>
+Internally,&#160;operating&#160;systems&#160;vary&#160;greatly&#160;in&#160;their&#160;makeup,&#160;since&#160;they<br/>
+are&#160;organized&#160;along&#160;many&#160;different&#160;lines.&#160;The&#160;design&#160;of&#160;a&#160;new&#160;operating<br/>system&#160;is&#160;a&#160;major&#160;task.&#160;It&#160;is&#160;important&#160;that&#160;the&#160;goals&#160;of&#160;the&#160;system&#160;be&#160;well<br/>deﬁned&#160;before&#160;the&#160;design&#160;begins.&#160;These&#160;goals&#160;form&#160;the&#160;basis&#160;for&#160;choices<br/>among&#160;various&#160;algorithms&#160;and&#160;strategies.<br/>
+Because&#160;an&#160;operating&#160;system&#160;is&#160;large&#160;and&#160;complex,&#160;it&#160;must&#160;be&#160;created<br/>
+piece&#160;by&#160;piece.&#160;Each&#160;of&#160;these&#160;pieces&#160;should&#160;be&#160;a&#160;well-delineated&#160;portion<br/>of&#160;the&#160;system,&#160;with&#160;carefully&#160;deﬁned&#160;inputs,&#160;outputs,&#160;and&#160;functions.<br/>
+<hr/>
+<a name=7></a><hr/>
+<a name=8></a>C&#160;H1APTER<br/>
+Introduction<br/>
+An&#160;<b>operating&#160;system&#160;</b>is&#160;a&#160;program&#160;that&#160;manages&#160;a&#160;computer’s&#160;hardware.&#160;It<br/>
+also&#160;provides&#160;a&#160;basis&#160;for&#160;application&#160;programs&#160;and&#160;acts&#160;as&#160;an&#160;intermediary<br/>
+between&#160;the&#160;computer&#160;user&#160;and&#160;the&#160;computer&#160;hardware.&#160;An&#160;amazing&#160;aspect&#160;of<br/>
+operating&#160;systems&#160;is&#160;how&#160;they&#160;vary&#160;in&#160;accomplishing&#160;these&#160;tasks.&#160;Mainframe<br/>
+operating&#160;systems&#160;are&#160;designed&#160;primarily&#160;to&#160;optimize&#160;utilization&#160;of&#160;hardware.<br/>
+Personal&#160;computer&#160;(PC)&#160;operating&#160;systems&#160;support&#160;complex&#160;games,&#160;business<br/>
+applications,&#160;and&#160;everything&#160;in&#160;between.&#160;Operating&#160;systems&#160;for&#160;mobile&#160;com-<br/>
+puters&#160;provide&#160;an&#160;environment&#160;in&#160;which&#160;a&#160;user&#160;can&#160;easily&#160;interface&#160;with&#160;the<br/>
+computer&#160;to&#160;execute&#160;programs.&#160;Thus,&#160;some&#160;operating&#160;systems&#160;are&#160;designed&#160;to<br/>
+be&#160;<i><b>convenient,&#160;</b></i>others&#160;to&#160;be&#160;<i><b>efﬁcient,&#160;</b></i>and&#160;others&#160;to&#160;be&#160;some&#160;combination&#160;of&#160;the<br/>
+two.Beforewecanexplorethedetailsofcomputersystemoperation,weneedto<br/>
+know&#160;something&#160;about&#160;system&#160;structure.&#160;We&#160;thus&#160;discuss&#160;the&#160;basic&#160;functions<br/>
+of&#160;system&#160;startup,&#160;I/O,&#160;and&#160;storage&#160;early&#160;in&#160;this&#160;chapter.&#160;We&#160;also&#160;describe<br/>
+the&#160;basic&#160;computer&#160;architecture&#160;that&#160;makes&#160;it&#160;possible&#160;to&#160;write&#160;a&#160;functional<br/>
+operating&#160;system.<br/>
+Because&#160;an&#160;operating&#160;system&#160;is&#160;large&#160;and&#160;complex,&#160;it&#160;must&#160;be&#160;created<br/>
+piece&#160;by&#160;piece.&#160;Each&#160;of&#160;these&#160;pieces&#160;should&#160;be&#160;a&#160;well-delineated&#160;portion&#160;of&#160;the<br/>
+system,&#160;with&#160;carefully&#160;deﬁned&#160;inputs,&#160;outputs,&#160;and&#160;functions.&#160;In&#160;this&#160;chapter,<br/>
+we&#160;provide&#160;a&#160;general&#160;overview&#160;of&#160;the&#160;major&#160;components&#160;of&#160;a&#160;contemporary<br/>
+computer&#160;system&#160;as&#160;well&#160;as&#160;the&#160;functions&#160;provided&#160;by&#160;the&#160;operating&#160;system.<br/>
+Additionally,&#160;we&#160;cover&#160;several&#160;other&#160;topics&#160;to&#160;help&#160;set&#160;the&#160;stage&#160;for&#160;the<br/>
+remainder&#160;of&#160;this&#160;text:&#160;data&#160;structures&#160;used&#160;in&#160;operating&#160;systems,&#160;computing<br/>
+environments,&#160;and&#160;open-source&#160;operating&#160;systems.<br/>
+CHAPTER&#160;OBJECTIVES<br/>
+•&#160;To&#160;describe&#160;the&#160;basic&#160;organization&#160;of&#160;computer&#160;systems.<br/>•&#160;To&#160;provide&#160;a&#160;grand&#160;tour&#160;of&#160;the&#160;major&#160;components&#160;of&#160;operating&#160;systems.<br/>•&#160;To&#160;give&#160;an&#160;overview&#160;of&#160;the&#160;many&#160;types&#160;of&#160;computing&#160;environments.<br/>•&#160;To&#160;explore&#160;several&#160;open-source&#160;operating&#160;systems.<br/>
+<b>3</b><br/>
+<hr/>
+<a name=9></a><b>4</b><br/>
+<b>Chapter&#160;1&#160;Introduction</b><br/>
+user<br/>
+user<br/>
+user<br/>
+user<br/>
+…<br/>
+1<br/>
+2<br/>
+3<br/>
+<i>n</i><br/>
+compiler<br/>
+assembler<br/>
+text editor<br/>
+…<br/>
+database<br/>
+system<br/>
+system and application programs<br/>
+operating system<br/>
+computer hardware<br/>
+<b>Figure&#160;1.1&#160;</b>Abstract&#160;view&#160;of&#160;the&#160;components&#160;of&#160;a&#160;computer&#160;system.<br/>
+1.1<br/>
+What&#160;Operating&#160;Systems&#160;Do<br/>
+We&#160;begin&#160;our&#160;discussion&#160;by&#160;looking&#160;at&#160;the&#160;operating&#160;system’s&#160;role&#160;in&#160;the<br/>
+overall&#160;computer&#160;system.&#160;A&#160;computer&#160;system&#160;can&#160;be&#160;divided&#160;roughly&#160;into&#160;four<br/>
+components:&#160;the&#160;<i><b>hardware,&#160;</b></i>the&#160;<i><b>operating&#160;system,&#160;</b></i>the&#160;<i><b>application&#160;programs,</b></i><br/>
+and&#160;the&#160;<i><b>users&#160;</b></i>(Figure&#160;1.1).<br/>
+The&#160;<b>hardware</b>—the&#160;<b>central&#160;processing&#160;unit&#160;(CPU)</b>,&#160;the&#160;<b>memory</b>,&#160;and&#160;the<br/>
+<b>input/output&#160;(I/O)&#160;devices</b>—provides&#160;the&#160;basic&#160;computing&#160;resources&#160;for&#160;the<br/>
+system.&#160;The&#160;<b>application&#160;programs</b>—such&#160;as&#160;word&#160;processors,&#160;spreadsheets,<br/>
+compilers,&#160;and&#160;Web&#160;browsers—deﬁne&#160;the&#160;ways&#160;in&#160;which&#160;these&#160;resources&#160;are<br/>
+used&#160;to&#160;solve&#160;users’&#160;computing&#160;problems.&#160;The&#160;operating&#160;system&#160;controls&#160;the<br/>
+hardware&#160;and&#160;coordinates&#160;its&#160;use&#160;among&#160;the&#160;various&#160;application&#160;programs&#160;for<br/>
+the&#160;various&#160;users.<br/>
+We&#160;can&#160;also&#160;view&#160;a&#160;computer&#160;system&#160;as&#160;consisting&#160;of&#160;hardware,&#160;software,<br/>
+and&#160;data.&#160;The&#160;operating&#160;system&#160;provides&#160;the&#160;means&#160;for&#160;proper&#160;use&#160;of&#160;these<br/>
+resources&#160;in&#160;the&#160;operation&#160;of&#160;the&#160;computer&#160;system.&#160;An&#160;operating&#160;system&#160;is<br/>
+similar&#160;to&#160;a&#160;government.&#160;Like&#160;a&#160;government,&#160;it&#160;performs&#160;no&#160;useful&#160;function&#160;by<br/>
+itself.&#160;It&#160;simply&#160;provides&#160;an&#160;<i><b>environment&#160;</b></i>within&#160;which&#160;other&#160;programs&#160;can&#160;do<br/>
+useful&#160;work.<br/>
+To&#160;understand&#160;more&#160;fully&#160;the&#160;operating&#160;system’s&#160;role,&#160;we&#160;next&#160;explore<br/>
+operating&#160;systems&#160;from&#160;two&#160;viewpoints:&#160;that&#160;of&#160;the&#160;user&#160;and&#160;that&#160;of&#160;the&#160;system.<br/>
+1.1.1&#160;User&#160;View<br/>
+The&#160;user’s&#160;view&#160;of&#160;the&#160;computer&#160;varies&#160;according&#160;to&#160;the&#160;interface&#160;being<br/>
+used.&#160;Most&#160;computer&#160;users&#160;sit&#160;in&#160;front&#160;of&#160;a&#160;PC,&#160;consisting&#160;of&#160;a&#160;monitor,<br/>
+keyboard,&#160;mouse,&#160;and&#160;system&#160;unit.&#160;Such&#160;a&#160;system&#160;is&#160;designed&#160;for&#160;one&#160;user<br/>
+<hr/>
+<a name=10></a><b>1.1&#160;What&#160;Operating&#160;Systems&#160;Do</b><br/>
+<b>5</b><br/>
+to&#160;monopolize&#160;its&#160;resources.&#160;The&#160;goal&#160;is&#160;to&#160;maximize&#160;the&#160;work&#160;(or&#160;play)&#160;that<br/>
+the&#160;user&#160;is&#160;performing.&#160;In&#160;this&#160;case,&#160;the&#160;operating&#160;system&#160;is&#160;designed&#160;mostly<br/>
+for&#160;<b>ease&#160;of&#160;use</b>,&#160;with&#160;some&#160;attention&#160;paid&#160;to&#160;performance&#160;and&#160;none&#160;paid<br/>
+to&#160;<b>resource&#160;utilization</b>—how&#160;various&#160;hardware&#160;and&#160;software&#160;resources&#160;are<br/>
+shared.&#160;Performance&#160;is,&#160;of&#160;course,&#160;important&#160;to&#160;the&#160;user;&#160;but&#160;such&#160;systems<br/>
+are&#160;optimized&#160;for&#160;the&#160;single-user&#160;experience&#160;rather&#160;than&#160;the&#160;requirements&#160;of<br/>
+multiple&#160;users.<br/>
+In&#160;other&#160;cases,&#160;a&#160;user&#160;sits&#160;at&#160;a&#160;terminal&#160;connected&#160;to&#160;a&#160;<b>mainframe&#160;</b>or&#160;a<br/>
+<b>minicomputer</b>.&#160;Other&#160;users&#160;are&#160;accessing&#160;the&#160;same&#160;computer&#160;through&#160;other<br/>
+terminals.&#160;These&#160;users&#160;share&#160;resources&#160;and&#160;may&#160;exchange&#160;information.&#160;The<br/>
+operating&#160;system&#160;in&#160;such&#160;cases&#160;is&#160;designed&#160;to&#160;maximize&#160;resource&#160;utilization—<br/>
+to&#160;assure&#160;that&#160;all&#160;available&#160;CPU&#160;time,&#160;memory,&#160;and&#160;I/O&#160;are&#160;used&#160;efﬁciently&#160;and<br/>
+that&#160;no&#160;individual&#160;user&#160;takes&#160;more&#160;than&#160;her&#160;fair&#160;share.<br/>
+In&#160;still&#160;other&#160;cases,&#160;users&#160;sit&#160;at&#160;<b>workstations&#160;</b>connected&#160;to&#160;networks&#160;of<br/>
+other&#160;workstations&#160;and&#160;<b>servers</b>.&#160;These&#160;users&#160;have&#160;dedicated&#160;resources&#160;at<br/>
+their&#160;disposal,&#160;but&#160;they&#160;also&#160;share&#160;resources&#160;such&#160;as&#160;networking&#160;and&#160;servers,<br/>
+including&#160;ﬁle,&#160;compute,&#160;and&#160;print&#160;servers.&#160;Therefore,&#160;their&#160;operating&#160;system&#160;is<br/>
+designed&#160;to&#160;compromise&#160;between&#160;individual&#160;usability&#160;and&#160;resource&#160;utilization.<br/>
+Recently,&#160;many&#160;varieties&#160;of&#160;mobile&#160;computers,&#160;such&#160;as&#160;smartphones&#160;and<br/>
+tablets,&#160;have&#160;come&#160;into&#160;fashion.&#160;Most&#160;mobile&#160;computers&#160;are&#160;standalone&#160;units&#160;for<br/>
+individual&#160;users.&#160;Quite&#160;often,&#160;they&#160;are&#160;connected&#160;to&#160;networks&#160;through&#160;cellular<br/>
+or&#160;other&#160;wireless&#160;technologies.&#160;Increasingly,&#160;these&#160;mobile&#160;devices&#160;are&#160;replacing<br/>
+desktop&#160;and&#160;laptop&#160;computers&#160;for&#160;people&#160;who&#160;are&#160;primarily&#160;interested&#160;in<br/>
+using&#160;computers&#160;for&#160;e-mail&#160;and&#160;web&#160;browsing.&#160;The&#160;user&#160;interface&#160;for&#160;mobile<br/>
+computers&#160;generally&#160;features&#160;a&#160;<b>touch&#160;screen</b>,&#160;where&#160;the&#160;user&#160;interacts&#160;with&#160;the<br/>
+system&#160;by&#160;pressing&#160;and&#160;swiping&#160;ﬁngers&#160;across&#160;the&#160;screen&#160;rather&#160;than&#160;using&#160;a<br/>
+physical&#160;keyboard&#160;and&#160;mouse.<br/>
+Some&#160;computers&#160;have&#160;little&#160;or&#160;no&#160;user&#160;view.&#160;For&#160;example,&#160;embedded<br/>
+computers&#160;in&#160;home&#160;devices&#160;and&#160;automobiles&#160;may&#160;have&#160;numeric&#160;keypads&#160;and<br/>
+may&#160;turn&#160;indicator&#160;lights&#160;on&#160;or&#160;off&#160;to&#160;show&#160;status,&#160;but&#160;they&#160;and&#160;their&#160;operating<br/>
+systems&#160;are&#160;designed&#160;primarily&#160;to&#160;run&#160;without&#160;user&#160;intervention.<br/>
+1.1.2&#160;System&#160;View<br/>
+From&#160;the&#160;computer’s&#160;point&#160;of&#160;view,&#160;the&#160;operating&#160;system&#160;is&#160;the&#160;program<br/>
+most&#160;intimately&#160;involved&#160;with&#160;the&#160;hardware.&#160;In&#160;this&#160;context,&#160;we&#160;can&#160;view<br/>
+an&#160;operating&#160;system&#160;as&#160;a&#160;<b>resource&#160;allocator</b>.&#160;A&#160;computer&#160;system&#160;has&#160;many<br/>
+resources&#160;that&#160;may&#160;be&#160;required&#160;to&#160;solve&#160;a&#160;problem:&#160;CPU&#160;time,&#160;memory&#160;space,<br/>
+ﬁle-storage&#160;space,&#160;I/O&#160;devices,&#160;and&#160;so&#160;on.&#160;The&#160;operating&#160;system&#160;acts&#160;as&#160;the<br/>
+manager&#160;of&#160;these&#160;resources.&#160;Facing&#160;numerous&#160;and&#160;possibly&#160;conﬂicting&#160;requests<br/>
+for&#160;resources,&#160;the&#160;operating&#160;system&#160;must&#160;decide&#160;how&#160;to&#160;allocate&#160;them&#160;to&#160;speciﬁc<br/>
+programs&#160;and&#160;users&#160;so&#160;that&#160;it&#160;can&#160;operate&#160;the&#160;computer&#160;system&#160;efﬁciently&#160;and<br/>
+fairly.&#160;As&#160;we&#160;have&#160;seen,&#160;resource&#160;allocation&#160;is&#160;especially&#160;important&#160;where&#160;many<br/>
+users&#160;access&#160;the&#160;same&#160;mainframe&#160;or&#160;minicomputer.<br/>
+A&#160;slightly&#160;different&#160;view&#160;of&#160;an&#160;operating&#160;system&#160;emphasizes&#160;the&#160;need&#160;to<br/>
+control&#160;the&#160;various&#160;I/O&#160;devices&#160;and&#160;user&#160;programs.&#160;An&#160;operating&#160;system&#160;is&#160;a<br/>
+control&#160;program.&#160;A&#160;<b>control&#160;program&#160;</b>manages&#160;the&#160;execution&#160;of&#160;user&#160;programs<br/>
+to&#160;prevent&#160;errors&#160;and&#160;improper&#160;use&#160;of&#160;the&#160;computer.&#160;It&#160;is&#160;especially&#160;concerned<br/>
+with&#160;the&#160;operation&#160;and&#160;control&#160;of&#160;I/O&#160;devices.<br/>
+<hr/>
+<a name=11></a><b>6</b><br/>
+<b>Chapter&#160;1&#160;Introduction</b><br/>
+1.1.3&#160;Deﬁning&#160;Operating&#160;Systems<br/>
+By&#160;now,&#160;you&#160;can&#160;probably&#160;see&#160;that&#160;the&#160;term&#160;<i><b>operating&#160;system&#160;</b></i>covers&#160;many&#160;roles<br/>
+and&#160;functions.&#160;That&#160;is&#160;the&#160;case,&#160;at&#160;least&#160;in&#160;part,&#160;because&#160;of&#160;the&#160;myriad&#160;designs<br/>
+and&#160;uses&#160;of&#160;computers.&#160;Computers&#160;are&#160;present&#160;within&#160;toasters,&#160;cars,&#160;ships,<br/>
+spacecraft,&#160;homes,&#160;and&#160;businesses.&#160;They&#160;are&#160;the&#160;basis&#160;for&#160;game&#160;machines,&#160;music<br/>
+players,&#160;cable&#160;TV&#160;tuners,&#160;and&#160;industrial&#160;control&#160;systems.&#160;Although&#160;computers<br/>
+have&#160;a&#160;relatively&#160;short&#160;history,&#160;they&#160;have&#160;evolved&#160;rapidly.&#160;Computing&#160;started<br/>
+as&#160;an&#160;experiment&#160;to&#160;determine&#160;what&#160;could&#160;be&#160;done&#160;and&#160;quickly&#160;moved&#160;to<br/>
+ﬁxed-purpose&#160;systems&#160;for&#160;military&#160;uses,&#160;such&#160;as&#160;code&#160;breaking&#160;and&#160;trajectory<br/>
+plotting,&#160;and&#160;governmental&#160;uses,&#160;such&#160;as&#160;census&#160;calculation.&#160;Those&#160;early<br/>
+computers&#160;evolved&#160;into&#160;general-purpose,&#160;multifunction&#160;mainframes,&#160;and<br/>
+that’s&#160;when&#160;operating&#160;systems&#160;were&#160;born.&#160;In&#160;the&#160;1960s,&#160;<b>Moore’s&#160;Law&#160;</b>predicted<br/>
+that&#160;the&#160;number&#160;of&#160;transistors&#160;on&#160;an&#160;integrated&#160;circuit&#160;would&#160;double&#160;every<br/>
+eighteen&#160;months,&#160;and&#160;that&#160;prediction&#160;has&#160;held&#160;true.&#160;Computers&#160;gained&#160;in<br/>
+functionality&#160;and&#160;shrunk&#160;in&#160;size,&#160;leading&#160;to&#160;a&#160;vast&#160;number&#160;of&#160;uses&#160;and&#160;a&#160;vast<br/>
+number&#160;and&#160;variety&#160;of&#160;operating&#160;systems.&#160;(See&#160;Chapter&#160;20&#160;for&#160;more&#160;details&#160;on<br/>
+the&#160;history&#160;of&#160;operating&#160;systems.)<br/>
+How,&#160;then,&#160;can&#160;we&#160;deﬁne&#160;what&#160;an&#160;operating&#160;system&#160;is?&#160;In&#160;general,&#160;we&#160;have<br/>
+no&#160;completely&#160;adequate&#160;deﬁnition&#160;of&#160;an&#160;operating&#160;system.&#160;Operating&#160;systems<br/>
+exist&#160;because&#160;they&#160;offer&#160;a&#160;reasonable&#160;way&#160;to&#160;solve&#160;the&#160;problem&#160;of&#160;creating&#160;a<br/>
+usable&#160;computing&#160;system.&#160;The&#160;fundamental&#160;goal&#160;of&#160;computer&#160;systems&#160;is&#160;to<br/>
+execute&#160;user&#160;programs&#160;and&#160;to&#160;make&#160;solving&#160;user&#160;problems&#160;easier.&#160;Computer<br/>
+hardware&#160;is&#160;constructed&#160;toward&#160;this&#160;goal.&#160;Since&#160;bare&#160;hardware&#160;alone&#160;is&#160;not<br/>
+particularly&#160;easy&#160;to&#160;use,&#160;application&#160;programs&#160;are&#160;developed.&#160;These&#160;programs<br/>
+require&#160;certain&#160;common&#160;operations,&#160;such&#160;as&#160;those&#160;controlling&#160;the&#160;I/O&#160;devices.<br/>
+The&#160;common&#160;functions&#160;of&#160;controlling&#160;and&#160;allocating&#160;resources&#160;are&#160;then&#160;brought<br/>
+together&#160;into&#160;one&#160;piece&#160;of&#160;software:&#160;the&#160;operating&#160;system.<br/>
+In&#160;addition,&#160;we&#160;have&#160;no&#160;universally&#160;accepted&#160;deﬁnition&#160;of&#160;what&#160;is&#160;part&#160;of&#160;the<br/>
+operating&#160;system.&#160;A&#160;simple&#160;viewpoint&#160;is&#160;that&#160;it&#160;includes&#160;everything&#160;a&#160;vendor<br/>
+ships&#160;when&#160;you&#160;order&#160;“the&#160;operating&#160;system.”&#160;The&#160;features&#160;included,&#160;however,<br/>
+vary&#160;greatly&#160;across&#160;systems.&#160;Some&#160;systems&#160;take&#160;up&#160;less&#160;than&#160;a&#160;megabyte&#160;of<br/>
+space&#160;and&#160;lack&#160;even&#160;a&#160;full-screen&#160;editor,&#160;whereas&#160;others&#160;require&#160;gigabytes&#160;of<br/>
+space&#160;and&#160;are&#160;based&#160;entirely&#160;on&#160;graphical&#160;windowing&#160;systems.&#160;A&#160;more&#160;common<br/>
+deﬁnition,&#160;and&#160;the&#160;one&#160;that&#160;we&#160;usually&#160;follow,&#160;is&#160;that&#160;the&#160;operating&#160;system<br/>
+is&#160;the&#160;one&#160;program&#160;running&#160;at&#160;all&#160;times&#160;on&#160;the&#160;computer—usually&#160;called<br/>
+the&#160;<b>kernel</b>.&#160;(Along&#160;with&#160;the&#160;kernel,&#160;there&#160;are&#160;two&#160;other&#160;types&#160;of&#160;programs:<br/>
+<b>system&#160;programs</b>,&#160;which&#160;are&#160;associated&#160;with&#160;the&#160;operating&#160;system&#160;but&#160;are&#160;not<br/>
+necessarily&#160;part&#160;of&#160;the&#160;kernel,&#160;and&#160;application&#160;programs,&#160;which&#160;include&#160;all<br/>
+programs&#160;not&#160;associated&#160;with&#160;the&#160;operation&#160;of&#160;the&#160;system.)<br/>
+The&#160;matter&#160;of&#160;what&#160;constitutes&#160;an&#160;operating&#160;system&#160;became&#160;increasingly<br/>
+important&#160;as&#160;personal&#160;computers&#160;became&#160;more&#160;widespread&#160;and&#160;operating<br/>
+systems&#160;grew&#160;increasingly&#160;sophisticated.&#160;In&#160;1998,&#160;the&#160;United&#160;States&#160;Department<br/>
+of&#160;Justice&#160;ﬁled&#160;suit&#160;against&#160;Microsoft,&#160;in&#160;essence&#160;claiming&#160;that&#160;Microsoft<br/>
+included&#160;too&#160;much&#160;functionality&#160;in&#160;its&#160;operating&#160;systems&#160;and&#160;thus&#160;prevented<br/>
+application&#160;vendors&#160;from&#160;competing.&#160;(For&#160;example,&#160;a&#160;Web&#160;browser&#160;was&#160;an<br/>
+integral&#160;part&#160;of&#160;the&#160;operating&#160;systems.)&#160;As&#160;a&#160;result,&#160;Microsoft&#160;was&#160;found&#160;guilty<br/>
+of&#160;using&#160;its&#160;operating-system&#160;monopoly&#160;to&#160;limit&#160;competition.<br/>
+Today,&#160;however,&#160;if&#160;we&#160;look&#160;at&#160;operating&#160;systems&#160;for&#160;mobile&#160;devices,&#160;we<br/>
+see&#160;that&#160;once&#160;again&#160;the&#160;number&#160;of&#160;features&#160;constituting&#160;the&#160;operating&#160;system<br/>
+<hr/>
+</body>
+</html>
