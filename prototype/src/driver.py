@@ -4,11 +4,13 @@ from FeatureExtractor import FeatureExtractor as fe
 import operator
 from nltk.tokenize import sent_tokenize
 from nltk import word_tokenize
-from gensim.summarization import summarize, keywords
+from gensim.summarization import keywords
 from bullets_identifier import *
 from SlideGenerator import *
 from pptx import Presentation
+from nltk.stem import WordNetLemmatizer
 from pptx.util import Inches, Pt
+from textblob import TextBlob
 import sys
 
 class Driver:
@@ -17,8 +19,16 @@ class Driver:
         featureValues = list(featureValuesDict.values())
         return sum(featureValues) / float(len(featureValues))
 
-    def keywords(self, text):
-        return keywords(text, ratio=0.1, split=True)
+    def lemmatizeWord(self, word, pos='n'):
+        wordnet_lemmatizer = WordNetLemmatizer()
+        return wordnet_lemmatizer.lemmatize(word, pos=pos)
+
+    def getKeywords(self, text, ratio=0.1):
+        return keywords(text, ratio=ratio, split=True)
+
+    def getNouns(self, text):
+        blob = TextBlob(text)
+        return list(blob.noun_phrases)
 
     def read_sentences(self, filepath, chunk_size=10240):
         last = ""
@@ -73,30 +83,39 @@ class Driver:
             output.append((k, sent))
         return output
 
+    def getBulletTitle(self, sentences):
+        text = ' '.join(sentences)
+        keywords = self.getKeywords(text, ratio=0.1)
+        nouns = self.getNouns(text)
+        likely_titles = list(set(keywords) and set(nouns))
+        if len(likely_titles) == 1:
+            return self.lemmatizeWord(likely_titles[0])
+        elif len(likely_titles) > 1:
+            return self.lemmatizeWord(likely_titles[0])
+        else:
+            return "<Please Fill in a appropriate title>"
+
     def create_presentation(self, file_name, title, sub_title, contents):
         prs = Presentation()
         create_title_slide(prs, title, sub_title)
-        bullet_title = "Process and PCBs"
-        k = 0
-        for i in range(0,len(contents),5):
+        for i in range(0, len(contents), 5):
             bullets = contents[i:i+5]
-            bullets.insert(0,"")
-            # print bullets
+            bullets.insert(0, "")
+            bullet_title = self.getBulletTitle(bullets).title()
             add_bullet_slide(prs, bullet_title, bullets)
-            # setLogo(prs,(i/5)+1,'logo.png')
-            setFooter(prs,(i/5)+1, 'PES Institute of Technology ISE Dept.')
+            setLogo(prs,(i/5)+1,'logo.png')
+            setFooter(prs, (i/5)+1, 'PES Institute of Technology ISE Dept.')
         # add_text_slide(prs, ['jksdhflkadhsofhsakdhbf','asdfsfd'], 'TEXT HERE')
-        prs.save(file_name+ '.pptx')
+        prs.save(file_name + '.pptx')
 
 if __name__ == '__main__':
     d = Driver()
-    print sys.argv[1]
-    sortedSentDict = d.driver(sys.argv[1])
+    sortedSentDict = d.driver("sample_3_1.txt")
     sent_dict = d.extractSentFromDict(sortedSentDict)
     sent_dict = dict(sent_dict)
-    important_sent_num =  sent_dict.keys()
+    important_sent_num = sent_dict.keys()
     final_list = list(important_sent_num)
-    sentences, bullet_map = identify_bullet_sentences(sys.argv[1]   )
+    sentences, bullet_map = identify_bullet_sentences("sample_3_1.txt")
     # print important_sent_num
     all_bullet_sentence_nos = []
     for bullet_data in bullets_map.values():
