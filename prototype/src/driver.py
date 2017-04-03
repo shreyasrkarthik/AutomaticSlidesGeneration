@@ -87,13 +87,13 @@ class Driver:
         text = ' '.join(sentences)
         keywords = self.getKeywords(text, ratio=0.1)
         nouns = self.getNouns(text)
+        if len(nouns) == 0:
+            return "<Please Fill in an appropriate title>"
         likely_titles = list(set(keywords) and set(nouns))
         if len(likely_titles) == 1:
             return self.lemmatizeWord(likely_titles[0])
         elif len(likely_titles) > 1:
             return self.lemmatizeWord(likely_titles[0])
-        else:
-            return "<Please Fill in a appropriate title>"
 
     def create_presentation(self, file_name, title, sub_title, contents):
         prs = Presentation()
@@ -103,19 +103,20 @@ class Driver:
             bullets.insert(0, "")
             bullet_title = self.getBulletTitle(bullets).title()
             add_bullet_slide(prs, bullet_title, bullets)
-            setLogo(prs,(i/5)+1,'logo.png')
+            setLogo(prs, (i/5)+1, 'logo.png')
             setFooter(prs, (i/5)+1, 'PES Institute of Technology ISE Dept.')
         # add_text_slide(prs, ['jksdhflkadhsofhsakdhbf','asdfsfd'], 'TEXT HERE')
         prs.save(file_name + '.pptx')
 
 if __name__ == '__main__':
     d = Driver()
-    sortedSentDict = d.driver("sample_3_1.txt")
+    filepath = "sample_3_1.txt"
+    sortedSentDict = d.driver(filepath)
     sent_dict = d.extractSentFromDict(sortedSentDict)
     sent_dict = dict(sent_dict)
     important_sent_num = sent_dict.keys()
     final_list = list(important_sent_num)
-    sentences, bullet_map = identify_bullet_sentences("sample_3_1.txt")
+    sentences, bullet_map = identify_bullet_sentences(filepath)
     # print important_sent_num
     all_bullet_sentence_nos = []
     for bullet_data in bullets_map.values():

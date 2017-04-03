@@ -72,7 +72,7 @@ def add_image(prs, slide_no, image_path):
 
 def setLogo(prs,slide_no,logo_path):
     slide = prs.slides[slide_no]
-    left = Inches(8.6)
+    left = Inches(0.2)
     top = Inches(0.2)
     slide.shapes.add_picture(logo_path,left,top)
 
