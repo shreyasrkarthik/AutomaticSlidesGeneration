@@ -164,11 +164,12 @@ def _parse_pages (doc, images_folder):
 
     text_content = []
     for i, page in enumerate(PDFPage.create_pages(doc)):
-        interpreter.process_page(page)
-        # receive the LTPage object for this page
-        layout = device.get_result()
-        # layout is an LTPage object which may contain child objects like LTTextBox, LTFigure, LTImage, etc.
-        text_content.append(parse_lt_objs(layout, (i+1), images_folder))
+	if (i+1) in SELECTED_PAGES:	
+		interpreter.process_page(page)
+        	# receive the LTPage object for this page
+       		layout = device.get_result()
+        	# layout is an LTPage object which may contain child objects like LTTextBox, LTFigure, LTImage, etc.
+        	text_content.append(parse_lt_objs(layout, (i+1), images_folder))
 
     return text_content
 
@@ -178,11 +179,23 @@ def get_pages (pdf_doc, pdf_pwd='', images_folder='/tmp'):
     return with_pdf(pdf_doc, _parse_pages, pdf_pwd, *tuple([images_folder]))
 
 
-arr = get_pages(sys.argv[1],'','/images')
+
 f = open(sys.argv[2],'w')
 os.chmod(sys.argv[1], 0o777)
 os.chmod(sys.argv[2], 0o777)
 
+SELECTED_PAGES = []
+
+if(len(sys.argv) > 3):
+	selected_pages = sys.argv[3].split(',')
+	for each_range in selected_pages:
+		from_page,to_page = each_range.split('-')
+		print  from_page,to_page
+		SELECTED_PAGES+=(range(int(from_page),int(to_page)+1))
+	SELECTED_PAGES = sorted(set(SELECTED_PAGES))
+	print SELECTED_PAGES
+
+arr = get_pages(sys.argv[1],'','/images')
 for line in arr:
     f.write(line)
     f.write('\n')
