@@ -9,15 +9,38 @@ from bullets_identifier import *
 from SlideGenerator import *
 from pptx import Presentation
 from nltk.stem import WordNetLemmatizer
-from pptx.util import Inches, Pt
 from textblob import TextBlob
-import sys
+
 
 class Driver:
     
     def getThreshold(self, featureValuesDict):
         featureValues = list(featureValuesDict.values())
         return sum(featureValues) / float(len(featureValues))
+
+    def getCleanedBullets(self, sentences):
+        c_sentences = ['']
+        for sentence in sentences:
+            words = word_tokenize(sentence)
+            if len(words) in xrange(2, 30):
+                sentence = re.sub(r'^\W+', '', sentence)
+                sentence = re.sub(r'^[0-9\.,?:;!\)\}\]]*', '', sentence)
+                sentence = re.sub(r'[0-9]*$', '', sentence)
+                sentence = re.sub(r'\W+$', '', sentence)
+                sentence = re.sub(r'\W+$', '', sentence)
+
+                sentence = re.sub(r'- ', '', sentence)
+
+                sentence = re.sub(r'[\(\{\[][\w+ \t\n,:;?]*$', '', sentence)
+
+                sentence = sentence.strip()
+                if (len(sentence) > 1):
+                    sentence = sentence[0].upper()+sentence[1:]
+                c_sentences.append(sentence)
+            else:
+                #ignore the sentence
+                pass
+        return c_sentences
 
     def lemmatizeWord(self, word, pos='n'):
         wordnet_lemmatizer = WordNetLemmatizer()
@@ -87,7 +110,7 @@ class Driver:
         text = ' '.join(sentences)
         keywords = self.getKeywords(text, ratio=0.1)
         nouns = self.getNouns(text)
-        if len(nouns) == 0:
+        if len(nouns) == 0 or len(keywords) == 0:
             return "<Please Fill in an appropriate title>"
         likely_titles = list(set(keywords) and set(nouns))
         if len(likely_titles) == 1:
@@ -102,6 +125,7 @@ class Driver:
             bullets = contents[i:i+5]
             bullets.insert(0, "")
             bullet_title = self.getBulletTitle(bullets).title()
+            bullets = self.getCleanedBullets(bullets)
             add_bullet_slide(prs, bullet_title, bullets)
             setLogo(prs, (i/5)+1, 'logo.png')
             setFooter(prs, (i/5)+1, 'PES Institute of Technology ISE Dept.')
@@ -110,7 +134,7 @@ class Driver:
 
 if __name__ == '__main__':
     d = Driver()
-    filepath = "sample_3_1.txt"
+    filepath = "/home/srk/Desktop/Chapter03.txt"
     sortedSentDict = d.driver(filepath)
     sent_dict = d.extractSentFromDict(sortedSentDict)
     sent_dict = dict(sent_dict)
