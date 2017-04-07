@@ -18,21 +18,64 @@
 </nav>
 
 <div id="index-banner" class="parallax-container">
-    <div class="parallax"><img src="images/presentation-art-1.jpg" alt="Unsplashed background img 1"></div>
+    <div class="parallax"><img src="images/presentation-art-3.jpg" alt="Unsplashed background img 1"></div>
 </div>
 
 <div class="container">
     <div class="section">
-        <form action="server.php" method="post" enctype="multipart/form-data">
-            <div class="file-field input-field">
-                <div class="btn blue">
-                    <span>Upload</span>
-                    <input type="file">
+        <form id="mainForm" action="upload.php" method="post" enctype="multipart/form-data">
+            <div class="center row">
+                <div class="input-field col s12 m4 l4">
+                    <select name="typeOfResource">
+                        <option value="1" selected>PDF</option>
+                        <option value="2">Text File</option>
+                    </select>
+                    <label>Choose type of resource file</label>
                 </div>
-                <div class="file-path-wrapper">
-                    <input placeholder="Click to upload your PDF file" class="file-path validate" type="text">
+                <div class="input-field col s12 m4 l4">
+                    <input name="archiveName" id="archiveName" value="slides-archive" type="text">
+                    <label for="archiveName">Name of output archive</label>
+                </div>
+                <div class="input-field col s12 m4 l4">
+                    <input name="pagesSelected" placeholder="e.g.: 1-5,9-12 or all" id="pagesSelected" type="text">
+                    <label for="pagesSelected">Select pages you want Slides for</label>
+                </div>
+                <div class="input-field col s4 m4 l4">
+                    <input name="footerText" placeholder="e.g.: Department of ISE, PESIT" id="footerText" type="text">
+                    <label for="footerText">Enter footer for your slides</label>
+                </div>
+                <div class="col s2">
+                    <input type="checkbox" name="logoLinkChoosen" id="logoLinkOrLocal" value=1/>
+                    <label for="logoLinkOrLocal">Online Logo</label>
+                </div>
+                <div id="logoDiv" class="col s6 m6 l6 file-field input-field">
+                    <div id="logoField">
+                        <div class="btn">
+                            <span>Logo</span>
+                            <input name="logoFile" type="file">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Click to select logo">
+                        </div>
+                    </div>
+                </div>
+                <div class="col s2">
+                    <input type="checkbox" name="resourceLinkChoosen" id="resourceLinkOrLocal" value=1/>
+                    <label for="resourceLinkOrLocal">Online Resource</label>
+                </div>
+                <div id="resourceDiv" class="col s10 file-field input-field">
+                    <div id="resourceField">
+                        <div class="btn">
+                            <span>Resource File</span>
+                            <input id="resourceFile" name="resourceFile" type="file">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Click to select resource file">
+                        </div>
+                    </div>
                 </div>
             </div>
+            <br>
             <div class="center">
                 <button class="btn blue waves-effect waves-light" type="submit" name="action">
                     Submit
@@ -42,15 +85,21 @@
         </form>
     </div>
     <div class="divider"></div>
+    <br>
+    <div class="divider"></div>
     <div class="section">
 
         <!--   Icon Section   -->
         <div class="row">
             <div class="col s12 m4 l3 hoverable">
                 <div class="icon-block">
-                    <h2 class="center brown-text"><i class="material-icons">attachment</i></h2>
-                    <h5 class="center">Upload PDF</h5>
-                    <img src="images/pdf-icon.png" alt="PDF Icon" class="responsive-img">
+                    <h2 class="center brown-text">
+                        <a id="uploadPhaseButton" class="btn btn-floating btn-large brown">
+                            <i id="uploadPhaseIcon" class="material-icons">attachment</i>
+                        </a>
+                    </h2>
+                    <h5 class="center">Upload Resource File</h5>
+                    <img src="images/upload.png" alt="File Icon" class="responsive-img">
                     <p class="light">Attach your resource file in the form.</p>
                 </div>
             </div>
@@ -61,44 +110,39 @@
 
             <div class="col s12 m4 l4 hoverable">
                 <div class="icon-block">
-                    <h2 class="center brown-text"><i class="material-icons">cached</i></h2>
+                    <h2 class="center"><a id="processingMainButton" class="btn btn-floating btn-large brown"><i
+                            id="processingMainIcon" class="material-icons">cloud_circle</i></a></h2>
                     <h5 class="center">Process Data</h5>
-                    <table class="responsive-table striped brown-text">
+                    <table class="responsive-table striped">
                         <tbody>
-                        <tr>
-                            <td>Extract Data</td>
+                        <!-- <tr id="st1">
+                            <td>Extract Text and Images</td>
                             <td class="right icon-block">
-                                <h4><i class="material-icons">ic_chrome_reader_mode</i></h4>
+                                <h4><i id="st1Icon" class="material-icons">find_in_page</i></h4>
                             </td>
                         </tr>
-                        <tr>
-                            <td>Text and Images</td>
-                            <td class="right icon-block">
-                                <h4><i class="material-icons">find_in_page</i></h4>
-                            </td>
-                        </tr>
-                        <tr>
+                        <tr id="st2">
                             <td>Break-up Text</td>
                             <td class="right icon-block">
-                                <h4><i class="material-icons">line_style</i></h4>
+                                <h4><i id="st2Icon" class="material-icons">line_style</i></h4>
                             </td>
-                        </tr>
-                        <tr>
-                            <td>Important Data</td>
+                        </tr> -->
+                        <tr id="st1">
+                            <td>Generate Important Data</td>
                             <td class="right icon-block">
-                                <h4><i class="material-icons">low_priority</i></h4>
+                                <h4><i id="st3Icon" class="material-icons">low_priority</i></h4>
                             </td>
                         </tr>
-                        <tr>
-                            <td>Extract Bullets</td>
+                        <!-- <tr id="st4">
+                            <td>Generate Bullets</td>
                             <td class="right icon-block">
-                                <h4><i class="material-icons">format_list_bulleted</i></h4>
+                                <h4><i id="st4Icon" class="material-icons">format_list_bulleted</i></h4>
                             </td>
-                        </tr>
-                        <tr>
+                        </tr> -->
+                        <tr id="st2">
                             <td>Presentation Slides</td>
                             <td class="right icon-block">
-                                <h4><i class="material-icons">view_day</i></h4>
+                                <h4><i id="st5Icon" class="material-icons">view_day</i></h4>
                             </td>
                         </tr>
                         </tbody>
@@ -112,9 +156,12 @@
 
             <div class="col s12 m4 l3 hoverable">
                 <div class="icon-block">
-                    <h2 class="center brown-text"><i class="material-icons">archive</i></h2>
+                    <h2 class="center brown-text"><a id="downloadPhaseButton"
+                                                     class="btn btn-floating btn-large brown"><i id="downloadPhaseIcon"
+                                                                                                 class="material-icons">cloud_done</i></a>
+                    </h2>
                     <h5 class="center">Download Files</h5>
-                    <img src="images/pptx-icon.png" alt="PDF Icon" class="responsive-img">
+                    <img src="images/zip.ico" alt="Archive Icon" class="responsive-img">
                     <p class="light">You then download the archive with all extracted images, important data if you find
                         the need to add them to the slides, and yes, finally your presentation slides we would have
                         generated!</p>
