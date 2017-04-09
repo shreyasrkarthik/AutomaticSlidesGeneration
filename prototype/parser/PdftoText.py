@@ -1,4 +1,4 @@
-#!/usr/bin/ python
+#!/usr/bin/python
 
 import os, sys
 from binascii import b2a_hex
@@ -181,8 +181,6 @@ class PdfToText:
 
     def convert(self, input_file, output_file, page_list, output_img_dir='/tmp'):
         f = open(output_file, 'w')
-        os.chmod(input_file, 0o777)
-        os.chmod(output_file, 0o777)
     
         if page_list is not '':
             selected_pages = page_list.split(',')
