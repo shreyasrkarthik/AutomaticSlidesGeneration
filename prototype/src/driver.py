@@ -1,57 +1,17 @@
-#!/usr/bin/ python
-
-from FeatureExtractor import FeatureExtractor as fe
 import operator
+from prototype.parser.BulletIdentifier import BulletIdentifier as bi
 from nltk.tokenize import sent_tokenize
+from FeatureExtractor import FeatureExtractor as fe
+from prototype.SlideGenerator.SlideGenerator import SlideGenerator as sg
+import argparse
 from nltk import word_tokenize
-from gensim.summarization import keywords
-from bullets_identifier import *
-from SlideGenerator import *
-from pptx import Presentation
-from nltk.stem import WordNetLemmatizer
-from textblob import TextBlob
 
 
 class Driver:
     
-    def getThreshold(self, featureValuesDict):
+    def get_threshold(self, featureValuesDict):
         featureValues = list(featureValuesDict.values())
         return sum(featureValues) / float(len(featureValues))
-
-    def getCleanedBullets(self, sentences):
-        c_sentences = ['']
-        for sentence in sentences:
-            words = word_tokenize(sentence)
-            if len(words) in xrange(2, 30):
-                sentence = re.sub(r'^\W+', '', sentence)
-                sentence = re.sub(r'^[0-9\.,?:;!\)\}\]]*', '', sentence)
-                sentence = re.sub(r'[0-9]*$', '', sentence)
-                sentence = re.sub(r'\W+$', '', sentence)
-                sentence = re.sub(r'\W+$', '', sentence)
-
-                sentence = re.sub(r'- ', '', sentence)
-
-                sentence = re.sub(r'[\(\{\[][\w+ \t\n,:;?]*$', '', sentence)
-
-                sentence = sentence.strip()
-                if (len(sentence) > 1):
-                    sentence = sentence[0].upper()+sentence[1:]
-                c_sentences.append(sentence)
-            else:
-                #ignore the sentence
-                pass
-        return c_sentences
-
-    def lemmatizeWord(self, word, pos='n'):
-        wordnet_lemmatizer = WordNetLemmatizer()
-        return wordnet_lemmatizer.lemmatize(word, pos=pos)
-
-    def getKeywords(self, text, ratio=0.1):
-        return keywords(text, ratio=ratio, split=True)
-
-    def getNouns(self, text):
-        blob = TextBlob(text)
-        return list(blob.noun_phrases)
 
     def read_sentences(self, filepath, chunk_size=10240):
         last = ""
@@ -97,7 +57,7 @@ class Driver:
         sortedSentDict = sorted(LinesScore.items(), key=operator.itemgetter(1), reverse=True)
         return sortedSentDict
 
-    def extractSentFromDict(self, sortedSentDict, topSentRatio = 0.4):
+    def extract_sent_from_dict(self, sortedSentDict, topSentRatio = 0.4):
         filteredSentDict = dict(sortedSentDict[:int(len(sortedSentDict)*topSentRatio)])
         sortedSentDict = sorted(filteredSentDict.items())#sorted by occurance
         output = []
@@ -106,58 +66,57 @@ class Driver:
             output.append((k, sent))
         return output
 
-    def getBulletTitle(self, sentences):
-        text = ' '.join(sentences)
-        keywords = self.getKeywords(text, ratio=0.1)
-        nouns = self.getNouns(text)
-        if len(nouns) == 0 or len(keywords) == 0:
-            return "<Please Fill in an appropriate title>"
-        likely_titles = list(set(keywords) and set(nouns))
-        if len(likely_titles) == 1:
-            return self.lemmatizeWord(likely_titles[0])
-        elif len(likely_titles) > 1:
-            return self.lemmatizeWord(likely_titles[0])
-
-    def create_presentation(self, file_name, title, sub_title, contents):
-        prs = Presentation()
-        create_title_slide(prs, title, sub_title)
-        for i in range(0, len(contents), 5):
-            bullets = contents[i:i+5]
-            bullets.insert(0, "")
-            bullet_title = self.getBulletTitle(bullets).title()
-            bullets = self.getCleanedBullets(bullets)
-            add_bullet_slide(prs, bullet_title, bullets)
-            setLogo(prs, (i/5)+1, 'logo.png')
-            setFooter(prs, (i/5)+1, 'PES Institute of Technology ISE Dept.')
-        # add_text_slide(prs, ['jksdhflkadhsofhsakdhbf','asdfsfd'], 'TEXT HERE')
-        prs.save(file_name + '.pptx')
-
 if __name__ == '__main__':
     d = Driver()
-    filepath = "/home/srk/Desktop/Chapter03.txt"
-    sortedSentDict = d.driver(filepath)
-    sent_dict = d.extractSentFromDict(sortedSentDict)
-    sent_dict = dict(sent_dict)
+    bi = bi()
+    sg = sg()
+    
+    '''
+        6 args
+        1. text_file_path
+        2. Title
+        3. Subtitle
+        4. output PPTX file name
+        5. footer
+        6. logo
+    '''
+    ap = argparse.ArgumentParser()
+    ap.add_argument("-I", "--inputfile", required=True, help="Path to the input file")
+    ap.add_argument("-O", "--outputfile", required=True, help="Name of the output file")
+    ap.add_argument("-T", "--title", required=True, help="PPTX Title")
+    ap.add_argument("-S", "--subtitle", required=False, help="PPTX SubTitle", default='')
+    ap.add_argument("-F", "--footer", required=False, help="PPTX Footer", default='')
+    ap.add_argument("-L", "--logo", required=False, help="PPTX logo", default='../SlideGenerator/logo.png')
+    args = vars(ap.parse_args())
+    
+    input_file_path = args['inputfile']
+    output_file_name = args['outputfile']
+    ppt_title = args['title']
+    ppt_sub_title = args['subtitle']
+    ppt_footer = args['footer']
+    ppt_logo = args['logo']
+    
+    sortedSentDict = d.driver(input_file_path)
+    sent_dict = dict(d.extract_sent_from_dict(sortedSentDict))
     important_sent_num = sent_dict.keys()
-    final_list = list(important_sent_num)
-    sentences, bullet_map = identify_bullet_sentences(filepath)
-    # print important_sent_num
+    sent_num_list = list(important_sent_num)
+    sentences, bullet_map = bi.identify_bullet_sentences(input_file_path)
     all_bullet_sentence_nos = []
-    for bullet_data in bullets_map.values():
+    for bullet_data in bullet_map.values():
         all_bullet_sentence_nos.append(bullet_data["bullets"])
-    # print all_bullet_sentence_nos
-    # print len(important_sent_num)
 
     for sent_num in important_sent_num:
         for bullet_list in all_bullet_sentence_nos:
             if sent_num in bullet_list:
-                final_list.extend(bullet_list)
+                sent_num_list.extend(bullet_list)
                 break
 
-    final_list = sorted(set(final_list))
+    sent_num_list = sorted(set(sent_num_list))
     sent_list = []
-    for num in final_list:
+    for num in sent_num_list:
         sent_list.append(sentences[num])
-    d.create_presentation("process", "Process-OS", "Reference Slides", sent_list)
+    with open("../UI/processedStages.txt", "w") as fp:
+        fp.write("st 2")
+    sg.create_presentation(output_file_name, ppt_title, ppt_sub_title, ppt_footer, ppt_logo, sent_list)
 
 
