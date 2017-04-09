@@ -1,10 +1,11 @@
 import operator
-from prototype.parser.BulletIdentifier import BulletIdentifier as bi
-from nltk.tokenize import sent_tokenize
-from FeatureExtractor import FeatureExtractor as fe
-from prototype.SlideGenerator.SlideGenerator import SlideGenerator as sg
-import argparse
+import argparse, sys
 from nltk import word_tokenize
+from nltk.tokenize import sent_tokenize
+sys.path.append("../..")
+from prototype.parser.BulletIdentifier import BulletIdentifier as bi
+from prototype.src.FeatureExtractor import FeatureExtractor as fe
+from prototype.SlideGenerator.SlideGenerator import SlideGenerator as sg
 
 
 class Driver:
