@@ -25,43 +25,9 @@
     <div class="section">
         <form id="mainForm" action="upload.php" method="post" enctype="multipart/form-data">
             <div class="center row">
-                <div class="input-field col s12 m4 l4">
-                    <select name="typeOfResource">
-                        <option value="1" selected>PDF</option>
-                        <option value="2">Text File</option>
-                    </select>
-                    <label>Choose type of resource file</label>
-                </div>
-                <div class="input-field col s12 m4 l4">
-                    <input name="archiveName" id="archiveName" value="slides-archive" type="text">
-                    <label for="archiveName">Name of output archive</label>
-                </div>
-                <div class="input-field col s12 m4 l4">
-                    <input name="pagesSelected" placeholder="e.g.: 1-5,9-12 or all" id="pagesSelected" type="text">
-                    <label for="pagesSelected">Select pages you want Slides for</label>
-                </div>
-                <div class="input-field col s4 m4 l4">
-                    <input name="footerText" placeholder="e.g.: Department of ISE, PESIT" id="footerText" type="text">
-                    <label for="footerText">Enter footer for your slides</label>
-                </div>
-                <div class="col s2">
-                    <input type="checkbox" name="logoLinkChoosen" id="logoLinkOrLocal" value=1/>
-                    <label for="logoLinkOrLocal">Online Logo</label>
-                </div>
-                <div id="logoDiv" class="col s6 m6 l6 file-field input-field">
-                    <div id="logoField">
-                        <div class="btn">
-                            <span>Logo</span>
-                            <input name="logoFile" type="file">
-                        </div>
-                        <div class="file-path-wrapper">
-                            <input class="file-path validate" type="text" placeholder="Click to select logo">
-                        </div>
-                    </div>
-                </div>
                 <div class="col s2">
                     <input type="checkbox" name="resourceLinkChoosen" id="resourceLinkOrLocal" value=1/>
-                    <label for="resourceLinkOrLocal">Online Resource</label>
+                    <label for="resourceLinkOrLocal">Online Link for Resource</label>
                 </div>
                 <div id="resourceDiv" class="col s10 file-field input-field">
                     <div id="resourceField">
@@ -71,6 +37,41 @@
                         </div>
                         <div class="file-path-wrapper">
                             <input class="file-path validate" type="text" placeholder="Click to select resource file">
+                        </div>
+                    </div>
+                </div>
+                <div class="input-field col s12 m6">
+                    <input name="archiveName" id="archiveName" value="slides-archive" type="text">
+                    <label for="archiveName">Name of output archive</label>
+                </div>
+                <div class="input-field col s12 m6">
+                    <input name="pagesSelected" placeholder="e.g.: 1-5,9-12" id="pagesSelected" type="text">
+                    <label for="pagesSelected">Select pages you want Slides for</label>
+                </div>
+                <div class="input-field col s12 m4">
+                    <input name="mainSlideTitle" placeholder="e.g.: Operating Systems" id="mainSlideTitle" type="text">
+                    <label for="mainSlideTitle">Enter title for first slide</label>
+                </div>
+                <div class="input-field col s12 m4">
+                    <input name="mainSlideSubtitle" placeholder="e.g.: What is a Process?" id="mainSlideSubtitle" type="text">
+                    <label for="mainSlideSubtitle">Enter subtitle for first slide</label>
+                </div>
+                <div class="input-field col s12 m4">
+                    <input name="footerText" placeholder="e.g.: Department of ISE, PESIT" id="footerText" type="text">
+                    <label for="footerText">Enter footer for your slides</label>
+                </div>
+                <div class="col s2">
+                    <input type="checkbox" name="logoLinkChoosen" id="logoLinkOrLocal" value=1/>
+                    <label for="logoLinkOrLocal">Online Link for Logo</label>
+                </div>
+                <div id="logoDiv" class="col s10 file-field input-field">
+                    <div id="logoField">
+                        <div class="btn">
+                            <span>Logo</span>
+                            <input name="logoFile" type="file">
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text" placeholder="Click to select logo">
                         </div>
                     </div>
                 </div>
@@ -115,34 +116,22 @@
                     <h5 class="center">Process Data</h5>
                     <table class="responsive-table striped">
                         <tbody>
-                        <!-- <tr id="st1">
-                            <td>Extract Text and Images</td>
+                        <tr id="st1">
+                            <td>Extract Data</td>
                             <td class="right icon-block">
                                 <h4><i id="st1Icon" class="material-icons">find_in_page</i></h4>
                             </td>
                         </tr>
                         <tr id="st2">
-                            <td>Break-up Text</td>
-                            <td class="right icon-block">
-                                <h4><i id="st2Icon" class="material-icons">line_style</i></h4>
-                            </td>
-                        </tr> -->
-                        <tr id="st1">
                             <td>Generate Important Data</td>
                             <td class="right icon-block">
-                                <h4><i id="st3Icon" class="material-icons">low_priority</i></h4>
+                                <h4><i id="st2Icon" class="material-icons">low_priority</i></h4>
                             </td>
                         </tr>
-                        <!-- <tr id="st4">
-                            <td>Generate Bullets</td>
-                            <td class="right icon-block">
-                                <h4><i id="st4Icon" class="material-icons">format_list_bulleted</i></h4>
-                            </td>
-                        </tr> -->
-                        <tr id="st2">
+                        <tr id="st3">
                             <td>Presentation Slides</td>
                             <td class="right icon-block">
-                                <h4><i id="st5Icon" class="material-icons">view_day</i></h4>
+                                <h4><i id="st3Icon" class="material-icons">view_day</i></h4>
                             </td>
                         </tr>
                         </tbody>
@@ -156,15 +145,12 @@
 
             <div class="col s12 m4 l3 hoverable">
                 <div class="icon-block">
-                    <h2 class="center brown-text"><a id="downloadPhaseButton"
-                                                     class="btn btn-floating btn-large brown"><i id="downloadPhaseIcon"
-                                                                                                 class="material-icons">cloud_done</i></a>
-                    </h2>
+                    <h2 class="center brown-text"><a id="downloadPhaseButton" class="btn btn-floating btn-large brown"><i id="downloadPhaseIcon" class="material-icons">cloud_done</i></a></h2>
                     <h5 class="center">Download Files</h5>
                     <img src="images/zip.ico" alt="Archive Icon" class="responsive-img">
-                    <p class="light">You then download the archive with all extracted images, important data if you find
-                        the need to add them to the slides, and yes, finally your presentation slides we would have
-                        generated!</p>
+                    <p class="light">
+                        You then download the archive with all extracted images, important data if you find the need to add them to the slides, and yes, finally your presentation slides we would have generated!
+                    </p>
                 </div>
             </div>
         </div>

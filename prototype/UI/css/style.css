@@ -94,3 +94,16 @@ arrow-shape {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
 }
+
+input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: brown;
+}
+input::-moz-placeholder { /* Firefox 19+ */
+  color: brown;
+}
+input:-ms-input-placeholder { /* IE 10+ */
+  color: brown;
+}
+input:-moz-placeholder { /* Firefox 18- */
+  color: brown;
+}
