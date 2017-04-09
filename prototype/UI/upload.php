@@ -90,7 +90,7 @@
             {
                 throw new RuntimeException("wrong resource file format");
             }
-            chmod($resource_file_path, 777);
+            chmod($resource_file_path, 0777);
         }
 
         if(isset($_POST["logoFile"])||isset($_FILES["logoFile"]))
@@ -137,7 +137,7 @@
             {
                 throw new RuntimeException("wrong logo file format");
             }
-            chmod($logo_file_path, 777);
+            chmod($logo_file_path, 0777);
         }
 
         echo "success";

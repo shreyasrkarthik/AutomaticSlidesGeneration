@@ -28,7 +28,7 @@
         $command = escapeshellcmd('mv '. $resource_file_path." ".$target_text_file);
         $output = shell_exec($command);
     }
-    chmod($target_text_file, 777);
+    chmod($target_text_file, 0777);
     file_put_contents("processedStages.txt", "st1");
 
     $slides_path = $output_directory.$directory_name.".pptx";
