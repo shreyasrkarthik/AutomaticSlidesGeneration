@@ -115,6 +115,8 @@ if __name__ == '__main__':
     sent_list = []
     for num in sent_num_list:
         sent_list.append(sentences[num])
+    with open("../UI/processedStages.txt", "w") as fp:
+        fp.write("st 2")
     sg.create_presentation(output_file_name, ppt_title, ppt_sub_title, ppt_footer, ppt_logo, sent_list)
 
 
