@@ -44,10 +44,6 @@
 })(jQuery);// end of jQuery name space
 
 
-function validateForm(){
-    
-}
-
 function uploadPhaseDone(){
     $("#uploadPhaseIcon").html("done");
     $("#uploadPhaseButton").removeClass("pulse");
@@ -58,9 +54,15 @@ function uploadPhaseDone(){
     $("#st1Icon").html("loop");
 }
 
-function downloadFiles(){
-
+function validateForm() {
+    if ($("input[name='mainSlideTitle']").val() == "")
+        alert("Please enter slide title.");
+    if ($("input[name='archiveName']").val() == "")
+        alert("Please enter a name for archive.");
+    if ($("input[name='resourceFile']").val() == "")
+        alert("Please select a resource file.");    
 }
+
 
 function downloadArchive(){
     downloadData : {
@@ -71,7 +73,6 @@ function downloadArchive(){
         type: 'GET',
         async: true,
         data: downloadData,
-        success: downloadFiles,
         cache: false,
         contentType: false,
         processData: false
@@ -113,19 +114,22 @@ function checkStageOfProcessing(){
 
 function submissionResult(result) {
     switch(result) {
-        case "success" : 
+        case "success": 
                 uploadPhaseDone();
                 setTimeout(checkStageOfProcessing,100);
                 break;
-        default : alert(result+"\nPlease try again with proper inputs.");
+        default:
+                uploadResult = result; 
+                alert(result+"\nPlease try again with proper inputs.");
     }
 }
 
 $("form#mainForm").submit(function() {
 
-    $("#uploadPhaseButton").addClass("pulse");
-
     validateForm();
+
+    $("#uploadPhaseButton").addClass("pulse");
+    $("#uploadPhaseIcon").html("loop");
 
     var formData = new FormData(this);
     
@@ -134,14 +138,17 @@ $("form#mainForm").submit(function() {
         type: 'POST',
         data: formData,
         async: false,
-        success: submissionResult,
         cache: false,
         contentType: false,
         processData: false,
         error: function(XMLHttpRequest, textStatus, errorThrown) { 
-        alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-    }  
+                alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+        },
+        success: submissionResult,
+        timeout: function() {
+            alert("Timeout occured. Please check your internet connection.")
+        }  
     });
-    alert("done with submit")
+
     return false;
 });

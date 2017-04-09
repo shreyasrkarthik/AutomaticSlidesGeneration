@@ -1,40 +1,48 @@
 <?php
+    file_put_contents("processedStages.txt", "uploaded");
 
-$descriptorspec = array(
-   0 => array("pipe", "r"),  // stdin
-   1 => array("pipe", "w"),  // stdout
-   2 => array("pipe", "w"),  // stderr
-);
+    $command = escapeshellcmd("cp ".$resource_file_path." ".$output_directory);
+    exec($command);
 
-if($mime_type_detected == $allowed_resource_extensions[0] ) // if PDF was uploaded
-{
-    $command = escapeshellcmd('../parser/PdftoText.py '. $resource_file_target_path. ' convertedText.txt');
-    $output = shell_exec($command);
-}
-else // if text was uploaded
-{
-    $command = escapeshellcmd('mv '. $resource_file_target_path. ' convertedText.txt');
-    $output = shell_exec($command);
-}
+    $target_text_file = $output_directory."convertedText.txt";
 
-$command = escapeshellcmd('../src/driver.py convertedText.txt');
-$output = shell_exec($command);
+    if($resource_mime_type == $allowed_resource_extensions[0] ) // if PDF was uploaded
+    {
+        $command = '../parser/PdftoText.py -I '.$resource_file_path.' -O '.$target_text_file;
+        if(!is_null($pages_selected))
+            $command .= " -P ".$pages_selected;
+        $command = escapeshellcmd($command);
+        $pages_selected = explode(",", $pages_selected);
+        for ($i=0; $i < count($pages_selected); $i++) { 
+            $pages = explode("-", $pages_selected[$i]);
+            $first_page = $pages[0];
+            $last_page = $pages[1];
+            $command = "pdftohtml -c -f ".$first_page." -l ".$last_page." ".$output_directory.$resource_file_name;
+            $command = escapeshellcmd($command);
+            shell_exec($command);
+        }
+        shell_exec("rm ".$output_directory."*.html");
+    }
+    else if($resource_mime_type == $allowed_resource_extensions[1] )// if text was uploaded
+    {
+        $command = escapeshellcmd('mv '. $resource_file_path." ".$target_text_file);
+        $output = shell_exec($command);
+    }
+    chmod($target_text_file, 777);
+    file_put_contents("processedStages.txt", "st1");
 
-$process = proc_open(' python ../src/driver.py ../UI/convertedText.txt', $descriptorspec, $pipes, dirname(__FILE__), null);
+    $slides_path = $output_directory.$directory_name.".pptx";
 
-$stdout = stream_get_contents($pipes[1]);
-fclose($pipes[1]);
+    $command = "../src/driver.py -I ".$target_text_file." -O ".$slides_path." -T ".$main_slide_title;
+    if(!is_null($main_slide_subtitle))
+        $command .= " -S ".$main_slide_subtitle;
+    if(!is_null($logo_mime_type))
+        $command .= " -L ".$logo_file_path;
+    if(!is_null($footer_text))
+        $command .= " -F ".$footer_text;
+    
+    $command = escapeshellcmd($command);
+    shell_exec($command);
 
-$stderr = stream_get_contents($pipes[2]);
-fclose($pipes[2]);
-
-echo "stdout : \n";
-var_dump($stdout);
-
-echo "stderr :\n";
-var_dump($stderr);
-
-file_put_contents("processedStages.txt", "download"); // marks that processing is done
-
-
-?>	
+    file_put_contents("processedStages.txt", "st3"); // marks that processing is done
+?>
