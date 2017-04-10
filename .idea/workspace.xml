@@ -1,66 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c98d7cc7-42c5-4866-9d1c-a63ec91f707f" name="Default" comment="Code fixes">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample001.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample002.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample003.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample004.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample005.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample007.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample008.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample009.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample010.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/slidesbyfileupload.pptx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample001.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample002.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample003.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample004.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample005.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample007.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample008.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample009.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample010.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/slidesbylink.pptx" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/uploads/slidesbyfileupload/os-sample.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/uploads/slidesbylink/images.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/uploads/slidesbylink/os-sample.pdf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/checkProcessingStatus.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/js/eventsource.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/convertedText.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/processedStages.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/convertedText.txt" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/outputs/sldesgen.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/outputs/slidesgen.zip" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/outputs/slidesgen/abc/abc.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/outputs/slidesgen/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/outputs/slidesgen/sample.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/processedStages.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/uploads/slideslink/software_engineering_interview_questions.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/uploads/slideslocal/ForPoints.pdf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/uploads/slideslocal/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/uploads/slideslocal/sample.pdf" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/prototype/UI/upload.php" afterPath="$PROJECT_DIR$/prototype/UI/process.php" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/prototype/UI/uploads/slideslink/images.jpg" afterPath="$PROJECT_DIR$/prototype/UI/uploads/slidesbyfileupload/images.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/SlideGenerator/logo.png" afterPath="$PROJECT_DIR$/prototype/SlideGenerator/logo.png" />
+    <list default="true" id="c98d7cc7-42c5-4866-9d1c-a63ec91f707f" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/SlideGenerator/SlideGenerator.py" afterPath="$PROJECT_DIR$/prototype/SlideGenerator/SlideGenerator.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/SlideGenerator/__init__.py" afterPath="$PROJECT_DIR$/prototype/SlideGenerator/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/UI/getArchive.php" afterPath="$PROJECT_DIR$/prototype/UI/getArchive.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/UI/index.html" afterPath="$PROJECT_DIR$/prototype/UI/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/UI/js/init.js" afterPath="$PROJECT_DIR$/prototype/UI/js/init.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/__init__.py" afterPath="$PROJECT_DIR$/prototype/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/parser/BulletIdentifier.py" afterPath="$PROJECT_DIR$/prototype/parser/BulletIdentifier.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/parser/PdftoText.py" afterPath="$PROJECT_DIR$/prototype/parser/PdftoText.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/parser/__init__.py" afterPath="$PROJECT_DIR$/prototype/parser/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/src/FeatureExtractor.py" afterPath="$PROJECT_DIR$/prototype/src/FeatureExtractor.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/src/__init__.py" afterPath="$PROJECT_DIR$/prototype/src/__init__.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/src/driver.py" afterPath="$PROJECT_DIR$/prototype/src/driver.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/src/sample_3_1.txt" afterPath="$PROJECT_DIR$/prototype/src/sample_3_1.txt" />
     </list>
     <ignored path="AutomaticSlidesGeneration.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -496,7 +438,14 @@
       <option name="project" value="LOCAL" />
       <updated>1491746063745</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Prototype v1.0.0. All codes reformatted. UI working fine, no errors now. Now using yaffle for EventSource.">
+      <created>1491840256214</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1491840256214</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -557,7 +506,8 @@
     <MESSAGE value="Refractored all files except UI." />
     <MESSAGE value="Indicating stage 2 for front end code added." />
     <MESSAGE value="Code fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Code fixes" />
+    <MESSAGE value="Prototype v1.0.0. All codes reformatted. UI working fine, no errors now. Now using yaffle for EventSource." />
+    <option name="LAST_COMMIT_MESSAGE" value="Prototype v1.0.0. All codes reformatted. UI working fine, no errors now. Now using yaffle for EventSource." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
