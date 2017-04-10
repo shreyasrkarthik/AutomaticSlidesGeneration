@@ -48,10 +48,6 @@ function uploadPhaseDone(){
     $("#uploadPhaseIcon").html("done");
     $("#uploadPhaseButton").removeClass("pulse");
     $("#uploadPhaseButton").removeClass("brown");
-    $("#processingMainIcon").html("loop");
-    $("#processingMainButton").removeClass("brown");
-    $("#processingMainButton").addClass("pulse");
-    $("#st1Icon").html("loop");
 }
 
 function validateForm() {
@@ -63,66 +59,63 @@ function validateForm() {
         alert("Please select a resource file.");    
 }
 
-
-function downloadArchive(){
-    downloadData : {
-        archiveName : $("#archiveName").val()
-    }
-    $.ajax({
-        url: window.location.pathname+"getArchive.php",
-        type: 'GET',
-        async: true,
-        data: downloadData,
-        cache: false,
-        contentType: false,
-        processData: false
-    });
+function enableDownload() {
+    $("#processingMainIcon").html("done");
+    $("#processingMainButton").removeClass("pulse");
+    $("#downloadPhaseButton").removeClass("brown");
+    $("#downloadPhaseButton").addClass("teal");
+    $("#downloadPhaseButton").addClass("pulse");
+    $("#downloadPhaseIcon").html("loop");
+    var archiveName = $("#archiveName").val();
+    var downloadUrl = window.location+"getArchive.php?archiveName="+archiveName;
+    $("#downloadPhaseButton").attr("href",downloadUrl);
     $("#downloadPhaseIcon").html("cloud_done");
 }
 
-function updateProcessPhase(result) {
-    $("#"+result).addClass("teal-text");
-    $("#"+result+"Icon").html("done");
-    if(result != "download")
+function initiateProcessPhaseCheck(event){
+    $("#processingMainIcon").html("loop");
+    $("#processingMainButton").removeClass("brown");
+    $("#processingMainButton").addClass("pulse");
+    $("#st1Icon").html("loop");
+}
+
+
+function updateProcessPhase(event) {
+    console.log(event.data);
+    $("#"+event.data).addClass("teal-text");
+    $("#"+event.data+"Icon").html("done");
+    if(event.data == "st3") 
     {
-        setTimeout(checkStageOfProcessing,100)
-    }
-    else
-    {
-        $("#processingMainIcon").html("done");
-        $("#processingMainButton").removeClass("pulse");
-        $("#downloadPhaseButton").removeClass("brown");
-        $("#downloadPhaseButton").addClass("teal");
-        $("#downloadPhaseButton").addClass("pulse");
-        $("#downloadPhaseIcon").html("loop");
-        //setTimeout(downloadArchive,1000);
+        eventSource.close();
+        enableDownload();
     }
 }
 
-function checkStageOfProcessing(){
-    $.ajax({
-        url: window.location.pathname+"processedStages.txt",
-        type: 'GET',
-        async: true,
-        success: updateProcessPhase,
-        cache: false,
-        contentType: false,
-        processData: false
-    });
+function errorWhileCheckingProgress(event) {
+        var archiveName = $("#archiveName").val();
+        var downloadUrl = window.location+"getArchive.php?archiveName="+archiveName;
+        alert("Connection lost with server. Please use this link after few minutes to download your archive.\n"+downloadUrl);
+        eventSource.close();
 }
 
+function checkStateOfProcessing(){
+    var archiveName = $("#archiveName").val();
+    eventSource = new EventSource("checkProcessingStatus.php?archiveName="+archiveName);
+    eventSource.addEventListener("open", initiateProcessPhaseCheck);
+    eventSource.addEventListener("message", updateProcessPhase);
+    eventSource.addEventListener("error", errorWhileCheckingProgress);
+}
 
 function submissionResult(result) {
-    switch(result) {
-        case "success": 
-                uploadPhaseDone();
-                setTimeout(checkStageOfProcessing,100);
-                break;
-        default:
-                uploadResult = result; 
-                alert(result+"\nPlease try again with proper inputs.");
+    if(result == "success")
+    {
+        uploadPhaseDone();
+        setTimeout(checkStateOfProcessing,10);
     }
+    else
+        alert(result+"\nPlease try again with proper inputs.");
 }
+
 
 $("form#mainForm").submit(function() {
 
@@ -134,10 +127,10 @@ $("form#mainForm").submit(function() {
     var formData = new FormData(this);
     
     $.ajax({
-        url: window.location.pathname+$(this).attr("action"),
+        url: window.location+$(this).attr("action"),
         type: 'POST',
         data: formData,
-        async: false,
+        async: true,
         cache: false,
         contentType: false,
         processData: false,
@@ -145,9 +138,9 @@ $("form#mainForm").submit(function() {
                 alert("Status: " + textStatus); alert("Error: " + errorThrown); 
         },
         success: submissionResult,
-        timeout: function() {
-            alert("Timeout occured. Please check your internet connection.")
-        }  
+        timeout: function(event){
+            alert("Couldn't upload data. Check your internet connection.");
+        }
     });
 
     return false;

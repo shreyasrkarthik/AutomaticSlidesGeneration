@@ -1,13 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c98d7cc7-42c5-4866-9d1c-a63ec91f707f" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/AutomaticSlidesGeneration.iml" afterPath="$PROJECT_DIR$/.idea/AutomaticSlidesGeneration.iml" />
+    <list default="true" id="c98d7cc7-42c5-4866-9d1c-a63ec91f707f" name="Default" comment="Code fixes">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload.zip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample001.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample002.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample003.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample004.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample005.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample007.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample008.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample009.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/os-sample010.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/slidesbyfileupload.pptx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink.zip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample001.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample002.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample003.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample004.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample005.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample007.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample008.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample009.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/os-sample010.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/slidesbylink.pptx" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/uploads/slidesbyfileupload/os-sample.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/uploads/slidesbylink/images.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/uploads/slidesbylink/os-sample.pdf" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/checkProcessingStatus.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/js/eventsource.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/convertedText.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbyfileupload/processedStages.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/prototype/UI/outputs/slidesbylink/convertedText.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/outputs/sldesgen.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/outputs/slidesgen.zip" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/outputs/slidesgen/abc/abc.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/outputs/slidesgen/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/outputs/slidesgen/sample.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/processedStages.txt" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/uploads/slideslink/software_engineering_interview_questions.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/uploads/slideslocal/ForPoints.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/uploads/slideslocal/logo.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/prototype/UI/uploads/slideslocal/sample.pdf" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototype/UI/upload.php" afterPath="$PROJECT_DIR$/prototype/UI/process.php" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/prototype/UI/uploads/slideslink/images.jpg" afterPath="$PROJECT_DIR$/prototype/UI/uploads/slidesbyfileupload/images.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/SlideGenerator/logo.png" afterPath="$PROJECT_DIR$/prototype/SlideGenerator/logo.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/UI/process.php" afterPath="$PROJECT_DIR$/prototype/UI/process.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/UI/processedStages.txt" afterPath="$PROJECT_DIR$/prototype/UI/processedStages.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/UI/upload.php" afterPath="$PROJECT_DIR$/prototype/UI/upload.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/SlideGenerator/SlideGenerator.py" afterPath="$PROJECT_DIR$/prototype/SlideGenerator/SlideGenerator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/SlideGenerator/__init__.py" afterPath="$PROJECT_DIR$/prototype/SlideGenerator/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/UI/getArchive.php" afterPath="$PROJECT_DIR$/prototype/UI/getArchive.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/UI/index.html" afterPath="$PROJECT_DIR$/prototype/UI/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/UI/js/init.js" afterPath="$PROJECT_DIR$/prototype/UI/js/init.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/__init__.py" afterPath="$PROJECT_DIR$/prototype/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/parser/BulletIdentifier.py" afterPath="$PROJECT_DIR$/prototype/parser/BulletIdentifier.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/parser/PdftoText.py" afterPath="$PROJECT_DIR$/prototype/parser/PdftoText.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/parser/__init__.py" afterPath="$PROJECT_DIR$/prototype/parser/__init__.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/src/FeatureExtractor.py" afterPath="$PROJECT_DIR$/prototype/src/FeatureExtractor.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/src/__init__.py" afterPath="$PROJECT_DIR$/prototype/src/__init__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/src/driver.py" afterPath="$PROJECT_DIR$/prototype/src/driver.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/prototype/src/sample_3_1.txt" afterPath="$PROJECT_DIR$/prototype/src/sample_3_1.txt" />
     </list>
     <ignored path="AutomaticSlidesGeneration.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,32 +79,7 @@
     <favorites_list name="AutomaticSlidesGeneration" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="driver.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/prototype/src/driver.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="90" column="24" lean-forward="false" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SlideGenerator.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/prototype/SlideGenerator/SlideGenerator.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="29" column="47" lean-forward="false" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="47" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -61,6 +89,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="SudharshanaSL &lt;15.hari.hari@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
@@ -71,15 +104,16 @@
         <option value="$PROJECT_DIR$/prototype/src/temp" />
         <option value="$PROJECT_DIR$/prototype/src/sample_3_1.txt" />
         <option value="$PROJECT_DIR$/prototype/src/bullets_identifier.py" />
-        <option value="$PROJECT_DIR$/prototype/UI/index.html" />
         <option value="$PROJECT_DIR$/prototype/__init__.py" />
         <option value="$PROJECT_DIR$/prototype/parser/InputFiles/__init__.py" />
         <option value="$PROJECT_DIR$/prototype/parser/__init__.py" />
         <option value="$PROJECT_DIR$/prototype/src/SlideGenerator.py" />
-        <option value="$PROJECT_DIR$/prototype/parser/PdftoText.py" />
         <option value="$PROJECT_DIR$/prototype/parser/bullets_identifier.py" />
-        <option value="$PROJECT_DIR$/prototype/SlideGenerator/SlideGenerator.py" />
+        <option value="$PROJECT_DIR$/prototype/UI/process.php" />
+        <option value="$PROJECT_DIR$/prototype/parser/PdftoText.py" />
         <option value="$PROJECT_DIR$/prototype/parser/BulletIdentifier.py" />
+        <option value="$PROJECT_DIR$/prototype/SlideGenerator/SlideGenerator.py" />
+        <option value="$PROJECT_DIR$/prototype/UI/index.html" />
         <option value="$PROJECT_DIR$/prototype/src/driver.py" />
       </list>
     </option>
@@ -105,8 +139,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -123,6 +157,42 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AutomaticSlidesGeneration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AutomaticSlidesGeneration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prototype" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="parser" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AutomaticSlidesGeneration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AutomaticSlidesGeneration" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="prototype" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SlideGenerator" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
     </panes>
@@ -132,117 +202,6 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="recentsLimit" value="5" />
     <property name="SearchEverywhereHistoryKey" value="drive&#9;FILE&#9;file:///home/pramod/AutomaticSlidesGeneration/prototype/src/driver.py" />
-  </component>
-  <component name="RestoreUpdateTree" date="Moments ago" ActionInfo="_Update">
-    <UpdatedFiles>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Updated from server" />
-        <option name="myStatusName" value="Changed on server" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="CHANGED_ON_SERVER" />
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Updated" />
-          <option name="myStatusName" value="Changed" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototype/parser/PdftoText.py</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/prototype/src/driver.py</PATH>
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Created" />
-          <option name="myStatusName" value="Created" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="CREATED" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Deleted" />
-          <option name="myStatusName" value="Deleted" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="true" />
-          <option name="myId" value="REMOVED_FROM_REPOSITORY" />
-        </FILE-GROUP>
-        <FILE-GROUP>
-          <option name="myUpdateName" value="Restored" />
-          <option name="myStatusName" value="Will be restored" />
-          <option name="mySupportsDeletion" value="false" />
-          <option name="myCanBeAbsent" value="false" />
-          <option name="myId" value="RESTORED" />
-        </FILE-GROUP>
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Modified" />
-        <option name="myStatusName" value="Modified" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MODIFIED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Skipped" />
-        <option name="myStatusName" value="Skipped" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SKIPPED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with conflicts" />
-        <option name="myStatusName" value="Will be merged with conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_CONFLICTS" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with tree conflicts" />
-        <option name="myStatusName" value="Merged with tree conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged with property conflicts" />
-        <option name="myStatusName" value="Will be merged with property conflicts" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Merged" />
-        <option name="myStatusName" value="Will be merged" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="MERGED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Not in repository" />
-        <option name="myStatusName" value="Not in repository" />
-        <option name="mySupportsDeletion" value="true" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="UNKNOWN" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally added" />
-        <option name="myStatusName" value="Locally added" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_ADDED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Locally removed" />
-        <option name="myStatusName" value="Locally removed" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="LOCALLY_REMOVED" />
-      </FILE-GROUP>
-      <FILE-GROUP>
-        <option name="myUpdateName" value="Switched" />
-        <option name="myStatusName" value="Switched" />
-        <option name="mySupportsDeletion" value="false" />
-        <option name="myCanBeAbsent" value="false" />
-        <option name="myId" value="SWITCHED" />
-      </FILE-GROUP>
-    </UpdatedFiles>
   </component>
   <component name="RunManager" selected="Python.driver">
     <configuration default="false" name="SlideGenerator" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -484,6 +443,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="c98d7cc7-42c5-4866-9d1c-a63ec91f707f" name="Default" comment="" />
@@ -527,14 +489,21 @@
       <option name="project" value="LOCAL" />
       <updated>1491736903838</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Code fixes">
+      <created>1491746063745</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1491746063745</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="51" y="24" width="1315" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19771864" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19771864" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32884902" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -587,7 +556,8 @@
     <MESSAGE value="Cleaning of sentences using regex." />
     <MESSAGE value="Refractored all files except UI." />
     <MESSAGE value="Indicating stage 2 for front end code added." />
-    <option name="LAST_COMMIT_MESSAGE" value="Indicating stage 2 for front end code added." />
+    <MESSAGE value="Code fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code fixes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -596,7 +566,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/prototype/src/temp" />
     <entry file="file://$PROJECT_DIR$/temp.py" />
     <entry file="file://$PROJECT_DIR$/prototype/parser/PDFParser.py" />
     <entry file="file://$PROJECT_DIR$/prototype/src/driver.py">
@@ -604,7 +573,7 @@
         <state relative-caret-position="0">
           <caret line="91" column="18" lean-forward="false" selection-start-line="91" selection-start-column="18" selection-end-line="91" selection-end-column="18" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#19#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -616,7 +585,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#19#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -626,7 +595,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#19#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -636,7 +605,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#19#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -646,7 +615,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#19#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -656,7 +625,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#19#34#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -678,13 +647,6 @@
     <entry file="file://$PROJECT_DIR$/prototype/parser/s1.txt" />
     <entry file="file://$PROJECT_DIR$/prototype/src/s1.txt" />
     <entry file="file://$PROJECT_DIR$/prototype/UI/server.php" />
-    <entry file="file://$PROJECT_DIR$/prototype/UI/js/init.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/prototype/UI/js/materialize.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-16650">
@@ -700,13 +662,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/prototype/UI/purecss/customs.css" />
-    <entry file="file://$PROJECT_DIR$/prototype/UI/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="45" column="0" lean-forward="true" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/prototype/parser/temp.py" />
     <entry file="file://$PROJECT_DIR$/prototype/parser/read_sentences.py" />
     <entry file="file://$PROJECT_DIR$/prototype/src/bullets_identifier.py" />
@@ -754,21 +709,10 @@
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.PyCharmCE2017.1/system/python_stubs/-1247972723/sys.py" />
-    <entry file="file://$PROJECT_DIR$/prototype/SlideGenerator/SlideGenerator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="29" column="47" lean-forward="false" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/prototype/src/sample_3_1.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1230">
           <caret line="82" column="18" lean-forward="false" selection-start-line="82" selection-start-column="18" selection-end-line="82" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -776,32 +720,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="194">
           <caret line="142" column="21" lean-forward="true" selection-start-line="142" selection-start-column="21" selection-end-line="142" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototype/UI/js/init.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="9" lean-forward="true" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/prototype/UI/getArchive.php">
+    <entry file="file://$PROJECT_DIR$/prototype/UI/js/eventsource.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-571">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="195">
+          <caret line="13" column="41" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="686" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/prototype/parser/PdftoText.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="17" column="31" lean-forward="true" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
-          <folding>
-            <element signature="e#19#33#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/prototype/UI/process.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="-225">
+          <caret line="18" column="31" lean-forward="false" selection-start-line="18" selection-start-column="31" selection-end-line="18" selection-end-column="31" />
           <folding />
         </state>
       </provider>
@@ -809,17 +750,51 @@
     <entry file="file://$PROJECT_DIR$/prototype/parser/BulletIdentifier.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
-          <caret line="9" column="14" lean-forward="false" selection-start-line="9" selection-start-column="14" selection-end-line="9" selection-end-column="14" />
+          <caret line="9" column="14" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="68" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototype/UI/process.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="104">
+          <caret line="194" column="0" lean-forward="true" selection-start-line="194" selection-start-column="0" selection-end-line="194" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototype/SlideGenerator/SlideGenerator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="36" column="29" lean-forward="true" selection-start-line="36" selection-start-column="29" selection-end-line="36" selection-end-column="29" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototype/UI/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="164">
+          <caret line="30" column="22" lean-forward="true" selection-start-line="30" selection-start-column="22" selection-end-line="30" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/prototype/UI/getArchive.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="16" lean-forward="false" selection-start-line="13" selection-start-column="16" selection-end-line="13" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/prototype/src/driver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="90" column="24" lean-forward="false" selection-start-line="90" selection-start-column="24" selection-end-line="90" selection-end-column="24" />
+        <state relative-caret-position="180">
+          <caret line="85" column="33" lean-forward="true" selection-start-line="85" selection-start-column="33" selection-end-line="85" selection-end-column="33" />
           <folding>
-            <element signature="e#0#15#0" expanded="true" />
+            <element signature="e#19#34#0" expanded="true" />
           </folding>
         </state>
       </provider>

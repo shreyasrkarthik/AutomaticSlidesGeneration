@@ -6,11 +6,11 @@ from textblob import TextBlob
 from gensim.summarization import keywords
 from nltk.stem import WordNetLemmatizer
 
-class SlideGenerator:
 
+class SlideGenerator:
     def __init__(self):
         self.prs = Presentation()
-    
+
     def lemmatize_word(self, word, pos='n'):
         wordnet_lemmatizer = WordNetLemmatizer()
         return wordnet_lemmatizer.lemmatize(word, pos=pos)
@@ -21,7 +21,7 @@ class SlideGenerator:
     def get_nouns(self, text):
         blob = TextBlob(text)
         return list(blob.noun_phrases)
-    
+
     def get_bullet_title(self, sentences):
         text = ' '.join(sentences)
         keywords = self.get_keywords(text, ratio=0.1)
@@ -51,10 +51,10 @@ class SlideGenerator:
 
                 sentence = sentence.strip()
                 if len(sentence) > 1:
-                    sentence = sentence[0].upper()+sentence[1:]
+                    sentence = sentence[0].upper() + sentence[1:]
                 c_sentences.append(sentence)
             else:
-                #ignore the sentence
+                # ignore the sentence
                 pass
         return c_sentences
 
@@ -68,17 +68,17 @@ class SlideGenerator:
         subtitle.text = inp_subtitle
 
     def set_footer(self, slide_no, footer_text):
-            slide = self.prs.slides[slide_no]
-            left = Inches(2.8)
-            width = Inches(3.7)
-            top = Inches(6.7)
-            height = Inches(1)
-            text_box = slide.shapes.add_textbox(left, top, width, height)
-            text_box_frame = text_box.text_frame
-            footer_paragraph = text_box_frame.add_paragraph()
-            footer_paragraph.text = footer_text
-            footer_paragraph.font.bold = True
-            footer_paragraph.font.size = Pt(13)
+        slide = self.prs.slides[slide_no]
+        left = Inches(2.8)
+        width = Inches(3.7)
+        top = Inches(6.7)
+        height = Inches(1)
+        text_box = slide.shapes.add_textbox(left, top, width, height)
+        text_box_frame = text_box.text_frame
+        footer_paragraph = text_box_frame.add_paragraph()
+        footer_paragraph.text = footer_text
+        footer_paragraph.font.bold = True
+        footer_paragraph.font.size = Pt(13)
 
     def add_bullet_slide(self, title, array_of_bullet_sentences):
         bullet_slide_layout = self.prs.slide_layouts[1]
@@ -95,7 +95,7 @@ class SlideGenerator:
                 p.text = bullet
                 p.font.size = Pt(18)
 
-    def add_text_slide(self, text_array,title = ""):
+    def add_text_slide(self, text_array, title=""):
         blank_slide_layout = self.prs.slide_layouts[6]
         slide = self.prs.slides.add_slide(blank_slide_layout)
 
@@ -134,11 +134,11 @@ class SlideGenerator:
     def create_presentation(self, output_file, title='', sub_title='', footer='', logo='logo.png', contents=[]):
         self.create_title_slide(title, sub_title)
         for i in range(0, len(contents), 5):
-            bullets = contents[i:i+5]
+            bullets = contents[i:i + 5]
             bullets.insert(0, "")
             bullet_title = self.get_bullet_title(bullets).title()
             bullets = self.get_cleaned_bullets(bullets)
             self.add_bullet_slide(bullet_title, bullets)
-            self.set_logo((i/5)+1, logo)
-            self.set_footer((i/5)+1, footer)
+            self.set_logo((i / 5) + 1, logo)
+            self.set_footer((i / 5) + 1, footer)
         self.prs.save(output_file + '.pptx')

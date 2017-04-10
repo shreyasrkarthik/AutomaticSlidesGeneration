@@ -10,8 +10,8 @@ from pdfminer.converter import PDFPageAggregator
 from pdfminer.layout import LAParams, LTTextBox, LTTextLine, LTFigure, LTImage, LTChar
 import argparse
 
+
 class PdfToText:
-    
     def __init__(self):
         self.SELECTED_PAGES = []
 
@@ -65,7 +65,7 @@ class PdfToText:
             else:
                 return s.encode(enc)
 
-    def update_page_text_hash(self,h, lt_obj, pct=0.2):
+    def update_page_text_hash(self, h, lt_obj, pct=0.2):
         """Use the bbox x0,x1 values within pct% to produce lists of associated text within the hash"""
 
         x0 = lt_obj.bbox[0]
@@ -74,9 +74,9 @@ class PdfToText:
         key_found = False
         for k, v in h.items():
             hash_x0 = k[0]
-            if x0 >= (hash_x0 * (1.0-pct)) and (hash_x0 * (1.0+pct)) >= x0:
+            if x0 >= (hash_x0 * (1.0 - pct)) and (hash_x0 * (1.0 + pct)) >= x0:
                 hash_x1 = k[1]
-                if x1 >= (hash_x1 * (1.0-pct)) and (hash_x1 * (1.0+pct)) >= x1:
+                if x1 >= (hash_x1 * (1.0 - pct)) and (hash_x1 * (1.0 + pct)) >= x1:
                     # the text inside this LT* object was positioned at the same
                     # width as a prior series of text, so it belongs together
                     key_found = True
@@ -93,7 +93,7 @@ class PdfToText:
         """Iterate through the list of LT* objects and capture the text or image data contained in each"""
         text_content = []
 
-        page_text = {} # k=(x0, x1) of the bbox, v=list of text strings within that bbox width (physical column)
+        page_text = {}  # k=(x0, x1) of the bbox, v=list of text strings within that bbox width (physical column)
         for lt_obj in lt_objs:
             if isinstance(lt_obj, LTTextBox) or isinstance(lt_obj, LTTextLine):
                 # text, so arrange is logically based on its column width
@@ -103,7 +103,7 @@ class PdfToText:
                 saved_file = self.save_image(lt_obj, page_number, images_folder)
                 if saved_file:
                     # use html style <img /> tag to mark the position of the image within the text
-                    text_content.append('<img src="'+os.path.join(images_folder, saved_file)+'" />')
+                    text_content.append('<img src="' + os.path.join(images_folder, saved_file) + '" />')
                 else:
                     print "error saving image on page", page_number, lt_obj.__repr__
             elif isinstance(lt_obj, LTFigure):
@@ -133,7 +133,7 @@ class PdfToText:
             # for (level,title,dest,a,se) in outlines:
             #     print (level, title)
             # supply the password for initialization
-            #doc._initialize_password(pdf_pwd)
+            # doc._initialize_password(pdf_pwd)
 
 
             if doc.is_extractable:
@@ -158,12 +158,12 @@ class PdfToText:
         text_content = []
         if len(self.SELECTED_PAGES) > 0:
             for i, page in enumerate(PDFPage.create_pages(doc)):
-                if (i+1) in self.SELECTED_PAGES:
+                if (i + 1) in self.SELECTED_PAGES:
                     interpreter.process_page(page)
                     # receive the LTPage object for this page
                     layout = device.get_result()
                     # layout is an LTPage object which may contain child objects like LTTextBox, LTFigure, LTImage, etc.
-                    text_content.append(self.parse_lt_objs(layout, (i+1), images_folder))
+                    text_content.append(self.parse_lt_objs(layout, (i + 1), images_folder))
         else:
             for i, page in enumerate(PDFPage.create_pages(doc)):
                 interpreter.process_page(page)
@@ -181,18 +181,19 @@ class PdfToText:
 
     def convert(self, input_file, output_file, page_list, output_img_dir='/tmp'):
         f = open(output_file, 'w')
-    
+
         if page_list is not '':
             selected_pages = page_list.split(',')
             for each_range in selected_pages:
                 from_page, to_page = each_range.split('-')
-                self.SELECTED_PAGES += (range(int(from_page), int(to_page)+1))
+                self.SELECTED_PAGES += (range(int(from_page), int(to_page) + 1))
                 self.SELECTED_PAGES = sorted(set(self.SELECTED_PAGES))
 
         arr = self.get_pages(input_file, '', output_img_dir)
-        
+
         for line in arr:
             f.write(line + "\n")
+
 
 if __name__ == '__main__':
     ap = argparse.ArgumentParser()

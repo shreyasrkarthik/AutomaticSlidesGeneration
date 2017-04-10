@@ -23,7 +23,7 @@
 
 <div class="container">
     <div class="section">
-        <form id="mainForm" action="upload.php" method="post" enctype="multipart/form-data">
+        <form id="mainForm" action="process.php" method="post" enctype="multipart/form-data">
             <div class="center row">
                 <div class="col s2">
                     <input type="checkbox" name="resourceLinkChoosen" id="resourceLinkOrLocal" value=1/>
@@ -53,7 +53,8 @@
                     <label for="mainSlideTitle">Enter title for first slide</label>
                 </div>
                 <div class="input-field col s12 m4">
-                    <input name="mainSlideSubtitle" placeholder="e.g.: What is a Process?" id="mainSlideSubtitle" type="text">
+                    <input name="mainSlideSubtitle" placeholder="e.g.: What is a Process?" id="mainSlideSubtitle"
+                           type="text">
                     <label for="mainSlideSubtitle">Enter subtitle for first slide</label>
                 </div>
                 <div class="input-field col s12 m4">
@@ -145,11 +146,15 @@
 
             <div class="col s12 m4 l3 hoverable">
                 <div class="icon-block">
-                    <h2 class="center brown-text"><a id="downloadPhaseButton" class="btn btn-floating btn-large brown"><i id="downloadPhaseIcon" class="material-icons">cloud_done</i></a></h2>
+                    <h2 class="center brown-text"><a id="downloadPhaseButton"
+                                                     class="btn btn-floating btn-large brown"><i id="downloadPhaseIcon"
+                                                                                                 class="material-icons">cloud_done</i></a>
+                    </h2>
                     <h5 class="center">Download Files</h5>
                     <img src="images/zip.ico" alt="Archive Icon" class="responsive-img">
                     <p class="light">
-                        You then download the archive with all extracted images, important data if you find the need to add them to the slides, and yes, finally your presentation slides we would have generated!
+                        You then download the archive with all extracted images, important data if you find the need to
+                        add them to the slides, and yes, finally your presentation slides we would have generated!
                     </p>
                 </div>
             </div>
@@ -173,11 +178,11 @@
     </div>
 </footer>
 
-
 <!--  Scripts-->
 <script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/materialize.js"></script>
 <script src="js/init.js"></script>
+<script src="js/eventsource.js"></script>
 
 </body>
 </html>
