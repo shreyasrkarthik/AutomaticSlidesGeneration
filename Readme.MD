@@ -16,7 +16,6 @@ Automatic Presentation Slides Generator is a web-based product which gives you t
 
 - [x] Reflect status of the uploaded resource on UI.
 - [x] Write rules to handle wrapped up texts and abbreviations.
-- [ ] Fix processedStages.txt bug.
 - [ ] Prepare a report on project.
 - [ ] Comment code.
 - [ ] Extend acceptable input file formats to docx, doc, html, xml.
