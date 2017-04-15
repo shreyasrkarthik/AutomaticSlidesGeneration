@@ -27,7 +27,7 @@
         $main_slide_subtitle = null;
         if(isset($_POST["mainSlideSubtitle"])) 
         {
-            $footer_text = $_POST["mainSlideSubtitle"];
+            $main_slide_subtitle = $_POST["mainSlideSubtitle"];
         }
 
         $footer_text = null;

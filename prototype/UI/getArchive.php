@@ -45,8 +45,11 @@
         return $zip->close();
     }
 
-    unlink("outputs/$folderName/proccesedStages.txt");
+
     $folderName = $_GET["archiveName"];
+
+    unlink("outputs/$folderName/proccesedStages.txt");
+
     $zipname = $folderName.".zip";
     $outputZipFilePath = "outputs/".$zipname;
 
