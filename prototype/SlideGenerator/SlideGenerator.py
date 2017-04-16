@@ -1,3 +1,4 @@
+import operator
 from pptx import Presentation
 from pptx.util import Inches, Pt
 from nltk import word_tokenize
@@ -5,6 +6,7 @@ import re
 from textblob import TextBlob
 from gensim.summarization import keywords
 from nltk.stem import WordNetLemmatizer
+from collections import Counter, OrderedDict
 
 
 class SlideGenerator:
@@ -25,37 +27,28 @@ class SlideGenerator:
     def get_bullet_title(self, sentences):
         text = ' '.join(sentences)
         keywords = self.get_keywords(text, ratio=0.1)
-        nouns = self.get_nouns(text)
-        if len(nouns) == 0 or len(keywords) == 0:
-            return "<Please Fill in an appropriate title>"
-        likely_titles = list(set(keywords) and set(nouns))
-        if len(likely_titles) == 1:
-            return self.lemmatize_word(likely_titles[0])
-        elif len(likely_titles) > 1:
-            return self.lemmatize_word(likely_titles[0])
+        if keywords:
+            return keywords[0]
+        return "<Please Fill in an appropriate title>"
 
     def get_cleaned_bullets(self, sentences):
         c_sentences = ['']
         for sentence in sentences:
             words = word_tokenize(sentence)
-            if len(words) in xrange(2, 30):
-                sentence = re.sub(r'^\W+', '', sentence)
-                sentence = re.sub(r'^[0-9\.,?:;!\)\}\]]*', '', sentence)
-                sentence = re.sub(r'[0-9]*$', '', sentence)
-                sentence = re.sub(r'\W+$', '', sentence)
-                sentence = re.sub(r'\W+$', '', sentence)
+            sentence = re.sub(r'^\W+', '', sentence)
+            sentence = re.sub(r'^[0-9\.,?:;!\)\}\]]*', '', sentence) #starting with numbers, symbols, etc is removed
+            sentence = re.sub(r'[0-9]*$', '', sentence)
+            sentence = re.sub(r'\W+$', '', sentence)
+            sentence = re.sub(r'\W+$', '', sentence)
 
-                sentence = re.sub(r'- ', '', sentence)
+            sentence = re.sub(r'- ', '', sentence)
+            sentence = re.sub(r'^[\w+ \t\n,:;?]*[\)\}\]]', '', sentence) #no starting braces in the start
+            sentence = re.sub(r'[\(\{\[][\w+ \t\n,:;?]*$', '', sentence)#no ending paranthesis in the end
 
-                sentence = re.sub(r'[\(\{\[][\w+ \t\n,:;?]*$', '', sentence)
-
-                sentence = sentence.strip()
-                if len(sentence) > 1:
-                    sentence = sentence[0].upper() + sentence[1:]
-                c_sentences.append(sentence)
-            else:
-                # ignore the sentence
-                pass
+            sentence = sentence.strip()
+            if len(sentence) > 1:
+                sentence = sentence[0].upper() + sentence[1:]
+            c_sentences.append(sentence)
         return c_sentences
 
     def create_title_slide(self, inp_title="", inp_subtitle=""):
@@ -136,7 +129,9 @@ class SlideGenerator:
         for i in range(0, len(contents), 5):
             bullets = contents[i:i + 5]
             bullets.insert(0, "")
-            bullet_title = self.get_bullet_title(bullets).title()
+            bullet_title = self.get_bullet_title(bullets)
+            if bullet_title:
+                bullet_title = bullet_title.title()
             bullets = self.get_cleaned_bullets(bullets)
             self.add_bullet_slide(bullet_title, bullets)
             self.set_logo((i / 5) + 1, logo)

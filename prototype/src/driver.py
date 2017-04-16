@@ -4,7 +4,6 @@ import operator
 import argparse, sys
 from nltk import word_tokenize
 from nltk.tokenize import sent_tokenize
-
 sys.path.append("../..")
 from prototype.parser.BulletIdentifier import BulletIdentifier as bi
 from prototype.src.FeatureExtractor import FeatureExtractor as fe
@@ -112,7 +111,7 @@ if __name__ == '__main__':
     sentences, bullet_map = bi.identify_bullet_sentences(input_file_path)
     all_bullet_sentence_nos = []
     for bullet_data in bullet_map.values():
-        all_bullet_sentence_nos.append(bullet_data["bullets"])
+        all_bullet_sentence_nos.append(bullet_data)
 
     for sent_num in important_sent_num:
         for bullet_list in all_bullet_sentence_nos:
