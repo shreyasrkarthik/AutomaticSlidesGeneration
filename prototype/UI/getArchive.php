@@ -1,5 +1,4 @@
 <?php
-
     function Zip($source, $destination)
     {
         if (!extension_loaded('zip') || !file_exists($source)) {
@@ -45,18 +44,18 @@
         return $zip->close();
     }
 
-
     $folderName = $_GET["archiveName"];
+    $outputFolderPath = "outputs/$folderName";
 
-    unlink("outputs/$folderName/proccesedStages.txt");
+    $outputFolderPath = realpath($outputFolderPath);
+    $retval = unlink("$outputFolderPath/processedStages.txt");
 
-    $zipname = $folderName.".zip";
-    $outputZipFilePath = "outputs/".$zipname;
+    $zipname = "$folderName.zip";
+    $outputZipFilePath = "outputs/$zipname";
 
-    // Get real path for our folder
-    $sourceFolderPath = realpath('outputs/'.$folderName);
+    shell_exec(escapeshellcmd($outputFolderPath))
 
-    Zip($sourceFolderPath, $outputZipFilePath);
+    Zip($outputFolderPath, $outputZipFilePath);
 
     header('Content-Type: application/zip');
     header('Content-disposition: attachment; filename='.$outputZipFilePath);
