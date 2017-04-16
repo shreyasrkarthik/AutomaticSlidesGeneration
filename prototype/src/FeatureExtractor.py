@@ -11,7 +11,7 @@ class FeatureExtractor:
         word_count = len(token_list)
         filtered_words = [word for word in token_list if word not in stopwords.words('english') and len(word)>2]
         filtered_word_count = len(filtered_words)
-        return (filtered_word_count*100)/word_count
+        return ((word_count - filtered_word_count)*100)/word_count
 
     def getNumNounPhrases(self, token_list):
         tagged_sent = pos_tag(token_list)
