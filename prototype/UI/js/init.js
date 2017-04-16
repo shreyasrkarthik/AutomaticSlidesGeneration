@@ -81,7 +81,6 @@ function initiateProcessPhaseCheck(event){
 
 
 function updateProcessPhase(event) {
-    console.log(event.data);
     $("#"+event.data).addClass("teal-text");
     $("#"+event.data+"Icon").html("done");
     if(event.data == "st3") 
@@ -120,7 +119,9 @@ function submissionResult(result) {
 $("form#mainForm").submit(function() {
 
     validateForm();
-
+    $("html,body").animate({
+        scrollTop: $("#uploadPhaseButton").offset().top
+    },500);
     $("#uploadPhaseButton").addClass("pulse");
     $("#uploadPhaseIcon").html("loop");
 

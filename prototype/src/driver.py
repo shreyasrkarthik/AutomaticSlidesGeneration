@@ -30,6 +30,14 @@ class Driver:
                     yield sentence.replace('\n', ' ')
             yield last.replace('\n', ' ')
 
+    def get_sentences(self, file_name):
+        valid_sentences = []
+        for sentence in self.read_sentences(file_name):
+            num_words = len(word_tokenize(sentence))
+            if num_words in xrange(2, 30):
+                valid_sentences.append(sentence)
+        return valid_sentences
+
     def driver(self, filepath):
         weights = {'SWP': 0.1, 'NOWT': 0.5, 'NNP': 0.3, 'NVP': 0.1}
 
@@ -41,7 +49,8 @@ class Driver:
         currentSent = 1
         title = "Process control blocks"
         sentences = []
-        for sentence in self.read_sentences(filepath):
+        valid_sentences = self.get_sentences(filepath) # sentences with word count in range(2,30)
+        for sentence in valid_sentences:
             sentences.append(sentence)
             tokenArray = word_tokenize(sentence)
             if len(tokenArray) > 2:
@@ -126,8 +135,14 @@ if __name__ == '__main__':
 
     sent_num_list = sorted(set(sent_num_list))
     sent_list = []
+    print len(sentences)
     for num in sent_num_list:
-        sent_list.append(sentences[num])
+        print(num)
+        try:
+            sent_list.append(sentences[num])
+        except Exception as e:
+            print num
+            print e
 
     sg.create_presentation(output_file_name, ppt_title, ppt_sub_title, ppt_footer, ppt_logo, sent_list)
     with open(process_status_file, "w") as fp:

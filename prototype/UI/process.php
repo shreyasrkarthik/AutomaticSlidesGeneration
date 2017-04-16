@@ -194,7 +194,6 @@
         $slides_path = $output_directory.$directory_name;
 
         $command = "../src/driver.py -P $process_status_file -I $target_text_file -O $slides_path -T '".$main_slide_title."'";
-        
         if(!is_null($main_slide_subtitle))
             $command .= " -S '".$main_slide_subtitle."'";
         if(!is_null($logo_mime_type))
@@ -203,6 +202,10 @@
             $command .= " -F '".$footer_text."'";
         $command = escapeshellcmd($command);
         shell_exec($command);
+
+        $command = "mv $target_text_file $output_directory/data.txt";
+        shell_exec(escapeshellcmd($command));
+
         sleep(2);
 
     } catch (RuntimeException $e) {

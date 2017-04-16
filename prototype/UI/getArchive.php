@@ -53,7 +53,7 @@
     $zipname = "$folderName.zip";
     $outputZipFilePath = "outputs/$zipname";
 
-    shell_exec(escapeshellcmd($outputFolderPath))
+    shell_exec(escapeshellcmd($outputFolderPath));
 
     Zip($outputFolderPath, $outputZipFilePath);
 
