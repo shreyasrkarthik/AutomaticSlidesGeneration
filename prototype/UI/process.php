@@ -16,7 +16,7 @@
         $logo_file_path = $logo_file_name = $logo_mime_type = null;
         
         $pages_selected = null;
-        if(isset($_POST["pagesSelected"]))
+        if($_POST["pagesSelected"] != "")
         {
             $pages_selected = $_POST["pagesSelected"];
             $pages_selected = str_replace(" ", "", $pages_selected);
@@ -118,27 +118,30 @@
                     case UPLOAD_ERR_OK:
                         break;
                     case UPLOAD_ERR_NO_FILE:
-                        throw new RuntimeException("no logo sent");
+                        break;
                     default:
                         throw new RuntimeException("unknown errors");
                 }
 
-                $logo_file_name = $_FILES['logoFile']['name'];
-                $logo_file_tmp_path = $_FILES["logoFile"]["tmp_name"];
-                $logo_file_path = $input_directory.$logo_file_name;
-
-                if (!move_uploaded_file($logo_file_tmp_path, $logo_file_path)) 
+                if(!isset($_FILES['logoFile']['name']))
                 {
-                    throw new RuntimeException("could not move logo file");
+                    $logo_file_name = $_FILES['logoFile']['name'];
+                    $logo_file_tmp_path = $_FILES["logoFile"]["tmp_name"];
+                    $logo_file_path = $input_directory.$logo_file_name;
+
+                    if (!move_uploaded_file($logo_file_tmp_path, $logo_file_path)) 
+                    {
+                        throw new RuntimeException("could not move logo file");
+                    }
+                    $finfo_object = finfo_open(FILEINFO_MIME_TYPE);
+                    $logo_mime_type = finfo_file($finfo_object, $logo_file_path);
+                    if (!in_array($logo_mime_type, $allowed_logo_extensions))
+                    {
+                        throw new RuntimeException("wrong logo file format");
+                    }
+                    chmod($logo_file_path, 0777);
                 }
             }
-            $finfo_object = finfo_open(FILEINFO_MIME_TYPE);
-            $logo_mime_type = finfo_file($finfo_object, $logo_file_path);
-            if (!in_array($logo_mime_type, $allowed_logo_extensions))
-            {
-                throw new RuntimeException("wrong logo file format");
-            }
-            chmod($logo_file_path, 0777);
         }
 
         ignore_user_abort(true);
@@ -168,15 +171,24 @@
                 $command .= " -P $pages_selected";
             $command = escapeshellcmd($command);
             shell_exec($command);
-            $pages_selected = explode(",", $pages_selected);
-            for ($i=0; $i < count($pages_selected); $i++) { 
-                $pages = explode("-", $pages_selected[$i]);
-                $first_page = $pages[0];
-                $last_page = $pages[1];
-                $command = "pdftohtml -c -f $first_page -l $last_page $output_directory"."$resource_file_name";
-                $command = escapeshellcmd($command);
-                shell_exec($command);
+            if(is_null($pages_selected))
+            {
+                $output_err = shell_exec("pdftohtml -c $output_directory".$resource_file_name);
+                echo $output_err;
             }
+            else
+            {
+                $pages_selected = explode(",", $pages_selected);
+                for ($i=0; $i < count($pages_selected); $i++) { 
+                    $pages = explode("-", $pages_selected[$i]);
+                    $first_page = $pages[0];
+                    $last_page = $pages[1];
+                    $command = "pdftohtml -c -f $first_page -l $last_page $output_directory"."$resource_file_name";
+                    $command = escapeshellcmd($command);
+                    shell_exec($command);
+                }
+            }
+            shell_exec("rm $output_directory".$resource_file_name);
             shell_exec("rm $output_directory*.html");
         }
         else if($resource_mime_type == $allowed_resource_extensions[1] )// if text was uploaded
@@ -202,9 +214,6 @@
             $command .= " -F '".$footer_text."'";
         $command = escapeshellcmd($command);
         shell_exec($command);
-
-        $command = "mv $target_text_file $output_directory/data.txt";
-        shell_exec(escapeshellcmd($command));
 
         sleep(2);
 

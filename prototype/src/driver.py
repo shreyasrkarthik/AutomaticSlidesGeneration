@@ -38,7 +38,7 @@ class Driver:
                 valid_sentences.append(sentence)
         return valid_sentences
 
-    def driver(self, filepath):
+    def driver(self, filepath, title):
         weights = {'SWP': 0.1, 'NOWT': 0.5, 'NNP': 0.3, 'NVP': 0.1}
 
         SWPValues = {}
@@ -47,7 +47,6 @@ class Driver:
         NVPValues = {}
 
         currentSent = 1
-        title = "Process control blocks"
         sentences = []
         valid_sentences = self.get_sentences(filepath) # sentences with word count in range(2,30)
         for sentence in valid_sentences:
@@ -113,7 +112,7 @@ if __name__ == '__main__':
     bi = bi()
     sg = sg()
 
-    sortedSentDict = d.driver(input_file_path)
+    sortedSentDict = d.driver(input_file_path, ppt_title)
     sent_dict = dict(d.extract_sent_from_dict(sortedSentDict))
     important_sent_num = sent_dict.keys()
     sent_num_list = list(important_sent_num)
@@ -135,14 +134,9 @@ if __name__ == '__main__':
 
     sent_num_list = sorted(set(sent_num_list))
     sent_list = []
-    print len(sentences)
     for num in sent_num_list:
-        print(num)
-        try:
-            sent_list.append(sentences[num])
-        except Exception as e:
-            print num
-            print e
+        sent_list.append(sentences[num])
+
 
     sg.create_presentation(output_file_name, ppt_title, ppt_sub_title, ppt_footer, ppt_logo, sent_list)
     with open(process_status_file, "w") as fp:

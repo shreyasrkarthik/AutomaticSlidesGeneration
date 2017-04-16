@@ -50,6 +50,9 @@
     $outputFolderPath = realpath($outputFolderPath);
     $retval = unlink("$outputFolderPath/processedStages.txt");
 
+    $command = "mv $outputFolderPath/convertedText.txt $outputFolderPath/data.txt";
+    shell_exec(escapeshellcmd($command));
+
     $zipname = "$folderName.zip";
     $outputZipFilePath = "outputs/$zipname";
 
