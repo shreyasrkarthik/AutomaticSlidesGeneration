@@ -66,7 +66,7 @@ function enableDownload() {
     $("#downloadPhaseButton").addClass("teal");
     $("#downloadPhaseButton").addClass("pulse");
     $("#downloadPhaseIcon").html("loop");
-    var archiveName = $("#archiveName").val();
+    var archiveName = $("#archiveName").val().replace(" ","_");
     var downloadUrl = window.location+"getArchive.php?archiveName="+archiveName;
     $("#downloadPhaseButton").attr("href",downloadUrl);
     $("#downloadPhaseIcon").html("cloud_done");
