@@ -8,7 +8,10 @@
   if ($lastEventId == 0) {
     $lastEventId = floatval(isset($_GET["lastEventId"]) ? $_GET["lastEventId"] : 0);
   }
-  $file_name = "outputs/".$_GET["archiveName"]."/processedStages.txt";
+
+  $file_name = str_replace(" ", "_", $_GET["archiveName"]);
+
+  $file_name = "outputs/".$file_name."/processedStages.txt";
 
   $old_time = filemtime($file_name);
   clearstatcache();
