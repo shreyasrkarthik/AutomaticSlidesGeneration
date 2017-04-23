@@ -52,11 +52,21 @@ function uploadPhaseDone(){
 
 function validateForm() {
     if ($("input[name='mainSlideTitle']").val() == "")
+    {
         alert("Please enter slide title.");
+        return false;
+    }
     if ($("input[name='archiveName']").val() == "")
+    {
         alert("Please enter a name for archive.");
+        return false;
+    }
     if ($("input[name='resourceFile']").val() == "")
-        alert("Please select a resource file.");    
+    {
+        alert("Please select a resource file.");
+        return false;    
+    }
+    return true;
 }
 
 function enableDownload() {
@@ -66,7 +76,7 @@ function enableDownload() {
     $("#downloadPhaseButton").addClass("teal");
     $("#downloadPhaseButton").addClass("pulse");
     $("#downloadPhaseIcon").html("loop");
-    var archiveName = $("#archiveName").val().replace(" ","_");
+    var archiveName = $("#archiveName").val().replace(/ /g,"_");
     var downloadUrl = window.location+"getArchive.php?archiveName="+archiveName;
     $("#downloadPhaseButton").attr("href",downloadUrl);
     $("#downloadPhaseIcon").html("cloud_done");
@@ -91,14 +101,14 @@ function updateProcessPhase(event) {
 }
 
 function errorWhileCheckingProgress(event) {
-        var archiveName = $("#archiveName").val();
+        var archiveName = $("#archiveName").val().replace(/ /g,"_");
         var downloadUrl = window.location+"getArchive.php?archiveName="+archiveName;
         alert("Connection lost with server. Please use this link after few minutes to download your archive.\n"+downloadUrl);
         eventSource.close();
 }
 
 function checkStateOfProcessing(){
-    var archiveName = $("#archiveName").val();
+    var archiveName = $("#archiveName").val().replace(/ /g,"_");
     eventSource = new EventSource("checkProcessingStatus.php?archiveName="+archiveName);
     eventSource.addEventListener("open", initiateProcessPhaseCheck);
     eventSource.addEventListener("message", updateProcessPhase);
@@ -118,31 +128,32 @@ function submissionResult(result) {
 
 $("form#mainForm").submit(function() {
 
-    validateForm();
-    $("html,body").animate({
-        scrollTop: $("#uploadPhaseButton").offset().top
-    },500);
-    $("#uploadPhaseButton").addClass("pulse");
-    $("#uploadPhaseIcon").html("loop");
+    if(validateForm())
+    {
+        $("html,body").animate(
+            { scrollTop: $("#uploadPhaseButton").offset().top },
+            500);
+        $("#uploadPhaseButton").addClass("pulse");
+        $("#uploadPhaseIcon").html("loop");
 
-    var formData = new FormData(this);
-    
-    $.ajax({
-        url: window.location+$(this).attr("action"),
-        type: 'POST',
-        data: formData,
-        async: true,
-        cache: false,
-        contentType: false,
-        processData: false,
-        error: function(XMLHttpRequest, textStatus, errorThrown) { 
-                alert("Status: " + textStatus); alert("Error: " + errorThrown); 
-        },
-        success: submissionResult,
-        timeout: function(event){
-            alert("Couldn't upload data. Check your internet connection.");
-        }
-    });
-
+        var formData = new FormData(this);
+        
+        $.ajax({
+            url: window.location+$(this).attr("action"),
+            type: 'POST',
+            data: formData,
+            async: true,
+            cache: false,
+            contentType: false,
+            processData: false,
+            error: function(XMLHttpRequest, textStatus, errorThrown) { 
+                    alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+            },
+            success: submissionResult,
+            timeout: function(event){
+                alert("Couldn't upload data. Check your internet connection.");
+            }
+        });
+    }
     return false;
 });
