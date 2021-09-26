@@ -1,6 +1,6 @@
 ## About the project
 
-Automatic Presentation Slides Generator is a web-based product which gives you the slides given a PDF/text file with information as input.
+Automatic Presentation Slides Generator is a web-based product which gives you the presentation slides given a PDF/text file with information as input.
 
 ## Modules used in the codes :
 
